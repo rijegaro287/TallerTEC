@@ -1,0 +1,20 @@
+GET https://localhost:7279/employee/get/10
+
+###
+
+GET https://localhost:7279/employee/get_all
+
+###
+
+POST https://localhost:7279/employee/add
+content-type: application/json
+
+{
+    "ID": 57,
+    "Name": "Pepito",
+    "LastName": "Varela",
+    "BirthDate": "01/01/2000",
+    "Age": 14,
+    "Position": "Developer",
+    "StartingDate": "01/01/2020"
+}
