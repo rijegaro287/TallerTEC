@@ -15,10 +15,10 @@ public class JSONFiles
         File.WriteAllText(path, jsonString);
     }
 
-    public static Type? ReadJSONFile<Type>(string path)
+    public static Type ReadJSONFile<Type>(string path)
     {
         string jsonString = File.ReadAllText(path);
-        Type? objectInstance = JsonSerializer.Deserialize<Type>(jsonString);
+        Type objectInstance = JsonSerializer.Deserialize<Type>(jsonString);
 
         return objectInstance;
     }

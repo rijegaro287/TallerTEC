@@ -40,7 +40,7 @@ public class Employee
     public static Employee SelectEmployee(int ID)
     {
         Employee[] allEmployees = JSONFiles.ReadJSONFile<Employee[]>(table_path);
-        Employee employee = allEmployees?.FirstOrDefault(employee => employee.ID == ID);
+        Employee employee = allEmployees.FirstOrDefault(employee => employee.ID == ID);
         return employee;
     }
 
