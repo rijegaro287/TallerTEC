@@ -1,12 +1,10 @@
-
-
-namespace Server.Models;
+namespace Backend.Models;
 
 public class Bill
 {
     public int appointmentID { get; set; }
     public int servicePrice { get; set; }
-    public int partsPrice{ get; set; }
+    public int partsPrice { get; set; }
     public int totalPrice { get; set; }
 
     public Bill(int appointmentID, int servicePrice, int partsPrice)

@@ -1,8 +1,8 @@
-using Server.Helpers;
+using Backend.Helpers;
 
-namespace Server.Models;
+namespace Backend.Models;
 
-public class Appointment 
+public class Appointment
 {
     private static string table_path = "DB/Appointment.json";
     public int ID { get; set; }
@@ -64,7 +64,7 @@ public class Appointment
         bool wasUpdated = false;
         Appointment[] allAppointments = JSONFiles.ReadJSONFile<Appointment[]>(table_path);
         Appointment appointment = allAppointments.FirstOrDefault(appointment => appointment.ID == ID);
-        if(appointment != null)
+        if (appointment != null)
         {
             allAppointments[Array.IndexOf(allAppointments, appointment)] = newAppointment;
             wasUpdated = true;

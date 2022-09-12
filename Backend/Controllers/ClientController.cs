@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 
-using Server.Models;
+using Backend.Models;
 
-namespace Server.Controllers;
+namespace Backend.Controllers;
 
 [ApiController]
 [Route("client")]
@@ -37,7 +37,7 @@ public class ClientController : ControllerBase
     [Route("update/{id}")]
     public void UpdateAppointment(int id, [FromBody] Client newClient)
     {
-        if(Client.UpdateClient(id, newClient))
+        if (Client.UpdateClient(id, newClient))
         {
             Response.WriteAsJsonAsync(new { message = "Client updated" });
         }
@@ -63,7 +63,7 @@ public class ClientController : ControllerBase
         string oldPassword = passwords.oldPassword;
         string newPassword = passwords.newPassword;
         string confirmPassword = passwords.confirmPassword;
-        if(Client.UpdatePassword(email, oldPassword, newPassword, confirmPassword))
+        if (Client.UpdatePassword(email, oldPassword, newPassword, confirmPassword))
         {
             Response.WriteAsJsonAsync(new { message = "Password changed" });
         }

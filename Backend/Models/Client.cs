@@ -1,13 +1,13 @@
-using Server.Helpers;
+using Backend.Helpers;
 
-namespace Server.Models;
+namespace Backend.Models;
 
 public class Client : Person
 {
     private static string table_path = "DB/Client.json";
     public string Email { get; set; }
     public int PhoneNumber { get; set; }
-    public  string Address { get; set; }
+    public string Address { get; set; }
 
     public Client(
         int ID,
@@ -47,7 +47,7 @@ public class Client : Person
         bool wasUpdated = false;
         Client[] allClients = JSONFiles.ReadJSONFile<Client[]>(table_path);
         Client client = allClients.FirstOrDefault(client => client.ID == ID);
-        if(client != null)
+        if (client != null)
         {
             allClients[Array.IndexOf(allClients, client)] = newClient;
             wasUpdated = true;
@@ -60,7 +60,7 @@ public class Client : Person
     {
         Client[] allClients = JSONFiles.ReadJSONFile<Client[]>(table_path);
         Client client = allClients.FirstOrDefault(client => client.ID == ID);
-        if(client != null)
+        if (client != null)
         {
             allClients = allClients.Where(client => client.ID != ID).ToArray();
         }
@@ -72,9 +72,9 @@ public class Client : Person
         bool wasUpdated = false;
         Client[] allClients = JSONFiles.ReadJSONFile<Client[]>(table_path);
         Client client = allClients.FirstOrDefault(client => client.Email == email);
-        if(client != null)
+        if (client != null)
         {
-            if(client.UpdatePassword(oldPassword, newPassword, confirmPassword))
+            if (client.UpdatePassword(oldPassword, newPassword, confirmPassword))
             {
                 allClients[Array.IndexOf(allClients, client)] = client;
                 JSONFiles.WriteOverJSONFile<Client>(allClients, table_path);

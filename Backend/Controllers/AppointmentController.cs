@@ -1,8 +1,8 @@
+using Backend.Models;
+
 using Microsoft.AspNetCore.Mvc;
 
-using Server.Models;
-
-namespace Server.Controllers;
+namespace Backend.Controllers;
 
 [ApiController]
 [Route("appointment")]
@@ -37,7 +37,7 @@ public class AppointmentController : ControllerBase
     [Route("update/{id}")]
     public void UpdateAppointment(int id, [FromBody] Appointment newAppointment)
     {
-        if(Appointment.UpdateAppointment(id, newAppointment))
+        if (Appointment.UpdateAppointment(id, newAppointment))
         {
             Response.WriteAsJsonAsync(new { message = "Appointment updated" });
         }
@@ -57,7 +57,8 @@ public class AppointmentController : ControllerBase
 
     [HttpGet]
     [Route("get_bill/{id}")]
-    public void SendBill(int id){
+    public void SendBill(int id)
+    {
         Bill bill = Appointment.GenerateBill(id);
         Response.WriteAsJsonAsync(bill);
     }
