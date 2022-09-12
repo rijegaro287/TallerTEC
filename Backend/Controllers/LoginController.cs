@@ -12,7 +12,6 @@ public class LoginController : ControllerBase
 {
     [HttpPost]
     [Route("login")]
-    // Verifica si la contraseña ingresada es correcta. Todavía no autentica, sólo verifica.
     public async void login([FromBody] LoginInfo loginInfo)
     {
         string email = loginInfo.email;
