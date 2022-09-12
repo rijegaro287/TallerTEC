@@ -4,7 +4,7 @@ import { LoginComponent } from './vistas/login/login.component';
 import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 import { NuevoComponent } from './vistas/nuevo/nuevo.component';
 import { EditarComponent } from './vistas/editar/editar.component';
-import { MainmenuComponent } from './mainmenu/mainmenu.component';
+import { MainmenuComponent } from './vistas/mainmenu/mainmenu.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
