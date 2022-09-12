@@ -15,6 +15,13 @@ public class JSONFiles
         File.WriteAllText(path, jsonString);
     }
 
+    public static void WriteOverJSONFile<Type>(Type[] allobjects , string path)
+    {
+        string jsonString = JsonSerializer.Serialize<Type[]>(allobjects);
+
+        File.WriteAllText(path, jsonString);
+    }
+
     public static Type ReadJSONFile<Type>(string path)
     {
         string jsonString = File.ReadAllText(path);

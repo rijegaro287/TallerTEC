@@ -48,4 +48,26 @@ public class Employee
     {
         JSONFiles.WriteJSONFile<Employee>(newEmployee, table_path);
     }
+
+    public static bool UpdateEmployee(int ID, Employee newEmployee)
+    {   
+        bool wasUpdated = false;
+        Employee[] allEmployees = JSONFiles.ReadJSONFile<Employee[]>(table_path);
+        Employee employee = allEmployees.FirstOrDefault(employee => employee.ID == ID);
+        if(employee != null)
+        {
+            allEmployees[Array.IndexOf(allEmployees, employee)] = newEmployee;
+            wasUpdated = true;
+        }
+        JSONFiles.WriteOverJSONFile<Employee>(allEmployees, table_path);
+        return wasUpdated;
+    }
+
+    public static void DeleteEmployee(int ID)
+    {
+        Employee[] allEmployees = JSONFiles.ReadJSONFile<Employee[]>(table_path);
+        Employee[] newEmployees = allEmployees
+            .Where(employee => employee.ID != ID).ToArray<Employee>();
+        JSONFiles.WriteOverJSONFile<Employee>(newEmployees, table_path);
+    }
 }

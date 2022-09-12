@@ -31,4 +31,26 @@ public class EmployeeController : ControllerBase
         Employee.InsertEmployee(newEmployee);
         Response.WriteAsJsonAsync(new { message = "Employee added" });
     }
+
+    [HttpPatch]
+    [Route("update/{id}")]
+    public void UpdateEmployee(int id, [FromBody] Employee newEmployee)
+    {
+        if (Employee.UpdateEmployee(id, newEmployee))
+        {
+            Response.WriteAsJsonAsync(new { message = "Employee updated" });
+        }
+        else
+        {
+            Response.WriteAsJsonAsync(new { message = "Employee not found" });
+        }
+    }
+
+    [HttpDelete]
+    [Route("delete/{id}")]
+    public void DeleteEmployee(int id)
+    {
+        Employee.DeleteEmployee(id);
+        Response.WriteAsJsonAsync(new { message = "Employee deleted" });
+    }
 }
