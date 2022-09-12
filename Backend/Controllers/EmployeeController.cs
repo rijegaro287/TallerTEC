@@ -44,9 +44,6 @@ public class EmployeeController : ControllerBase
         Employee newEmployee = body.newEmployee;
         string password = body.password;
 
-        Console.WriteLine(newEmployee);
-        Console.WriteLine(password);
-
         Employee.InsertEmployee(newEmployee, password);
         await Response.WriteAsJsonAsync(new { message = "Employee added" });
     }

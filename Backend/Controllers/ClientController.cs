@@ -27,9 +27,12 @@ public class ClientController : ControllerBase
 
     [HttpPost]
     [Route("add")]
-    public void AddClient([FromBody] Client newClient)
+    public void AddClient([FromBody] NewClientInfo body)
     {
-        Client.InsertClient(newClient);
+        Client newClient = body.newClient;
+        string password = body.password;
+
+        Client.InsertClient(newClient, password);
         Response.WriteAsJsonAsync(new { message = "Client added" });
     }
 
@@ -55,22 +58,34 @@ public class ClientController : ControllerBase
         Response.WriteAsJsonAsync(new { message = "Client deleted" });
     }
 
-    [HttpPatch]
-    [Route("change_password/{email}")]
-    // public void ChangePassword(string email, [FromBody] string oldPassword, string newPassword, string confirmPassword)
-    public void ChangePassword(string email, [FromBody] Passwords passwords)
+    // [HttpPatch]
+    // [Route("change_password/{email}")]
+    // // public void ChangePassword(string email, [FromBody] string oldPassword, string newPassword, string confirmPassword)
+    // public void ChangePassword(string email, [FromBody] Passwords passwords)
+    // {
+    //     string oldPassword = passwords.oldPassword;
+    //     string newPassword = passwords.newPassword;
+    //     string confirmPassword = passwords.confirmPassword;
+    //     if (Client.UpdatePassword(email, oldPassword, newPassword, confirmPassword))
+    //     {
+    //         Response.WriteAsJsonAsync(new { message = "Password changed" });
+    //     }
+    //     else
+    //     {
+    //         Response.WriteAsJsonAsync(new { message = "Password not changed" });
+    //     }
+    // }
+}
+
+public struct NewClientInfo
+{
+    public Client newClient { get; set; }
+    public string password { get; set; }
+
+    public NewClientInfo(Client newClient, string password)
     {
-        string oldPassword = passwords.oldPassword;
-        string newPassword = passwords.newPassword;
-        string confirmPassword = passwords.confirmPassword;
-        if (Client.UpdatePassword(email, oldPassword, newPassword, confirmPassword))
-        {
-            Response.WriteAsJsonAsync(new { message = "Password changed" });
-        }
-        else
-        {
-            Response.WriteAsJsonAsync(new { message = "Password not changed" });
-        }
+        this.newClient = newClient;
+        this.password = password;
     }
 }
 

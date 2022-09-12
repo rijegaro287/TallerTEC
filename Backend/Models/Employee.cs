@@ -2,13 +2,10 @@ using Backend.Helpers;
 
 namespace Backend.Models;
 
-public class Employee
+public class Employee : Person
 {
     private static string table_path = "DB/Employee.json";
     private static string password_table_path = "DB/EmployeePassword.json";
-    public int ID { get; set; }
-    public string Name { get; set; }
-    public string LastName { get; set; }
     public string Email { get; set; }
     public string BirthDate { get; set; }
     public int Age { get; set; }
@@ -23,7 +20,7 @@ public class Employee
         string BirthDate,
         int Age,
         string Position,
-        string StartingDate)
+        string StartingDate) : base(ID, Name, LastName)
     {
         this.ID = ID;
         this.Name = Name;
@@ -66,11 +63,11 @@ public class Employee
     }
 
     public static bool UpdateEmployee(int ID, Employee newEmployee)
-    {   
+    {
         bool wasUpdated = false;
         Employee[] allEmployees = JSONFiles.ReadJSONFile<Employee[]>(table_path);
         Employee employee = allEmployees.FirstOrDefault(employee => employee.ID == ID);
-        if(employee != null)
+        if (employee != null)
         {
             allEmployees[Array.IndexOf(allEmployees, employee)] = newEmployee;
             wasUpdated = true;

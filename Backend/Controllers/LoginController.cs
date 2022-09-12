@@ -28,8 +28,7 @@ public class LoginController : ControllerBase
                     isValidPassword = EmployeePassword.ValidatePassword(email, password);
                     break;
                 case "client":
-                    // isValidPassword = ClientPassword.ValidatePassword(email, password);
-                    isValidPassword = true;
+                    isValidPassword = ClientPassword.ValidatePassword(email, password);
                     break;
                 default:
                     throw new Exception("Tipo de usuario no válido");
