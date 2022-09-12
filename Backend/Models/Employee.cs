@@ -1,14 +1,14 @@
-using Server.Helpers;
+using Backend.Helpers;
 
-namespace Server.Models;
+namespace Backend.Models;
 
 public class Employee
 {
     private static string table_path = "DB/Employee.json";
     public int ID { get; set; }
-    public string Password { get; set; }
     public string Name { get; set; }
     public string LastName { get; set; }
+    public string Email { get; set; }
     public string BirthDate { get; set; }
     public int Age { get; set; }
     public string Position { get; set; }
@@ -16,18 +16,18 @@ public class Employee
 
     public Employee(
         int ID,
-        string Password,
         string Name,
         string LastName,
+        string Email,
         string BirthDate,
         int Age,
         string Position,
         string StartingDate)
     {
         this.ID = ID;
-        this.Password = Password;
         this.Name = Name;
         this.LastName = LastName;
+        this.Email = Email;
         this.BirthDate = BirthDate;
         this.Age = Age;
         this.Position = Position;
@@ -44,6 +44,13 @@ public class Employee
     {
         Employee[] allEmployees = JSONFiles.ReadJSONFile<Employee[]>(table_path);
         Employee employee = allEmployees.FirstOrDefault(employee => employee.ID == ID);
+        return employee;
+    }
+
+    public static Employee SelectEmployee(string email)
+    {
+        Employee[] allEmployees = JSONFiles.ReadJSONFile<Employee[]>(table_path);
+        Employee employee = allEmployees.FirstOrDefault(employee => employee.Email == email);
         return employee;
     }
 

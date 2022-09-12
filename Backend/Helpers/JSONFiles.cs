@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace Server.Helpers;
+namespace Backend.Helpers;
 
 public class JSONFiles
 {

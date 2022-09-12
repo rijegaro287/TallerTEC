@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 
-using Server.Models;
+using Backend.Models;
 
-namespace Server.Controllers;
+namespace Backend.Controllers;
 
 [ApiController]
 [Route("employee")]
@@ -21,6 +21,14 @@ public class EmployeeController : ControllerBase
     public void GetEmployee(int id)
     {
         Employee employee = Employee.SelectEmployee(id);
+        Response.WriteAsJsonAsync(employee);
+    }
+
+    [HttpGet]
+    [Route("get_by_email/{email}")]
+    public void GetEmployeeByEmail(string email)
+    {
+        Employee employee = Employee.SelectEmployee(email);
         Response.WriteAsJsonAsync(employee);
     }
 
