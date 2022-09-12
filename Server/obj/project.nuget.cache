@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "YODn3naI5Re+6GlizAF+O15+fReqMN0xS0plcKiJZ9RdvJq4j9j176ZPZf9nXINy+2LMile7c7MyD/WrUper/A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\yraul\\OneDrive\\Documentos\\GitHub\\Tarea-1-TallerTEC\\server\\Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\yraul\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\yraul\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\yraul\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\yraul\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\yraul\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\yraul\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
