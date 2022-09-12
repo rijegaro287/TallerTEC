@@ -18,5 +18,15 @@
         "Age": 14,
         "Position": "Developer",
         "StartingDate": "01/01/2020"
+    },
+    {
+        "ID": 3,
+        "Name": "Pepito",
+        "LastName": "Varela",
+        "Email": "employee3@estudiantec.cr",
+        "BirthDate": "01/01/2000",
+        "Age": 14,
+        "Position": "Developer",
+        "StartingDate": "01/01/2020"
     }
 ]
