@@ -1,6 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
-
 using Backend.Models;
+
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
 
 namespace Backend.Controllers;
 
@@ -11,7 +13,7 @@ public class LoginController : ControllerBase
     [HttpPost]
     [Route("login")]
     // Verifica si la contraseña ingresada es correcta. Todavía no autentica, sólo verifica.
-    public void login([FromBody] LoginInfo loginInfo)
+    public async void login([FromBody] LoginInfo loginInfo)
     {
         string email = loginInfo.email;
         string password = loginInfo.password;
@@ -19,34 +21,62 @@ public class LoginController : ControllerBase
 
         try
         {
-            bool validPassword = false;
+            bool isValidPassword = false;
 
             switch (userType)
             {
                 case "employee":
-                    validPassword = EmployeePassword.ValidatePassword(email, password);
+                    isValidPassword = EmployeePassword.ValidatePassword(email, password);
                     break;
                 case "client":
-                    // validPassword = ClientPassword.ValidatePassword(email, password);
-                    validPassword = true;
+                    // isValidPassword = ClientPassword.ValidatePassword(email, password);
+                    isValidPassword = true;
                     break;
                 default:
                     throw new Exception("Tipo de usuario no válido");
             }
 
-            if (validPassword)
-            {
-                Response.StatusCode = 200;
-            }
-            else
-            {
-                throw new Exception("Correo o contraseña incorrectos");
-            }
+            await GenerateCookieAsync(isValidPassword, loginInfo);
         }
         catch (System.Exception error)
         {
             Response.StatusCode = 403;
-            Response.WriteAsJsonAsync(new { error = error.Message });
+            await Response.WriteAsJsonAsync(new { error = error.Message });
+        }
+    }
+
+    [HttpGet]
+    [Route("logout")]
+    public async void logout()
+    {
+        try
+        {
+            await HttpContext.SignOutAsync();
+        }
+        catch (System.Exception error)
+        {
+            Response.StatusCode = 403;
+            await Response.WriteAsJsonAsync(new { error = error.Message });
+        }
+    }
+
+    private async Task GenerateCookieAsync(bool isValidPassword, LoginInfo loginInfo)
+    {
+        if (isValidPassword)
+        {
+            var claims = new List<Claim> {
+                    new Claim("email", loginInfo.email),
+                    new Claim("userType", loginInfo.userType)
+                };
+            var identity = new ClaimsIdentity(claims, "AuthCookie");
+            var principal = new ClaimsPrincipal(identity);
+
+            await HttpContext.SignInAsync("AuthCookie", principal);
+            Response.StatusCode = 200;
+        }
+        else
+        {
+            throw new Exception("Correo o contraseña incorrectos");
         }
     }
 }

@@ -1,6 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
-
 using Backend.Models;
+
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Backend.Controllers;
 
@@ -10,6 +11,7 @@ public class EmployeeController : ControllerBase
 {
     [HttpGet]
     [Route("get_all")]
+    [Authorize(Policy = "Employee")]
     public void GetAllEmployees()
     {
         Employee[]? employees = Employee.SelectAllEmployees();
@@ -18,6 +20,7 @@ public class EmployeeController : ControllerBase
 
     [HttpGet]
     [Route("get/{id}")]
+    [Authorize(Policy = "Employee")]
     public void GetEmployee(int id)
     {
         Employee employee = Employee.SelectEmployee(id);
@@ -26,6 +29,7 @@ public class EmployeeController : ControllerBase
 
     [HttpGet]
     [Route("get_by_email/{email}")]
+    [Authorize(Policy = "Employee")]
     public void GetEmployeeByEmail(string email)
     {
         Employee employee = Employee.SelectEmployee(email);
@@ -34,6 +38,7 @@ public class EmployeeController : ControllerBase
 
     [HttpPost]
     [Route("add")]
+    [Authorize(Policy = "Employee")]
     public void AddEmployee([FromBody] Employee newEmployee)
     {
         Employee.InsertEmployee(newEmployee);

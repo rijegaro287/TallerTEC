@@ -21,7 +21,8 @@ public class EmployeePassword
 
         return password.Password;
     }
-    public static bool ValidatePassword(string email, string password)
+
+    public static bool ValidatePassword(string email, string passwordInput)
     {
         Employee employee = Employee.SelectEmployee(email);
 
@@ -29,7 +30,7 @@ public class EmployeePassword
         {
             string employeePassword = SelectPassword(employee.ID);
 
-            return password == employeePassword;
+            return passwordInput == employeePassword;
         }
         else
         {
