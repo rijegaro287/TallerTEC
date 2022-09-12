@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace Server.Helpers;
+namespace Backend.Helpers;
 
 public class JSONFiles
 {
@@ -11,6 +11,13 @@ public class JSONFiles
             .Append(newObject).ToArray<Type>();
 
         string jsonString = JsonSerializer.Serialize<Type[]>(newObjects);
+
+        File.WriteAllText(path, jsonString);
+    }
+
+    public static void WriteOverJSONFile<Type>(Type[] allobjects , string path)
+    {
+        string jsonString = JsonSerializer.Serialize<Type[]>(allobjects);
 
         File.WriteAllText(path, jsonString);
     }

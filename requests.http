@@ -1,4 +1,6 @@
-GET https://localhost:7279/employee/get/10
+#Employees
+
+GET https://localhost:7279/employee/get/69
 
 ###
 
@@ -6,15 +8,128 @@ GET https://localhost:7279/employee/get_all
 
 ###
 
+PATCH  https://localhost:7279/employee/update/2328
+content-type: application/json
+
+{
+    "ID": 72,
+    "Name": "Maria",
+    "LastName": "Varela",
+    "BirthDate": "01/01/1980",
+    "Age": 19,
+    "Position": "Botton",
+    "StartingDate": "01/01/2020"
+}
+###
+
 POST https://localhost:7279/employee/add
 content-type: application/json
 
 {
-    "ID": 57,
-    "Name": "Pepito",
+    "ID": 11,
+    "Name": "Sasha",
     "LastName": "Varela",
-    "BirthDate": "01/01/2000",
-    "Age": 14,
-    "Position": "Developer",
+    "BirthDate": "01/01/1980",
+    "Age": 19,
+    "Position": "Botton",
     "StartingDate": "01/01/2020"
 }
+
+###
+
+DELETE https://localhost:7279/employee/delete/1000
+
+### ------------Client---------------
+
+GET https://localhost:7279/client/get_all
+
+###
+GET https://localhost:7279/client/get/70
+###
+POST https://localhost:7279/client/add
+content-type: application/json
+
+{
+    "ID": 83,
+    "Name": "Sasha",
+    "LastName": "Varela",
+    "Password": "1234ABC",
+    "Email": "ybrenesr@gmail.com",
+    "PhoneNumber": 89898989,
+    "Address": "Para arriba"
+}
+###
+PATCH  https://localhost:7279/client/update/83
+content-type: application/json
+
+{
+    "ID": 90,
+    "Name": "Sasha",
+    "LastName": "Varela",
+    "Password": "1234ABC",
+    "Email": "ybrenesr@gmail.com",
+    "PhoneNumber": 89898989,
+    "Address": "Para arriba"
+}
+
+###
+DELETE https://localhost:7279/client/delete/90
+###
+
+PATCH  https://localhost:7279/client/change_password/ybrenesr@gmail.com
+content-type: application/json
+
+{
+    "oldPassword": "1234ABC",
+    "newPassword": "5646",
+    "confirmPassword": "5646"
+}
+
+### -----------Appointments-----------------
+
+GET https://localhost:7279/appointment/get_all
+
+###
+
+GET https://localhost:7279/appointment/get/69
+
+###
+
+POST https://localhost:7279/appointment/add
+content-type: application/json
+
+{
+    "ID": 7,
+    "Date": "01/01/2020",
+    "Time": "01:00",
+    "AttendedClientID": 69,
+    "LicensePlate": "ABC123",
+    "SelectedBranch": 69,
+    "RequiredService": "Lavado",
+    "MechanicID": 69,
+    "AssistantID": 69
+}
+
+###
+
+PATCH  https://localhost:7279/appointment/update/80
+content-type: application/json
+
+{
+    "ID": 41,
+    "Date": "01/01/2020",
+    "Time": "01:00",
+    "AttendedClientID": 69,
+    "LicensePlate": "ABC123",
+    "SelectedBranch": 69,
+    "RequiredService": "Lavado",
+    "MechanicID": 69,
+    "AssistantID": 69
+}
+
+###
+DELETE  https://localhost:7279/appointment/delete/4
+
+###
+GET https://localhost:7279/appointment/get_bill/41
+

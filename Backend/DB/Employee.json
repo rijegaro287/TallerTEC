@@ -1,39 +1,29 @@
 [
     {
-        "ID": 2328,
-        "Password": "Vpepe",
+        "ID": 1,
         "Name": "Pepito",
         "LastName": "Varela",
+        "Email": "employee1@estudiantec.cr",
         "BirthDate": "01/01/2000",
         "Age": 14,
         "Position": "Developer",
         "StartingDate": "01/01/2020"
     },
     {
-        "ID": 12,
-        "Password": "Pepe123",
+        "ID": 2,
         "Name": "Pepito",
         "LastName": "Varela",
+        "Email": "employee2@estudiantec.cr",
         "BirthDate": "01/01/2000",
         "Age": 14,
         "Position": "Developer",
         "StartingDate": "01/01/2020"
     },
     {
-        "ID": 43,
-        "Password": "Pepis234",
+        "ID": 3,
         "Name": "Pepito",
         "LastName": "Varela",
-        "BirthDate": "01/01/2000",
-        "Age": 14,
-        "Position": "Developer",
-        "StartingDate": "01/01/2020"
-    },
-    {
-        "ID": 57,
-        "Password": "Pp22",
-        "Name": "Pepito",
-        "LastName": "Varela",
+        "Email": "employee3@estudiantec.cr",
         "BirthDate": "01/01/2000",
         "Age": 14,
         "Position": "Developer",
