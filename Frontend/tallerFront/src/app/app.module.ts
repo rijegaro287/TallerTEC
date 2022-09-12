@@ -5,20 +5,23 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './plantillas/header/header.component';
 import { FooterComponent } from './plantillas/footer/footer.component';
-import { MainmenuComponent } from './mainmenu/mainmenu.component';
 
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    routingComponents,
-    MainmenuComponent
+    routingComponents
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

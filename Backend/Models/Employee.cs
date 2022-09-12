@@ -6,6 +6,7 @@ public class Employee
 {
     private static string table_path = "DB/Employee.json";
     public int ID { get; set; }
+    public string Password { get; set; }
     public string Name { get; set; }
     public string LastName { get; set; }
     public string BirthDate { get; set; }
@@ -15,6 +16,7 @@ public class Employee
 
     public Employee(
         int ID,
+        string Password,
         string Name,
         string LastName,
         string BirthDate,
@@ -23,6 +25,7 @@ public class Employee
         string StartingDate)
     {
         this.ID = ID;
+        this.Password = Password;
         this.Name = Name;
         this.LastName = LastName;
         this.BirthDate = BirthDate;

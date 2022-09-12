@@ -1,6 +1,7 @@
 [
     {
         "ID": 2328,
+        "Password": "Vpepe",
         "Name": "Pepito",
         "LastName": "Varela",
         "BirthDate": "01/01/2000",
@@ -10,6 +11,7 @@
     },
     {
         "ID": 12,
+        "Password": "Pepe123",
         "Name": "Pepito",
         "LastName": "Varela",
         "BirthDate": "01/01/2000",
@@ -19,6 +21,7 @@
     },
     {
         "ID": 43,
+        "Password": "Pepis234",
         "Name": "Pepito",
         "LastName": "Varela",
         "BirthDate": "01/01/2000",
@@ -28,6 +31,7 @@
     },
     {
         "ID": 57,
+        "Password": "Pp22",
         "Name": "Pepito",
         "LastName": "Varela",
         "BirthDate": "01/01/2000",
