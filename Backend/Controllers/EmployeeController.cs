@@ -12,36 +12,36 @@ public class EmployeeController : ControllerBase
     [HttpGet]
     [Route("get_all")]
     [Authorize(Policy = "Employee")]
-    public void GetAllEmployees()
+    public async void GetAllEmployees()
     {
-        Employee[]? employees = Employee.SelectAllEmployees();
-        Response.WriteAsJsonAsync(employees);
+        Employee[] employees = Employee.SelectAllEmployees();
+        await Response.WriteAsJsonAsync(employees);
     }
 
     [HttpGet]
     [Route("get/{id}")]
     [Authorize(Policy = "Employee")]
-    public void GetEmployee(int id)
+    public async void GetEmployee(int id)
     {
         Employee employee = Employee.SelectEmployee(id);
-        Response.WriteAsJsonAsync(employee);
+        await Response.WriteAsJsonAsync(employee);
     }
 
     [HttpGet]
     [Route("get_by_email/{email}")]
     [Authorize(Policy = "Employee")]
-    public void GetEmployeeByEmail(string email)
+    public async void GetEmployeeByEmail(string email)
     {
         Employee employee = Employee.SelectEmployee(email);
-        Response.WriteAsJsonAsync(employee);
+        await Response.WriteAsJsonAsync(employee);
     }
 
     [HttpPost]
     [Route("add")]
     [Authorize(Policy = "Employee")]
-    public void AddEmployee([FromBody] Employee newEmployee)
+    public async void AddEmployee([FromBody] Employee newEmployee)
     {
         Employee.InsertEmployee(newEmployee);
-        Response.WriteAsJsonAsync(new { message = "Employee added" });
+        await Response.WriteAsJsonAsync(new { message = "Employee added" });
     }
 }

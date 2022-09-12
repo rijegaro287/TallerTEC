@@ -35,7 +35,7 @@ public class LoginController : ControllerBase
                     throw new Exception("Tipo de usuario no válido");
             }
 
-            await GenerateCookieAsync(isValidPassword, loginInfo);
+            await GenerateCookieAsync(isValidPassword, userType);
         }
         catch (System.Exception error)
         {
@@ -54,18 +54,17 @@ public class LoginController : ControllerBase
         }
         catch (System.Exception error)
         {
-            Response.StatusCode = 403;
+            Response.StatusCode = 500;
             await Response.WriteAsJsonAsync(new { error = error.Message });
         }
     }
 
-    private async Task GenerateCookieAsync(bool isValidPassword, LoginInfo loginInfo)
+    private async Task GenerateCookieAsync(bool isValidPassword, string userType)
     {
         if (isValidPassword)
         {
             var claims = new List<Claim> {
-                    new Claim("email", loginInfo.email),
-                    new Claim("userType", loginInfo.userType)
+                    new Claim("userType", userType)
                 };
             var identity = new ClaimsIdentity(claims, "AuthCookie");
             var principal = new ClaimsPrincipal(identity);
