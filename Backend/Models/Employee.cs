@@ -5,6 +5,7 @@ namespace Backend.Models;
 public class Employee
 {
     private static string table_path = "DB/Employee.json";
+    private static string password_table_path = "DB/EmployeePassword.json";
     public int ID { get; set; }
     public string Name { get; set; }
     public string LastName { get; set; }
@@ -54,8 +55,13 @@ public class Employee
         return employee;
     }
 
-    public static void InsertEmployee(Employee newEmployee)
+    public static void InsertEmployee(Employee newEmployee, string password)
     {
+        string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+        EmployeePassword employeePassword = new EmployeePassword(
+            newEmployee.ID, hashedPassword);
+
         JSONFiles.WriteJSONFile<Employee>(newEmployee, table_path);
+        JSONFiles.WriteJSONFile<EmployeePassword>(employeePassword, password_table_path);
     }
 }

@@ -28,9 +28,9 @@ public class EmployeePassword
 
         if (employee != null)
         {
-            string employeePassword = SelectPassword(employee.ID);
+            string hashedPassword = SelectPassword(employee.ID);
 
-            return passwordInput == employeePassword;
+            return BCrypt.Net.BCrypt.Verify(passwordInput, hashedPassword); ;
         }
         else
         {

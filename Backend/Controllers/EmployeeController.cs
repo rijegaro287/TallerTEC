@@ -39,9 +39,27 @@ public class EmployeeController : ControllerBase
     [HttpPost]
     [Route("add")]
     [Authorize(Policy = "Employee")]
-    public async void AddEmployee([FromBody] Employee newEmployee)
+    public async void AddEmployee([FromBody] NewEmployeeInfo body)
     {
-        Employee.InsertEmployee(newEmployee);
+        Employee newEmployee = body.newEmployee;
+        string password = body.password;
+
+        Console.WriteLine(newEmployee);
+        Console.WriteLine(password);
+
+        Employee.InsertEmployee(newEmployee, password);
         await Response.WriteAsJsonAsync(new { message = "Employee added" });
+    }
+}
+
+public struct NewEmployeeInfo
+{
+    public Employee newEmployee { get; set; }
+    public string password { get; set; }
+
+    public NewEmployeeInfo(Employee newEmployee, string password)
+    {
+        this.newEmployee = newEmployee;
+        this.password = password;
     }
 }

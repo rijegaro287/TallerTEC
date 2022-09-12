@@ -1,6 +1,6 @@
 [
     {
-        "ID": 2328,
+        "ID": 1,
         "Name": "Pepito",
         "LastName": "Varela",
         "Email": "employee1@estudiantec.cr",
@@ -10,30 +10,10 @@
         "StartingDate": "01/01/2020"
     },
     {
-        "ID": 12,
+        "ID": 2,
         "Name": "Pepito",
         "LastName": "Varela",
         "Email": "employee2@estudiantec.cr",
-        "BirthDate": "01/01/2000",
-        "Age": 14,
-        "Position": "Developer",
-        "StartingDate": "01/01/2020"
-    },
-    {
-        "ID": 43,
-        "Name": "Pepito",
-        "LastName": "Varela",
-        "Email": "employee3@estudiantec.cr",
-        "BirthDate": "01/01/2000",
-        "Age": 14,
-        "Position": "Developer",
-        "StartingDate": "01/01/2020"
-    },
-    {
-        "ID": 57,
-        "Name": "Pepito",
-        "LastName": "Varela",
-        "Email": "employee4@estudiantec.cr",
         "BirthDate": "01/01/2000",
         "Age": 14,
         "Position": "Developer",
