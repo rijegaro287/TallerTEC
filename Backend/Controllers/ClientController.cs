@@ -38,7 +38,7 @@ public class ClientController : ControllerBase
 
     [HttpPatch]
     [Route("update/{id}")]
-    public void UpdateAppointment(int id, [FromBody] Client newClient)
+    public void UpdateClient(int id, [FromBody] Client newClient)
     {
         if (Client.UpdateClient(id, newClient))
         {

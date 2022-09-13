@@ -12,8 +12,7 @@ public class Appointment
     public string LicensePlate { get; set; }
     public int MechanicID { get; set; }
     public int AssistantID { get; set; }
-
-    // public Branch SelectedBranch { get; set; }
+    public int SelectedBranch { get; set; }
     // public Service ReqiuredService { get; set; }
     // public List<Product> NecessaryParts { get; set; }
 
@@ -24,7 +23,7 @@ public class Appointment
         string Time,
         int AttendedClientID,
         string LicensePlate,
-        // Branch SelectedBranch,
+        int SelectedBranch,
         // Service ReqiuredService,
         int MechanicID,
         int AssistantID)
@@ -34,7 +33,7 @@ public class Appointment
         this.Time = Time;
         this.AttendedClientID = AttendedClientID;
         this.LicensePlate = LicensePlate;
-        // this.SelectedBranch = SelectedBranch;
+        this.SelectedBranch = SelectedBranch;
         // this.RequiredService = RequiredService;
         this.MechanicID = MechanicID;
         this.AssistantID = AssistantID;
@@ -84,13 +83,21 @@ public class Appointment
     public static Bill GenerateBill(int ID)
     {
         Appointment appointment = SelectAppointment(ID);
+        int branchID = appointment.SelectedBranch;
         int servicePrice = 1000;
         int partsPrice = 1000;
         int totalPrice = servicePrice + partsPrice;
+        
         Bill bill = new Bill(
             appointment.ID,
+            branchID,
             servicePrice,
             partsPrice);
+        Bill.AddBill(bill);
+        
+        int clientID = appointment.AttendedClientID;
+        Client.UpdateSpent(clientID, totalPrice);
+
         return bill;
 
     }

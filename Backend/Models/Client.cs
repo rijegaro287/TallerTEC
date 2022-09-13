@@ -11,6 +11,8 @@ public class Client : Person
     public int PhoneNumber { get; set; }
     public string Address { get; set; }
 
+    public int TotalSpent { get; set; }
+
     public Client(
         int ID,
         string Name,
@@ -22,6 +24,7 @@ public class Client : Person
         this.Email = Email;
         this.PhoneNumber = PhoneNumber;
         this.Address = Address;
+        this.TotalSpent = 0;
     }
 
     public static Client SelectClient(int id)
@@ -96,6 +99,14 @@ public class Client : Person
     //     }
     //     return wasUpdated;
     // }
+
+    public static void UpdateSpent(int Id, int TotalSpent)
+    {
+        Client client = SelectClient(Id);
+        client.TotalSpent += TotalSpent;
+
+        UpdateClient(Id, client);
+    }
 }
 
 

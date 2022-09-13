@@ -1,5 +1,5 @@
-#Employees
-
+*#Employees
+###
 GET https://localhost:7279/employee/get/69
 
 ###
@@ -17,7 +17,7 @@ content-type: application/json
     "LastName": "Varela",
     "BirthDate": "01/01/1980",
     "Age": 19,
-    "Position": "Botton",
+    "Position": "Bottom",
     "StartingDate": "01/01/2020"
 }
 ###
@@ -26,14 +26,19 @@ POST https://localhost:7279/employee/add
 content-type: application/json
 
 {
-    "ID": 11,
-    "Name": "Sasha",
-    "LastName": "Varela",
-    "BirthDate": "01/01/1980",
-    "Age": 19,
-    "Position": "Botton",
-    "StartingDate": "01/01/2020"
+    "newEmployee": {
+        "ID": 4,
+        "Name": "Sasha",
+        "LastName": "Varela",
+        "Email": "shashia@gmail.com",
+        "BirthDate": "01/01/1980",
+        "Age": 19,
+        "Position": "Bottom",
+        "StartingDate": "01/01/2020"
+        },
+    "password": "123456"
 }
+
 
 ###
 
@@ -50,13 +55,16 @@ POST https://localhost:7279/client/add
 content-type: application/json
 
 {
-    "ID": 83,
-    "Name": "Sasha",
-    "LastName": "Varela",
-    "Password": "1234ABC",
-    "Email": "ybrenesr@gmail.com",
-    "PhoneNumber": 89898989,
-    "Address": "Para arriba"
+    "newClient":{
+        "ID": 83,
+        "Name": "Sasha",
+        "LastName": "Varela",
+        "Password": "1234ABC",
+        "Email": "ybrenesr@gmail.com",
+        "PhoneNumber": 89898989,
+        "Address": "Para arriba"
+        },
+    "password": "123456"
 }
 ###
 PATCH  https://localhost:7279/client/update/83
@@ -102,7 +110,8 @@ content-type: application/json
     "ID": 7,
     "Date": "01/01/2020",
     "Time": "01:00",
-    "AttendedClientID": 69,
+    "AttendedClientID": 83,
+    "SelectedBranch": 32,
     "LicensePlate": "ABC123",
     "SelectedBranch": 69,
     "RequiredService": "Lavado",
@@ -116,10 +125,11 @@ PATCH  https://localhost:7279/appointment/update/80
 content-type: application/json
 
 {
-    "ID": 41,
+    "ID": 7,
     "Date": "01/01/2020",
     "Time": "01:00",
     "AttendedClientID": 69,
+    "SelectedBranch": 32,
     "LicensePlate": "ABC123",
     "SelectedBranch": 69,
     "RequiredService": "Lavado",
@@ -128,8 +138,8 @@ content-type: application/json
 }
 
 ###
-DELETE  https://localhost:7279/appointment/delete/4
+DELETE  https://localhost:7279/appointment/delete/7
 
 ###
-GET https://localhost:7279/appointment/get_bill/41
+GET https://localhost:7279/appointment/get_bill/7
 
