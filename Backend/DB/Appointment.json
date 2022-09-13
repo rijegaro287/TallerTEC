@@ -1,1 +1,47 @@
-[{"ID":7,"Date":"01/01/2020","Time":"01:00","AttendedClientID":83,"LicensePlate":"ABC123","MechanicID":69,"AssistantID":69}]
+[
+    {
+        "ID": 7,
+        "Date": "01/01/2020",
+        "Time": "01:00",
+        "AttendedClientID": 80,
+        "LicensePlate": "123A",
+        "MechanicID": 69,
+        "AssistantID": 69
+    },
+    {
+        "ID": 7,
+        "Date": "01/01/2020",
+        "Time": "01:00",
+        "AttendedClientID": 83,
+        "LicensePlate": "123B",
+        "MechanicID": 69,
+        "AssistantID": 69
+    },
+    {
+        "ID": 7,
+        "Date": "01/01/2020",
+        "Time": "01:00",
+        "AttendedClientID": 83,
+        "LicensePlate": "123A",
+        "MechanicID": 69,
+        "AssistantID": 69
+    },
+    {
+        "ID": 7,
+        "Date": "01/01/2020",
+        "Time": "01:00",
+        "AttendedClientID": 83,
+        "LicensePlate": "123A",
+        "MechanicID": 69,
+        "AssistantID": 69
+    },
+    {
+        "ID": 7,
+        "Date": "01/01/2020",
+        "Time": "01:00",
+        "AttendedClientID": 83,
+        "LicensePlate": "123B",
+        "MechanicID": 69,
+        "AssistantID": 69
+    }
+]
