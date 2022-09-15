@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   public loginForm = new FormGroup({
-    email : new FormControl('', Validators.required),
+    usuario : new FormControl('', Validators.required),
     password : new FormControl('', Validators.required)
   })
 
@@ -25,12 +25,11 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(form:any){
-    console.log(form);
     this.api.loginID(form).subscribe(data =>
       {
-        
+        console.log(form);
         console.log(data);
-        
+
         })
       }
   }

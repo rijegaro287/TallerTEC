@@ -26,4 +26,21 @@ export class ApiService {
     return this.http.get<ListaEmpleadosI[]>(direccion);
   }
 
+  addEmpleado(){
+    let direccion = this.url + "employee/add";
+    return this.http.post(direccion, {
+      "newEmployee": {
+          "ID": 26,
+          "Name": "Sashiia",
+          "LastName": "Varelan",
+          "Email": "shashia2@gmail.com",
+          "BirthDate": "01/01/1980",
+          "Age": 19,
+          "Position": "Bottom",
+          "StartingDate": "01/01/2020"
+          },
+      "password": "1234567"
+  });
+  }
+
 }
