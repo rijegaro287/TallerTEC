@@ -3,11 +3,13 @@ using Backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Cors;
 
 namespace Backend.Controllers;
 
 [ApiController]
 [Route("/")]
+[EnableCors("AllowAllOrigins")]
 public class LoginController : ControllerBase
 {
     [HttpPost]
@@ -17,14 +19,14 @@ public class LoginController : ControllerBase
         string email = loginInfo.email;
         string password = loginInfo.password;
 
+        Console.WriteLine(email);
+        Console.WriteLine(password);
+
         try
         {
             bool isValidPassword = false;
 
-
             isValidPassword = EmployeePassword.ValidatePassword(email, password);
-
-
 
             await GenerateCookieAsync(isValidPassword);
         }
@@ -54,9 +56,7 @@ public class LoginController : ControllerBase
     {
         if (isValidPassword)
         {
-            var claims = new List<Claim> {
-                    new Claim("userType", "employee")
-                };
+            var claims = new List<Claim> { new Claim("userType", "employee") };
             var identity = new ClaimsIdentity(claims, "AuthCookie");
             var principal = new ClaimsPrincipal(identity);
 

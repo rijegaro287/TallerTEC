@@ -6,7 +6,6 @@ namespace Backend.Controllers;
 
 [ApiController]
 [Route("appointment")]
-
 public class AppointmentController : ControllerBase
 {
     [HttpGet]

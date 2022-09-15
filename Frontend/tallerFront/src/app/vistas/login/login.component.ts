@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/servicios/api/api.service';
 import { LoginI } from 'src/app/modelos/login.interface';
 import { ResponseI } from 'src/app/modelos/response.interface';
@@ -12,25 +12,22 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   public loginForm = new FormGroup({
-    usuario : new FormControl('', Validators.required),
-    password : new FormControl('', Validators.required)
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
   })
 
-  constructor(private api:ApiService, private router:Router) { }
+  constructor(private api: ApiService, private router: Router) { }
 
-  errorStat:boolean = false;
-  errormsj:any = "";
+  errorStat: boolean = false;
+  errormsj: any = "";
 
   ngOnInit(): void {
   }
 
-  onLogin(form:any){
-    this.api.loginID(form).subscribe(data =>
-      {
-        console.log(form);
-        console.log(data);
-
-        })
-      }
+  onLogin(form: any) {
+    this.api.loginID(form).subscribe(data => {
+      console.log(data);
+    });
   }
+}
 

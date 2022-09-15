@@ -6,7 +6,6 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3"/>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
-    <PackageReference Include="Aspose.PDF" Version="22.8.0"/>
+    <PackageReference Include="Aspose.PDF" Version="22.9.0"/>
   </ItemGroup>
 </Project>
