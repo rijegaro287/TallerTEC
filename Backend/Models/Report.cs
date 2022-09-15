@@ -1,31 +1,27 @@
 namespace Backend.Models;
+
 public class Report
 {
-    // public Report(){}
-
-    public static void Sells(string fromDate, string toDate)
-    {
-        DateTime d1, d2;
-        if (DateTime.TryParse(fromDate, out d1) && DateTime.TryParse(toDate, out d2) && d2 <= d1)
-        {
+    public static Appointment[] SalesPerBranch(string fromDate, string toDate)
+    {   
+        DateTime DfromDate = Convert.ToDateTime(fromDate);
+        DateTime DtoDate = Convert.ToDateTime(toDate);
             Appointment[] allAppointments = Appointment.SelectAllAppointments();
             //leave only appointments between the dates
             Appointment[] appointmentsBetweenDates = allAppointments.Where(appointment => 
-                DateTime.Parse(appointment.Date) >= d1 &&
-                DateTime.Parse(appointment.Date) <= d2).ToArray();
-            
-            //get all bills between the dates
-            Bill[] allBills = Bill.selectAllBills();
-            Bill[] billsBetweenDates = allBills.Where(bill => 
-                appointmentsBetweenDates.Any(appointment => appointment.ID == bill.appointmentID)).ToArray();
-            
-            //Falta ordenarlo por sucursal
-
-        }
-        else
+                Convert.ToDateTime(fromDate) >= DfromDate &&
+                Convert.ToDateTime(toDate) <= DtoDate).ToArray();
+        
+        int[] appointmentsID = appointmentsBetweenDates.Select(appointment => appointment.ID).ToArray();
+        Bill[] billBetweenDates =  new Bill[appointmentsID.Length];
+        for(int i = 0; i < appointmentsID.Length; i++)
         {
-            Console.WriteLine("Invalid date format");
+            billBetweenDates[i] = Bill.selectBill(appointmentsBetweenDates[i].ID);
         }
+
+        //totalSalesPerBranch(billBetweenDates);
+        
+        return appointmentsBetweenDates;
     }
 
     public static Dictionary<string,int> TopFrequentVehicles()
@@ -77,4 +73,9 @@ public class Report
         }
         return mostFrequentClients;
     }
+
+    //private static totalSalesPerBranch(Bill[] billBetweenDates)
+    //{
+        
+    //}
 }

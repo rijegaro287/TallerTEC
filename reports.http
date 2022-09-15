@@ -1,4 +1,13 @@
 ###
+
+GET https://localhost:7279/report/sales_per_branch
+content-type: application/json
+
+{
+    "FromDate": "01-01-2020",
+    "ToDate": "01-04-2020"
+}
+###
 GET https://localhost:7279/report/get_top_clients
 
 ###

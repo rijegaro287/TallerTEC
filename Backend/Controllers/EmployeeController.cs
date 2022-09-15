@@ -38,7 +38,7 @@ public class EmployeeController : ControllerBase
 
     [HttpPost]
     [Route("add")]
-    [Authorize(Policy = "Employee")]
+    //[Authorize(Policy = "Employee")]
     public async void AddEmployee([FromBody] NewEmployeeInfo body)
     {
         Employee newEmployee = body.newEmployee;

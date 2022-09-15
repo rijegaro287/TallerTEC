@@ -8,6 +8,18 @@ namespace Backend.Controllers;
 [Route("report")]
 public class ReportController : ControllerBase
 {
+
+    [HttpGet]
+    [Route("sales_per_branch")]
+
+    public void SalesPerBranch([FromBody] DatesInfo dates)
+    {   
+        string fromDate = dates.FromDate;
+        string toDate = dates.ToDate;
+        Appointment[] appointmentsBetweenDates = Report.SalesPerBranch(fromDate, toDate);
+        Response.WriteAsJsonAsync(appointmentsBetweenDates);
+    }    
+    
     [HttpGet]
     [Route("get_top_clients")]
 
@@ -25,5 +37,17 @@ public class ReportController : ControllerBase
         // string[]? vehiclesPlates = Report.TopFrequentVehicles();
         Dictionary<string,int> vehiclesPlatesFrequency = Report.TopFrequentVehicles();
         Response.WriteAsJsonAsync(vehiclesPlatesFrequency);
+    }
+}
+
+public struct DatesInfo
+{
+    public string FromDate { get; set; }
+    public string ToDate { get; set; }
+
+    public DatesInfo(string fromDate, string toDate)
+    {
+        this.FromDate = fromDate;
+        this.ToDate = toDate;
     }
 }
