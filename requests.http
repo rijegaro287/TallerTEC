@@ -1,4 +1,5 @@
-POST https://localhost:7279/login
+
+POST https://localhost:8080/login
 content-type: application/json
 
 {
@@ -53,12 +54,12 @@ DELETE https://localhost:7279/employee/delete/1000
 
 ### ------------Client---------------
 
-GET https://localhost:7279/client/get_all
+GET https://localhost:8080/client/get_all
 
 ###
 GET https://localhost:7279/client/get/70
 ###
-POST https://localhost:7279/client/add
+POST https://localhost:8080/client/add
 content-type: application/json
 
 {

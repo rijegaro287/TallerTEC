@@ -34,16 +34,10 @@ export class LoginComponent implements OnInit {
   onLogin(form:any){
     this.api.loginID(form).subscribe(data =>
       {
+        console.log(form);
         console.log(data);
-        let dataResponse:ResponseI = data;
-        //if (dataResponse.status == "Ok"){
-          localStorage.setItem("token", dataResponse.result.token);
-          this.router.navigate(['mainmenu']);
-        //}else
-        //  this.errorStat = true;
-        //  this.errormsj = dataResponse.result.errormsj;
-        //}
-      });
+
+        })
+      }
   }
 
-}
