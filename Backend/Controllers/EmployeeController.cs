@@ -11,7 +11,7 @@ public class EmployeeController : ControllerBase
 {
     [HttpGet]
     [Route("get_all")]
-    [Authorize(Policy = "Employee")]
+    //[Authorize(Policy = "Employee")]
     public async void GetAllEmployees()
     {
         Employee[] employees = Employee.SelectAllEmployees();
@@ -20,7 +20,7 @@ public class EmployeeController : ControllerBase
 
     [HttpGet]
     [Route("get/{id}")]
-    [Authorize(Policy = "Employee")]
+    //[Authorize(Policy = "Employee")]
     public async void GetEmployee(int id)
     {
         Employee employee = Employee.SelectEmployee(id);
@@ -29,7 +29,7 @@ public class EmployeeController : ControllerBase
 
     [HttpGet]
     [Route("get_by_email/{email}")]
-    [Authorize(Policy = "Employee")]
+    //[Authorize(Policy = "Employee")]
     public async void GetEmployeeByEmail(string email)
     {
         Employee employee = Employee.SelectEmployee(email);
@@ -51,7 +51,7 @@ public class EmployeeController : ControllerBase
 
     [HttpPatch]
     [Route("update/{id}")]
-    [Authorize(Policy = "Employee")]
+    //[Authorize(Policy = "Employee")]
     public void UpdateEmployee(int id, [FromBody] Employee newEmployee)
     {
         if (Employee.UpdateEmployee(id, newEmployee))
@@ -66,7 +66,7 @@ public class EmployeeController : ControllerBase
 
     [HttpDelete]
     [Route("delete/{id}")]
-    [Authorize(Policy = "Employee")]
+    //[Authorize(Policy = "Employee")]
     public void DeleteEmployee(int id)
     {
         Employee.DeleteEmployee(id);

@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   public loginForm = new FormGroup({
-    usuario : new FormControl('', Validators.required),
+    email : new FormControl('', Validators.required),
     password : new FormControl('', Validators.required)
   })
 
@@ -25,18 +25,13 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(form:any){
+    console.log(form);
     this.api.loginID(form).subscribe(data =>
       {
+        
         console.log(data);
-        let dataResponse:ResponseI = data;
-        //if (dataResponse.status == "Ok"){
-          localStorage.setItem("token", dataResponse.result.token);
-          this.router.navigate(['mainmenu']);
-        //}else
-        //  this.errorStat = true;
-        //  this.errormsj = dataResponse.result.errormsj;
-        //}
-      });
+        
+        })
+      }
   }
 
-}

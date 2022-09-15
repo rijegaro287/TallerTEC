@@ -10,14 +10,14 @@ import { Observable} from 'rxjs';
 })
 export class ApiService {
 
-  url:string = "http://api.solodata.es/";
+  url:string = "https://localhost:3456/";
 
   constructor(private http:HttpClient) { }
 
-  loginID(form:LoginI):Observable<ResponseI>{
+  loginID(form:LoginI){
 
-    let direccion = this.url + "auth";
-    return this.http.post<ResponseI>(direccion, form);
+    let direccion = this.url + "login";
+    return this.http.post(direccion, form);
   }
 
   getAllEmpleados():Observable<ListaEmpleadosI[]>{

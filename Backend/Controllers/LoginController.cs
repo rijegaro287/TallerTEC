@@ -74,12 +74,10 @@ public struct LoginInfo
 {
     public string email { get; set; }
     public string password { get; set; }
-    public string userType { get; set; }
 
     public LoginInfo(string email, string password, string userType)
     {
         this.email = email;
         this.password = password;
-        this.userType = userType;
     }
 }
