@@ -9,13 +9,13 @@ import { Observable} from 'rxjs';
 })
 export class ApiService {
 
-  url:string = "http:://localhost:8080/"
+  url:string = "http://api.solodata.es/";
 
   constructor(private http:HttpClient) { }
 
   loginID(form:LoginI):Observable<ResponseI>{
 
-    let direccion = this.url + "login";
+    let direccion = this.url + "auth";
     return this.http.post<ResponseI>(direccion, form);
   }
 }

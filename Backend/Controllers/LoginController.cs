@@ -31,8 +31,7 @@ public class LoginController : ControllerBase
                     isValidPassword = ClientPassword.ValidatePassword(email, password);
                     break;
                 default:
-                    isValidPassword = EmployeePassword.ValidatePassword(email, password);
-                    break;
+                    throw new Exception("Tipo de usuario no válido");
             }
 
             await GenerateCookieAsync(isValidPassword, userType);
