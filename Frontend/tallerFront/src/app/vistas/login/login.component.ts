@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
-
+import { ApiService } from 'src/app/servicios/api/api.service';
+import { LoginI } from 'src/app/modelos/login.interface';
+import { ResponseI } from 'src/app/modelos/response.interface';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,18 +11,32 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm = new FormGroup({
+  public loginForm = new FormGroup({
     usuario : new FormControl('', Validators.required),
     password : new FormControl('', Validators.required)
   })
 
-  constructor() { }
+  constructor(private api:ApiService, private router:Router) { }
+
+  errorStat:boolean = false;
+  errormsj:any = "";
 
   ngOnInit(): void {
   }
 
-  onLogin(form: any){
-    console.log(form);
+  onLogin(form:any){
+    this.api.loginID(form).subscribe(data =>
+      {
+        console.log(data);
+        let dataResponse:ResponseI = data;
+        //if (dataResponse.status == "Ok"){
+          localStorage.setItem("token", dataResponse.result.token);
+          this.router.navigate(['mainmenu']);
+        //}else
+        //  this.errorStat = true;
+        //  this.errormsj = dataResponse.result.errormsj;
+        //}
+      });
   }
 
 }

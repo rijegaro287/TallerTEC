@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LoginI } from 'src/app/modelos/login.interface';
 import { ResponseI } from 'src/app/modelos/response.interface';
+import { ListaEmpleadosI } from 'src/app/modelos/listaempleados.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
 
@@ -9,11 +10,20 @@ import { Observable} from 'rxjs';
 })
 export class ApiService {
 
-  url:string = "http:://localhost:8080/"
+  url:string = "http://api.solodata.es/";
 
   constructor(private http:HttpClient) { }
 
   loginID(form:LoginI):Observable<ResponseI>{
 
+    let direccion = this.url + "auth";
+    return this.http.post<ResponseI>(direccion, form);
   }
+
+  getAllEmpleados():Observable<ListaEmpleadosI[]>{
+    let direccion = this.url + "employee/get_all";
+
+    return this.http.get<ListaEmpleadosI[]>(direccion);
+  }
+
 }
