@@ -22,23 +22,21 @@ export class LoginComponent implements OnInit {
   errormsj: any = "";
 
   ngOnInit(): void {
+
   }
 
-  checkLocalStorage(){
-    if (localStorage.getItem('token')){
+  checkLocalStorage() {
+    if (localStorage.getItem('token')) {
       this.router.navigate(['mainmenu'])
     }
-  
   }
-  
-  onLogin(form:any){
-    this.api.loginID(form).subscribe(data =>
-      {
-        console.log(form);
-        console.log(data);
 
-        })
-      }
+  onLogin(form: any) {
+    this.api.loginID(form).subscribe(data => {
+      console.log(form);
+      console.log(data);
+
+    });
   }
 }
 
