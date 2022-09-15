@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
     this.api.loginID(form).subscribe(data => {
       console.log(form);
       console.log(data);
-
     });
   }
 }
