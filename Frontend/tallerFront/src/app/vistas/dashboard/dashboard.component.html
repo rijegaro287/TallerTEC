@@ -1,1 +1,33 @@
-<p>dashboard works!</p>
+<app-header></app-header>
+<div class = "container">
+    <h3> Gestión de Empleados</h3>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="nuevoEmpleado()">Nuevo Empleado</button>
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Birth</th>
+            <th scope="col">Age</th>
+            <th scope="col">Position</th>
+            <th scope="col">Start Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let empleado of empleados" (click)="editarEmpleado(empleado.ID)">
+            <th scope="row">{{empleado.ID}}</th>
+            <td>{{empleado.Name}}</td>
+            <td>{{empleado.LastName}}</td>
+            <td>{{empleado.email}}</td>
+            <td>{{empleado.birth}}</td>
+            <td>{{empleado.age}}</td>
+            <td>{{empleado.position}}</td>
+            <td>{{empleado.startDate}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<app-footer></app-footer>
