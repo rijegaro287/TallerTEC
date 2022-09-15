@@ -13,8 +13,20 @@ export class MainmenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  gestion(){
+  gestionEmpleado(){
+    this.router.navigate(['dashboard']);
+  }
+
+  gestionCliente(){
+    this.router.navigate(['dashboard']);
+  }
+
+  gestionCitas(){
     this.router.navigate(['dashboard']);
   }
   
+  gestionFacturacion(){
+    this.router.navigate(['dashboard']);
+  }
+
 }

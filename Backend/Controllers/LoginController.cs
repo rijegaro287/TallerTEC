@@ -16,25 +16,17 @@ public class LoginController : ControllerBase
     {
         string email = loginInfo.email;
         string password = loginInfo.password;
-        string userType = loginInfo.userType;
 
         try
         {
             bool isValidPassword = false;
 
-            switch (userType)
-            {
-                case "employee":
-                    isValidPassword = EmployeePassword.ValidatePassword(email, password);
-                    break;
-                case "client":
-                    isValidPassword = ClientPassword.ValidatePassword(email, password);
-                    break;
-                default:
-                    throw new Exception("Tipo de usuario no válido");
-            }
 
-            await GenerateCookieAsync(isValidPassword, userType);
+            isValidPassword = EmployeePassword.ValidatePassword(email, password);
+
+
+
+            await GenerateCookieAsync(isValidPassword);
         }
         catch (System.Exception error)
         {
@@ -58,12 +50,12 @@ public class LoginController : ControllerBase
         }
     }
 
-    private async Task GenerateCookieAsync(bool isValidPassword, string userType)
+    private async Task GenerateCookieAsync(bool isValidPassword)
     {
         if (isValidPassword)
         {
             var claims = new List<Claim> {
-                    new Claim("userType", userType)
+                    new Claim("userType", "employee")
                 };
             var identity = new ClaimsIdentity(claims, "AuthCookie");
             var principal = new ClaimsPrincipal(identity);

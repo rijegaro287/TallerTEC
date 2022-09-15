@@ -41,6 +41,7 @@ public class EmployeeController : ControllerBase
     [Authorize(Policy = "Employee")]
     public async void AddEmployee([FromBody] NewEmployeeInfo body)
     {
+        Console.WriteLine(body.newEmployee);
         Employee newEmployee = body.newEmployee;
         string password = body.password;
 
