@@ -16,8 +16,10 @@ public class ReportController : ControllerBase
     {   
         string fromDate = dates.FromDate;
         string toDate = dates.ToDate;
-        Appointment[] appointmentsBetweenDates = Report.SalesPerBranch(fromDate, toDate);
-        Response.WriteAsJsonAsync(appointmentsBetweenDates);
+        Dictionary<int,int> salesPerBranch = Report.SalesPerBranch(fromDate, toDate);
+        // Bill[] salesPerBranch = Report.SalesPerBranch(fromDate, toDate);
+        // List<Bill> salesPerBranch = Report.SalesPerBranch(fromDate, toDate);
+        Response.WriteAsJsonAsync(salesPerBranch);
     }    
     
     [HttpGet]

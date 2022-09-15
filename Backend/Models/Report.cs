@@ -2,7 +2,9 @@ namespace Backend.Models;
 
 public class Report
 {
-    public static Appointment[] SalesPerBranch(string fromDate, string toDate)
+    public static Dictionary<int,int> SalesPerBranch(string fromDate, string toDate)
+    // public static Bill[] SalesPerBranch(string fromDate, string toDate)
+    // public static List<Bill> SalesPerBranch(string fromDate, string toDate)
     {   
         DateTime DfromDate = Convert.ToDateTime(fromDate);
         DateTime DtoDate = Convert.ToDateTime(toDate);
@@ -13,15 +15,21 @@ public class Report
                 Convert.ToDateTime(toDate) <= DtoDate).ToArray();
         
         int[] appointmentsID = appointmentsBetweenDates.Select(appointment => appointment.ID).ToArray();
-        Bill[] billBetweenDates =  new Bill[appointmentsID.Length];
+        // Bill[]? billBetweenDates =  new Bill[appointmentsID.Length];
+        // Bill[]? billBetweenDates =  new Bill[Bill.selectAllBills().Length];
+        List<Bill> billBetweenDates = new List<Bill>();
         for(int i = 0; i < appointmentsID.Length; i++)
         {
-            billBetweenDates[i] = Bill.selectBill(appointmentsBetweenDates[i].ID);
+            Bill bill = Bill.selectBill(appointmentsID[i]);
+            if(bill != null)
+            {
+                billBetweenDates.Add(bill);
+            }
         }
-
-        //totalSalesPerBranch(billBetweenDates);
+        // return billBetweenDates;
+        Dictionary<int, int> salesPerBranch = totalSalesPerBranch(billBetweenDates);
         
-        return appointmentsBetweenDates;
+        return salesPerBranch;
     }
 
     public static Dictionary<string,int> TopFrequentVehicles()
@@ -74,8 +82,21 @@ public class Report
         return mostFrequentClients;
     }
 
-    //private static totalSalesPerBranch(Bill[] billBetweenDates)
-    //{
-        
-    //}
+    // private static Dictionary<int, int> totalSalesPerBranch(Bill[] billBetweenDates)
+    private static Dictionary<int, int> totalSalesPerBranch(List<Bill> billBetweenDates)
+    {
+        Dictionary<int, int> salesPerBranch = new Dictionary<int, int>();
+        foreach (Bill bill in billBetweenDates)
+        {
+            if (salesPerBranch.ContainsKey(bill.branchID))
+            {
+                salesPerBranch[bill.branchID] += bill.totalPrice;
+            }
+            else
+            {
+                salesPerBranch.Add(bill.branchID, bill.totalPrice);
+            }
+        }
+        return salesPerBranch;
+    }
 }

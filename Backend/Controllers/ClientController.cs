@@ -57,24 +57,6 @@ public class ClientController : ControllerBase
         Client.DeleteClient(id);
         Response.WriteAsJsonAsync(new { message = "Client deleted" });
     }
-
-    // [HttpPatch]
-    // [Route("change_password/{email}")]
-    // // public void ChangePassword(string email, [FromBody] string oldPassword, string newPassword, string confirmPassword)
-    // public void ChangePassword(string email, [FromBody] Passwords passwords)
-    // {
-    //     string oldPassword = passwords.oldPassword;
-    //     string newPassword = passwords.newPassword;
-    //     string confirmPassword = passwords.confirmPassword;
-    //     if (Client.UpdatePassword(email, oldPassword, newPassword, confirmPassword))
-    //     {
-    //         Response.WriteAsJsonAsync(new { message = "Password changed" });
-    //     }
-    //     else
-    //     {
-    //         Response.WriteAsJsonAsync(new { message = "Password not changed" });
-    //     }
-    // }
 }
 
 public struct NewClientInfo
