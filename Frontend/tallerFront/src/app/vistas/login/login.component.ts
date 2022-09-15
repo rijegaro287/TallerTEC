@@ -24,6 +24,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  checkLocalStorage(){
+    if (localStorage.getItem('token')){
+      this.router.navigate(['mainmenu'])
+    }
+  
+  }
+  
   onLogin(form:any){
     this.api.loginID(form).subscribe(data =>
       {
