@@ -37,6 +37,7 @@ public class Report
         Appointment [] allAppointments = Appointment.SelectAllAppointments();
         string[] allLicensePlates = allAppointments.Select(appointment => appointment.LicensePlate).ToArray();
         Dictionary<string, int> mostFrequentVehicles = getMostFrequentVehicles(allLicensePlates);
+        HandlerPDF.buildTopVehiclesPDF("Top Vehiculos", mostFrequentVehicles);
         return mostFrequentVehicles;
 
     }

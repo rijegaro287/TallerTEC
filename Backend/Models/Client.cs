@@ -86,31 +86,6 @@ public class Client : Person
         JSONFiles.WriteOverJSONFile<Client>(allClients, table_path);
     }
 
-    // public static bool UpdatePassword(string email, string oldPassword, string newPassword, string confirmPassword)
-    // {
-    //     bool wasUpdated = false;
-    //     Client[] allClients = JSONFiles.ReadJSONFile<Client[]>(table_path);
-    //     Client client = allClients.FirstOrDefault(client => client.Email == email);
-    //     if (client != null)
-    //     {
-    //         if (client.UpdatePassword(oldPassword, newPassword, confirmPassword))
-    //         {
-    //             allClients[Array.IndexOf(allClients, client)] = client;
-    //             JSONFiles.WriteOverJSONFile<Client>(allClients, table_path);
-    //             wasUpdated = true;
-    //         }
-    //     }
-    //     return wasUpdated;
-    // }
-
-    // public static void UpdateSpent(int Id, int TotalSpent)
-    // {
-    //     Client client = SelectClient(Id);
-    //     client.TotalSpent += TotalSpent;
-
-    //     UpdateClient(Id, client);
-    // }
-
     private static string GenerateRandomPassword()
     {
         int passwordLength = 12;
