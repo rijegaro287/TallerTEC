@@ -105,22 +105,5 @@ public class Appointment
 
         return newBill;
     }
-
-    // int branchID = appointment.BranchID;
-    // int servicePrice = 1000;
-    // int partsPrice = 1000;
-    // int totalPrice = servicePrice + partsPrice;
-
-    // Bill bill = new Bill(
-    //     appointment.ID,
-    //     branchID,
-    //     servicePrice,
-    //     partsPrice);
-    // Bill.AddBill(bill);
-
-    // int clientID = appointment.AttendedClientID;
-    // Client.UpdateSpent(clientID, totalPrice);
-
-    // return bill;
 }
 
