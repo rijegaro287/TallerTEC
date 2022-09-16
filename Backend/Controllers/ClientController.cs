@@ -10,6 +10,9 @@ namespace Backend.Controllers;
 [EnableCors("AllowAllOrigins")]
 public class ClientController : ControllerBase
 {
+    /// <summary>
+    /// Sends all clients to the frontend.
+    /// </summary>
     [HttpGet]
     [Route("get_all")]
     // [Authorize(Policy = "Employee")]
@@ -19,6 +22,10 @@ public class ClientController : ControllerBase
         Response.WriteAsJsonAsync(clients);
     }
 
+    /// <summary>
+    /// Sends an clients to the frontend.
+    /// </summary>
+    /// <param name="id">The id of the client to send.</param>
     [HttpGet]
     [Route("get/{id}")]
     // [Authorize(Policy = "Employee")]
@@ -28,6 +35,10 @@ public class ClientController : ControllerBase
         Response.WriteAsJsonAsync(client);
     }
 
+    /// <summary>
+    /// Creates an client.
+    /// </summary>
+    /// <param name="newClient">The client to create.</param>
     [HttpPost]
     [Route("add")]
     //[Authorize(Policy = "Employee")]
@@ -44,6 +55,11 @@ public class ClientController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Updates a client
+    /// </summary>
+    /// <param name="id">The id of the appointment to send.</param>
+    /// <param name="newClient">The client to update.</param>
     [HttpPatch]
     [Route("update/{id}")]
     //[Authorize(Policy = "Employee")]
@@ -59,6 +75,10 @@ public class ClientController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Deletes a client.
+    /// </summary>
+    /// <param name="id">The id of the client to delete.</param>
     [HttpDelete]
     [Route("delete/{id}")]
     //[Authorize(Policy = "Employee")]

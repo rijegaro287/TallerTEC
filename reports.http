@@ -8,8 +8,8 @@ content-type: application/json
     "ToDate": "01-04-2020"
 }
 ###
-GET https://localhost:3456/report/get_top_clients
+GET https://localhost:7279/report/get_top_clients
 
 ###
 
-GET https://localhost:3456/report/get_top_vehicles
+GET https://localhost:7279/report/get_top_vehicles

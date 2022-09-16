@@ -2,6 +2,9 @@ using Backend.Helpers;
 
 namespace Backend.Models;
 
+///<summary>
+/// Represents a client.
+///</summary>
 public class Client : Person
 {
     private static string table_path = "DB/Client.json";
@@ -23,7 +26,10 @@ public class Client : Person
         this.PhoneNumber = PhoneNumber;
         this.Address = Address;
     }
-
+    ///<summary>
+    /// Returns a client
+    ///</summary>
+    ///<param name="clientID">The ID of the client to be selected.</param>
     public static Client SelectClient(int id)
     {
         Client[] allClients = JSONFiles.ReadJSONFile<Client[]>(table_path);
@@ -31,6 +37,10 @@ public class Client : Person
         return client;
     }
 
+    ///<summary>
+    /// Selects a client by email.
+    ///</summary>
+    ///<parma name="email">The email of the client to be selected.</param>
     public static Client SelectClient(string email)
     {
         Client[] allClients = JSONFiles.ReadJSONFile<Client[]>(table_path);
@@ -38,12 +48,18 @@ public class Client : Person
         return client;
     }
 
+    ///<summary>
+    /// Selects all clients.
+    ///</summary>
     public static Client[] SelectAllClients()
     {
         Client[] allClients = JSONFiles.ReadJSONFile<Client[]>(table_path);
         return allClients;
     }
 
+    ///<summary>
+    /// Inserts a client.
+    ///</summary>
     public static async Task InsertClientAsync(Client newClient)
     {
         string randomPassword = GenerateRandomPassword();
@@ -61,6 +77,11 @@ public class Client : Person
         JSONFiles.WriteJSONFile<ClientPassword>(employeePassword, password_table_path);
     }
 
+    ///<summary>
+    /// Updates a client.
+    ///</summary>
+    ///<param name="ID">The ID of the client to be updated.</param>
+    ///<param name="newClient">The new client.</param>
     public static bool UpdateClient(int ID, Client newClient)
     {
         bool wasUpdated = false;
@@ -75,6 +96,10 @@ public class Client : Person
         return wasUpdated;
     }
 
+    ///<summary>
+    /// Deletes a client.
+    ///</summary>
+    ///<param name="ID">The ID of the client to be deleted.</param>
     public static void DeleteClient(int ID)
     {
         Client[] allClients = JSONFiles.ReadJSONFile<Client[]>(table_path);
@@ -86,6 +111,9 @@ public class Client : Person
         JSONFiles.WriteOverJSONFile<Client>(allClients, table_path);
     }
 
+    ///<summary>
+    /// Generates a random password.
+    ///</summary>
     private static string GenerateRandomPassword()
     {
         int passwordLength = 12;

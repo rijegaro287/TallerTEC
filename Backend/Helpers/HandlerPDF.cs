@@ -1,6 +1,9 @@
 using IronPdf;
 namespace Backend.Models;
 
+/// <summary>
+/// Class for creating PDF files.
+/// </summary>
 public class HandlerPDF
 {
     // private string topClient = ""
@@ -8,6 +11,11 @@ public class HandlerPDF
     private static string header = "<center><i>TALLER TEC. {date} at {time}<i></center>";
     // private string beforeBody = 
 
+    /// <summary>
+    /// Creates a PDF file.
+    /// </summary>
+    /// <param name="text">The text to write in the PDF file.</param>
+    /// <param name="filename">The name of the PDF file.</param>
     private static void GeneratePDF(string text, string filename)
     {
         //PDF render
@@ -33,12 +41,19 @@ public class HandlerPDF
         PDF.SaveAs($"Reports/{filename}");
     }
 
-
+    /// <summary>
+    /// Text into HTML string
+    /// </summary>
+    /// <param name="title">The title of the PDF file.</param>
     private static string makeTitle(string title)
     {
         return "<h1><center>" + title + "</center></h1>";
     }
 
+    /// <summary>
+    /// Builds the body of the PDF Top Vehicles.
+    /// </summary>
+    /// <param name="topVehicles">The top vehicles to write in the PDF file.</param>
     private static string buildTopVehiclesBody(Dictionary<string, int> topVehicles)
     {
         string body = "<p>A continuación, se muestra, de forma descendente, la placa de los vehículos que más frecuentan TallerTec, junto a la cantidad de veces que han sido atendidos en el taller.";
@@ -50,6 +65,11 @@ public class HandlerPDF
         return body;
     }
 
+
+    /// <summary>
+    /// Builds the body of the PDF Top Clients.
+    /// </summary>
+    /// <param name="topClients">The top Clients to write in the PDF file.</param>
     private static string buildTopClientsBody(Dictionary<int, int> topClients)
     {
         string body = "<p>A continuación, se muestra, de forma descendente, los clientes que más frecuentan TallerTec, junto a la cantidad de veces que han sido atendidos en el taller.";
@@ -61,6 +81,12 @@ public class HandlerPDF
         return body;
     }
 
+    /// <summary>
+    /// Builds the body of the sales per branch.
+    /// </summary>
+    /// <param name="salesPerBranch">The sales per branch to write in the PDF file.</param>
+    /// <param name="fromDate">The start date of the sales.</param>
+    /// <param name="toDate">The end date of the sales.</param>
     private static string buildSalesPerBranchBody(string fromDate, string toDate, Dictionary<int, int> salesPerBranch)
     {
         string body = "<p>A continuación, se muestra, de forma descendente, la sucursal que más ventas ha realizado entre el " + fromDate + " y el " + toDate + ", junto a la cantidad de ventas realizadas.";
@@ -72,6 +98,11 @@ public class HandlerPDF
         return body;
     }
 
+    /// <summary>
+    /// Builds the body of the top most frequent vehicles
+    /// </summary>
+    /// <param name="topVehicles">The top vehicles to write in the PDF file.</param>
+    /// <param name="title">The title of the PDF file.</param>
     public static void buildTopVehiclesPDF(string title, Dictionary<string, int> topVehicles)
     {
         string filename = "TopVehicles.pdf";
@@ -83,6 +114,11 @@ public class HandlerPDF
         GeneratePDF(text, filename);
     }
 
+    /// <summary>
+    /// Builds the body of the top most frequent clients
+    /// </summary>
+    /// <param name="topClients">The top clients to write in the PDF file.</param>
+    /// <param name="title">The title of the PDF file.</param>
     public static void bulidTopClientsPDF(string title, Dictionary<int, int> topClients)
     {
         string filename = "TopClients.pdf";
