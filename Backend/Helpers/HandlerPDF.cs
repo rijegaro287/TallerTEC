@@ -29,7 +29,7 @@ public class HandlerPDF
             };
         
         using var PDF = Renderer.RenderHtmlAsPdf(text);        
-    
+
         PDF.SaveAs(filename);
     }
 

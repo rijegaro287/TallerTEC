@@ -14,32 +14,42 @@ public class ReportController : ControllerBase
     [HttpGet]
     [Route("sales_per_branch")]
 
-    public void SalesPerBranch([FromBody] DatesInfo dates)
+    public async Task SalesPerBranch([FromBody] DatesInfo dates)
     {
         string fromDate = dates.FromDate;
         string toDate = dates.ToDate;
-        Dictionary<int,int> salesPerBranch = Report.SalesPerBranch(fromDate, toDate);
-        // Bill[] salesPerBranch = Report.SalesPerBranch(fromDate, toDate);
-        // List<Bill> salesPerBranch = Report.SalesPerBranch(fromDate, toDate);
-        Response.WriteAsJsonAsync(salesPerBranch);
+        Report.SalesPerBranch(fromDate, toDate);
+        string filePath = "SalesPerBranch.pdf";
+        await Response.SendFileAsync(filePath);
+    }    
+
+    [HttpGet]
+    [Route("sales_per_branch2")]
+
+    public async Task SalesPerBranch2()
+    {
+        string filePath = "SalesPerBranch.pdf";
+        await Response.SendFileAsync(filePath);
     }    
     
     [HttpGet]
     [Route("get_top_clients")]
 
-    public void geTopClients()
+    public async Task geTopClients()
     {
-        Dictionary<int, int> clients = Report.TopFrequentClients();
-        Response.WriteAsJsonAsync(clients);
+        Report.TopFrequentClients();
+        // Response.WriteAsJsonAsync(clients);
+        string filePath = "TopClients.pdf";
+        await Response.SendFileAsync(filePath);
     }
 
     [HttpGet]
     [Route("get_top_vehicles")]
-
-    public void geTopVehicles()
+    public async Task geTopVehicles()
     {
-        Dictionary<string, int> vehiclesPlatesFrequency = Report.TopFrequentVehicles();
-        Response.WriteAsJsonAsync(vehiclesPlatesFrequency);
+        Report.TopFrequentVehicles();
+        string filePath = "TopVehicles.pdf";
+        await Response.SendFileAsync(filePath);
     }
 }
 

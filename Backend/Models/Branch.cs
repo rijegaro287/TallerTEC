@@ -2,6 +2,9 @@ using Backend.Helpers;
 
 namespace Backend.Models;
 
+///<summary>
+/// Represents a branch from the company.
+///</summary>
 public class Branch
 {
     private static string table_path = "DB/Branch.json";

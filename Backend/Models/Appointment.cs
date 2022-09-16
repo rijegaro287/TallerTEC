@@ -1,7 +1,8 @@
 using Backend.Helpers;
 
 namespace Backend.Models;
-
+///
+/// This class represents an appointment in the system.
 public class Appointment
 {
     private static string table_path = "DB/Appointment.json";
@@ -41,6 +42,10 @@ public class Appointment
         this.NecessaryParts = NecessaryParts;
     }
 
+    /// <summary>
+    /// This method selects an appointment from the database.
+    /// </summary>
+    /// <param name="ID">The ID of the appointment to be selected.</param>
     public static Appointment SelectAppointment(int ID)
     {
         Appointment[] allAppointments = JSONFiles.ReadJSONFile<Appointment[]>(table_path);
@@ -48,18 +53,28 @@ public class Appointment
         return appointment;
     }
 
+    /// <summary>
+    /// This method selects all appointments from the database.
+    /// </summary>
     public static Appointment[] SelectAllAppointments()
     {
         Appointment[] allAppointments = JSONFiles.ReadJSONFile<Appointment[]>(table_path);
         return allAppointments;
     }
 
-    // !Return bool
+    /// <summary>
+    /// This method inserts an appointment into the database.
+    /// </summary>
     public static void InsertAppointment(Appointment newAppointment)
     {
         JSONFiles.WriteJSONFile<Appointment>(newAppointment, table_path);
     }
 
+    /// <summary>
+    /// This method updates an appointment in the database.
+    /// </summary>
+    /// <param name="ID">The ID of the appointment to be updated.</param>
+    /// <param name="newAppointment">The appointment with new data.</param>
     public static bool UpdateAppointment(int ID, Appointment newAppointment)
     {
         bool wasUpdated = false;
@@ -74,6 +89,10 @@ public class Appointment
         return wasUpdated;
     }
 
+    /// <summary>
+    /// This method deletes an appointment from the database.
+    /// </summary>
+    /// <param name="ID">The ID of the appointment to be deleted.</param>
     public static void DeleteAppointment(int ID)
     {
         Appointment[] allAppointments = JSONFiles.ReadJSONFile<Appointment[]>(table_path);
@@ -82,6 +101,10 @@ public class Appointment
         JSONFiles.WriteOverJSONFile<Appointment>(newAppointments, table_path);
     }
 
+    /// <summary>
+    /// This method generates a Bill for an appointment.
+    /// </summary>
+    /// <param name="ID">The ID of the appointment to be billed.</param>
     public static Bill GenerateBill(int ID)
     {
         Appointment appointment = SelectAppointment(ID);
