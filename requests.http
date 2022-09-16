@@ -12,7 +12,7 @@ GET https://localhost:7279/employee/get/69
 
 ###
 
-GET https://localhost:7279/employee/get_all
+GET https://localhost:8080/employee/get_all
 
 ###
 
