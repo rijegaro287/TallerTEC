@@ -6,27 +6,27 @@
         <button class="col btn btn-lg btn-purple-moon btn-rounded" (click)="nuevoCliente()">Nuevo Cliente</button>
     </div>
     <br>
-    <table class="table table-dark table-hover">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Phone number</th>
-                <th scope="col">Address</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let cliente of clientes" (click)="editarCliente(cliente.id)">
-                <th scope="row">{{cliente.id}}</th>
-                <td>{{cliente.name}}</td>
-                <td>{{cliente.lastName}}</td>
-                <td>{{cliente.email}}</td>
-                <td>{{cliente.phoneNumber}}</td>
-                <td>{{cliente.address}}</td>
-            </tr>
-        </tbody>
-    </table>
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone number</th>
+            <th scope="col">Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cliente of clientes" (click)="editarCliente(cliente.id)">
+            <th scope="row">{{cliente.id}}</th>
+            <td>{{cliente.name}}</td>
+            <td>{{cliente.lastName}}</td>
+            <td>{{cliente.email}}</td>
+            <td>{{cliente.phoneNumber}}</td>
+            <td>{{cliente.address}}</td>
+        </tr>
+    </tbody>
+</table>
 </div>
 <app-footer></app-footer>
