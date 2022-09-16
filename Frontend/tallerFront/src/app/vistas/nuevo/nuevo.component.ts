@@ -28,7 +28,7 @@ export class NuevoComponent implements OnInit {
   }
 
   postForm(form:any){
-    S
+    this.api.addEmpleado();
   }
 
   salir(){
