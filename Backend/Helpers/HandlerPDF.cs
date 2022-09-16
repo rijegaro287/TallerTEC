@@ -141,7 +141,7 @@ public class HandlerPDF
         GeneratePDF(text, filename);
     }
 
-    public static Bill buildBillPDF(Appointment appointment)
+    public static void buildBillPDF(Appointment appointment)
     {
         Client attendedClient = Client.SelectClient(appointment.AttendedClientID);
         Employee mechanic = Employee.SelectEmployee(appointment.MechanicID);
@@ -169,7 +169,7 @@ public class HandlerPDF
                     </style>
                 </head>
                 <body>
-                    <h1><center>Factura</center></h1>
+                    <h1><center>Factura #" + appointment.ID + @"</center></h1>
                     <p>Fecha: " + appointment.Date + @"</p>
                     <p>Hora: " + appointment.Time + @"</p>
                     <p>Cliente: " + attendedClient.Name + @"</p>
@@ -196,15 +196,14 @@ public class HandlerPDF
                 </body>
         ";
 
-        GeneratePDF(billHTML, "Bill.pdf");
-
         Bill newBill = new Bill(
             appointment.ID,
             branch.ID,
             requiredService.Price,
-            necessaryParts.Sum(product => product.Price)
+            partsPrice
         );
+        Bill.InsertBill(newBill);
 
-        return newBill;
+        GeneratePDF(billHTML, "Bill.pdf");
     }
 }

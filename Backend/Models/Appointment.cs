@@ -109,8 +109,7 @@ public class Appointment
     {
         Appointment appointment = SelectAppointment(ID);
 
-        Bill newBill = HandlerPDF.buildBillPDF(appointment);
-        Bill.InsertBill(newBill);
+        HandlerPDF.buildBillPDF(appointment);
     }
 }
 
