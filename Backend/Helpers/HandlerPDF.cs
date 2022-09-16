@@ -184,7 +184,7 @@ public class HandlerPDF
                         " + string.Join("\n", necessaryParts.Select(part =>
                             "<li>" +
                                 "<div>" +
-                                    "<p>Nombre del repuesto: " + part.Price + @"</p>" +
+                                    "<p>Nombre del repuesto: " + part.Name + @"</p>" +
                                     "<p>Marca: " + part.Brand + @"</p>" +
                                     "<p>Precio: " + part.Price + @"</p>" +
                                 "</div>" +
@@ -196,11 +196,7 @@ public class HandlerPDF
                 </body>
         ";
 
-        var Renderer = new IronPdf.ChromePdfRenderer();
-
-        var PDF = Renderer.RenderHtmlAsPdf(billHTML);
-
-        PDF.SaveAs("Reports/Bill.pdf");
+        GeneratePDF(billHTML, "Bill.pdf");
         // Bill newBill = new Bill(
         //     appointment.ID,
         //     branch.ID,

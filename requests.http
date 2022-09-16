@@ -76,7 +76,7 @@ content-type: application/json
     "password": "123456"
 }
 ###
-PATCH  https://localhost:7279/client/update/83
+PATCH  https://localhost:7279/client/update/1
 content-type: application/json
 
 {
@@ -116,16 +116,17 @@ POST https://localhost:7279/appointment/add
 content-type: application/json
 
 {
-    "ID": 7,
+    "ID": 30,
     "Date": "01/01/2020",
     "Time": "01:00",
     "AttendedClientID": 83,
-    "SelectedBranch": 32,
+    "BranchID": 32,
     "LicensePlate": "ABC123",
     "SelectedBranch": 69,
-    "RequiredService": "Lavado",
+    "RequiredService": 1,
     "MechanicID": 69,
-    "AssistantID": 69
+    "AssistantID": 69,
+    "NecessaryParts": []
 }
 
 ###
@@ -134,21 +135,22 @@ PATCH  https://localhost:7279/appointment/update/7
 content-type: application/json
 
 {
-    "ID": 15,
+    "ID": 30,
     "Date": "01/01/2020",
     "Time": "01:00",
-    "AttendedClientID": 69,
-    "SelectedBranch": 32,
+    "AttendedClientID": 83,
+    "BranchID": 32,
     "LicensePlate": "ABC123",
     "SelectedBranch": 69,
-    "RequiredService": "Lavado",
+    "RequiredService": 1,
     "MechanicID": 69,
-    "AssistantID": 69
+    "AssistantID": 69,
+    "NecessaryParts": []
 }
 
 ###
 DELETE  https://localhost:7279/appointment/delete/15
 
 ###
-GET https://localhost:3456/appointment/generate_bill/2
+GET https://localhost:7279/appointment/generate_bill/2
 
