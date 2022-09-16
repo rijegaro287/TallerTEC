@@ -7,10 +7,10 @@ import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-nuevo',
-  templateUrl: './nuevo.component.html',
-  styleUrls: ['./nuevo.component.css']
+  templateUrl: './nuevo3.component.html',
+  styleUrls: ['./nuevo3.component.css']
 })
-export class NuevoComponent implements OnInit {
+export class NuevoComponent3 implements OnInit {
 
   constructor(private activerouter:ActivatedRoute, private router:Router, private api:ApiService) { }
     infoStat: boolean = false;
