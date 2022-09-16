@@ -102,9 +102,17 @@ public class Client : Person
     ///<param name="ID">The ID of the client to be deleted.</param>
     public static void DeleteClient(int ID)
     {   
-        
-        Client[] allClients = JSONFiles.ReadJSONFile<Client[]>(table_path);
-        Client client = allClients.FirstOrDefault(client => client.ID == ID);
+        //Delete appointments with the client
+        Appointment[] allAppointments = Appointment.SelectAllAppointments();
+        Appointment[] appointmentsWithClient = allAppointments.Where(appointment => appointment.AttendedClientID == ID).ToArray();
+        foreach (Appointment appointment in appointmentsWithClient)
+        {
+            Appointment.DeleteAppointment(appointment.ID);
+        }
+
+        //Delete client
+        Client[] allClients = Client.SelectAllClients();
+        Client client = Client.SelectClient(ID);
         if (client != null)
         {
             allClients = allClients.Where(client => client.ID != ID).ToArray();

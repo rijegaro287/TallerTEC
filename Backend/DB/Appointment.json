@@ -14,5 +14,20 @@
             2,
             6
         ]
+    },
+    {
+        "ID": 2,
+        "Date": "01/01/2020",
+        "Time": "01:00",
+        "AttendedClientID": 2,
+        "LicensePlate": "ABC123",
+        "BranchID": 2,
+        "RequiredService": 2,
+        "MechanicID": 3,
+        "AssistantID": 2,
+        "NecessaryParts": [
+            3,
+            5
+        ]
     }
 ]
