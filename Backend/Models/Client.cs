@@ -53,10 +53,12 @@ public class Client : Person
         ClientPassword employeePassword = new ClientPassword(newClient.ID,
                                                              hashedPassword);
 
-        await EmailSender.SendEmailAsync(newClient.Name,
-                                         newClient.Email,
-                                         "TallerTEC - Password",
-                                         $"Your password is: {randomPassword}");
+        // await EmailSender.SendEmailAsync(newClient.Name,
+        //                                  newClient.Email,
+        //                                  "TallerTEC - Password",
+        //                                  $"Your password is: {randomPassword}");
+
+        Console.WriteLine($"contraseña aleatoria: {randomPassword}");
 
         JSONFiles.WriteJSONFile<Client>(newClient, table_path);
         JSONFiles.WriteJSONFile<ClientPassword>(employeePassword, password_table_path);
