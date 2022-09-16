@@ -85,24 +85,42 @@ public class Appointment
     public static Bill GenerateBill(int ID)
     {
         Appointment appointment = SelectAppointment(ID);
-        int branchID = appointment.BranchID;
-        int servicePrice = 1000;
-        int partsPrice = 1000;
-        int totalPrice = servicePrice + partsPrice;
 
-        Bill bill = new Bill(
+        Client attendedClient = Client.SelectClient(appointment.AttendedClientID);
+        Employee mechanic = Employee.SelectEmployee(appointment.MechanicID);
+        Employee assistant = Employee.SelectEmployee(appointment.AssistantID);
+        Branch branch = Branch.SelectBranch(appointment.BranchID);
+        Service requiredService = Service.SelectService(appointment.RequiredService);
+        Product[] necessaryParts = appointment.NecessaryParts
+            .Select(productID => Product.SelectProduct(productID)).ToArray<Product>();
+
+        Bill newBill = new Bill(
             appointment.ID,
-            branchID,
-            servicePrice,
-            partsPrice);
-        Bill.AddBill(bill);
+            branch.ID,
+            requiredService.Price,
+            necessaryParts.Sum(product => product.Price)
+        );
 
-        int clientID = appointment.AttendedClientID;
-        // Client.UpdateSpent(clientID, totalPrice);
+        Bill.InsertBill(newBill);
 
-        return bill;
-
+        return newBill;
     }
-}
 
+    // int branchID = appointment.BranchID;
+    // int servicePrice = 1000;
+    // int partsPrice = 1000;
+    // int totalPrice = servicePrice + partsPrice;
+
+    // Bill bill = new Bill(
+    //     appointment.ID,
+    //     branchID,
+    //     servicePrice,
+    //     partsPrice);
+    // Bill.AddBill(bill);
+
+    // int clientID = appointment.AttendedClientID;
+    // Client.UpdateSpent(clientID, totalPrice);
+
+    // return bill;
+}
 
