@@ -63,6 +63,12 @@ export class ApiService {
     return this.http.get<ListaCitasI[]>(direccion);
   }
 
+  putEmpleado(form:EmpleadoI):Observable<ResponseI>{
+    let direccion = this.url + 'empleados';
+    return this.http.put<ResponseI>(direccion, form)
+
+  }
+
 }
 
 

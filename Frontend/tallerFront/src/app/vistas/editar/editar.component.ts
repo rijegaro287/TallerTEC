@@ -3,6 +3,7 @@ import {Router, ActivatedRoute} from '@angular/router';
 import { EmpleadoI } from '../../modelos/empleado.interface';
 import { ApiService } from 'src/app/servicios/api/api.service';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import { formatCurrency } from '@angular/common';
 
 @Component({
   selector: 'app-editar',
@@ -54,6 +55,13 @@ export class EditarComponent implements OnInit {
 
   salir(){
     this.router.navigate(['mainmenu']);
+  }
+
+  postForm(form:any){
+    this.api.putEmpleado(form).subscribe(data =>{
+      console.log(data)
+    })
+    console.log(form);
   }
 
 }
