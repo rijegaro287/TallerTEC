@@ -32,7 +32,13 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(form: any) {
-    this.router.navigate(['mainmenu'])
+
+    
+    this.api.loginID(form).subscribe(data => {
+      console.log(form);
+      console.log(data);
+    });
+
   }
 }
 

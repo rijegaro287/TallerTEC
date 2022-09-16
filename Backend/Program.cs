@@ -1,11 +1,14 @@
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAllOrigins", builder => builder.WithOrigins("*"));
+    options.AddPolicy("AllowAllOrigins", builder =>
+    {
+        builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+    });
 });
-
-builder.Services.AddControllers();
 
 builder.Services.AddAuthentication("AuthCookie")
     .AddCookie("AuthCookie", options =>
