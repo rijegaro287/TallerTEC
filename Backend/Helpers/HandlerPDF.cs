@@ -115,6 +115,56 @@ public class HandlerPDF
         Product[] necessaryParts = appointment.NecessaryParts
             .Select(productID => Product.SelectProduct(productID)).ToArray<Product>();
 
+        int partsPrice = necessaryParts.Sum(product => product.Price);
+        int totalPrice = partsPrice + requiredService.Price;
+
+        var billHTML = @"
+            <html>
+                <head>
+                    <style>
+                        table, th, td {
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                        }
+                        th, td {
+                            padding: 5px;
+                            text-align: left;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1><center>Factura</center></h1>
+                    <p>Fecha: " + appointment.Date + @"</p>
+                    <p>Hora: " + appointment.Time + @"</p>
+                    <p>Cliente: " + attendedClient.Name + @"</p>
+                    <p>Placa: " + appointment.LicensePlate + @"</p>
+                    <p>Mecánico encargado: " + mechanic.Name + @"</p>
+                    <p>Mecánico asistente: " + assistant.Name + @"</p>
+                    <p>Sucursal: " + branch.Name + @"</p>
+                    <p>Servicio: " + requiredService.Name + @"</p>
+                    <p>Costo del servicio: " + requiredService.Price + @"</p>
+                    <p>Partes necesarias: </p>
+                    <ul>
+                        " + string.Join("\n", necessaryParts.Select(part =>
+                            "<li>" +
+                                "<div>" +
+                                    "<p>Nombre del repuesto: " + part.Price + @"</p>" +
+                                    "<p>Marca: " + part.Brand + @"</p>" +
+                                    "<p>Precio: " + part.Price + @"</p>" +
+                                "</div>" +
+                            "</li>"
+                        )) + @"
+                    </ul>
+                    <p>Costo de las piezas: " + partsPrice + @"</p>
+                    <p>Costo total: " + totalPrice + @"</p>
+                </body>
+        ";
+
+        var Renderer = new IronPdf.ChromePdfRenderer();
+
+        var PDF = Renderer.RenderHtmlAsPdf(billHTML);
+
+        PDF.SaveAs("Reports/Bill.pdf");
         // Bill newBill = new Bill(
         //     appointment.ID,
         //     branch.ID,
