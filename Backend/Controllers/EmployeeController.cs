@@ -9,7 +9,7 @@ namespace Backend.Controllers;
 [Route("employee")]
 //[Authorize]
 public class EmployeeController : ControllerBase
-{   
+{
     /// <summary>
     /// Sends all employees to the frontend.
     /// </summary>
@@ -62,7 +62,7 @@ public class EmployeeController : ControllerBase
         string password = body.password;
 
         Employee.InsertEmployee(newEmployee, password);
-        await Response.WriteAsJsonAsync(new { message = "Employee added" });
+        await Response.WriteAsJsonAsync(new { status = "Ok" });
     }
 
     /// <summary>
@@ -77,11 +77,11 @@ public class EmployeeController : ControllerBase
     {
         if (Employee.UpdateEmployee(id, newEmployee))
         {
-            Response.WriteAsJsonAsync(new { message = "Employee updated" });
+            Response.WriteAsJsonAsync(new { status = "Ok" });
         }
         else
         {
-            Response.WriteAsJsonAsync(new { message = "Employee not found" });
+            Response.WriteAsJsonAsync(new { error = "Employee not found" });
         }
     }
 
@@ -95,7 +95,7 @@ public class EmployeeController : ControllerBase
     public void DeleteEmployee(int id)
     {
         Employee.DeleteEmployee(id);
-        Response.WriteAsJsonAsync(new { message = "Employee deleted" });
+        Response.WriteAsJsonAsync(new { status = "Ok" });
     }
 }
 

@@ -112,21 +112,20 @@ GET https://localhost:7279/appointment/get/30
 
 ###
 
-POST https://localhost:7279/appointment/add
+POST https://localhost:3456/appointment/add
 content-type: application/json
 
 {
-    "ID": 30,
+    "ID": 2,
     "Date": "01/01/2020",
-    "Time": "01:00",
-    "AttendedClientID": 83,
-    "BranchID": 32,
-    "LicensePlate": "ABC123",
-    "SelectedBranch": 69,
-    "RequiredService": 1,
-    "MechanicID": 69,
-    "AssistantID": 69,
-    "NecessaryParts": []
+    "Time": "01:00 PM",
+    "AttendedClientID": 2,
+    "BranchID": 3,
+    "LicensePlate": "ABC123wwqs",
+    "RequiredService": 4,
+    "MechanicID": 1,
+    "AssistantID": 20,
+    "NecessaryParts": [4,5,6]
 }
 
 ###

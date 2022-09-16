@@ -1,3 +1,4 @@
+
 [
     {
         "Email": "employee1@estudiantec.cr",
@@ -30,6 +31,7 @@
         "LastName": "Varela"
     },
     {
+<<<<<<< HEAD
         "Email": "bremen@gmail.com",
         "BirthDate": "01/01/1980",
         "Age": 19,
@@ -40,6 +42,8 @@
         "Email": "employee4@estudiantec.cr"
     },
     {
+=======
+>>>>>>> a554c39dbd1b394cd9517b073082cb165afaf683
         "Email": "employee5@estudiantec.cr",
         "BirthDate": "01/01/2000",
         "Age": 14,
@@ -58,5 +62,21 @@
         "ID": 20,
         "Name": "Sasha",
         "LastName": "Varela"
+<<<<<<< HEAD
+=======
+
+    },
+    {
+        "Email": "antoca@15",
+        "BirthDate": "12/08/22",
+        "Age": 15,
+        "Position": "dev",
+        "StartingDate": "01/01/2015",
+        "ID": 78,
+        "Name": "",
+        "LastName": "Achoy"
+
+>>>>>>> a554c39dbd1b394cd9517b073082cb165afaf683
     }
 ]
+

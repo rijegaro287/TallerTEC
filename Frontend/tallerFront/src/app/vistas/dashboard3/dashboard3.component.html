@@ -3,7 +3,7 @@
     <h3 style="font-family:'Monaco"> Gestión de Citas</h3>
     <br>
     <div class="col">
-        <button class="col btn btn-lg btn-purple-moon btn-rounded" (click)="nuevoCita()">Nuevo Empleado</button>
+        <button class="col btn btn-lg btn-purple-moon btn-rounded" (click)="nuevoCita()">Nueva Cita</button>
     </div>
     <br>
 <table class="table table-dark table-hover">
@@ -14,8 +14,11 @@
             <th scope="col">Time</th>
             <th scope="col">Attended Client</th>
             <th scope="col">License Plate</th>
+            <th scope="col">Branch ID</th>
+            <th scope="col">Required Service</th>
             <th scope="col">Mechanic ID</th>
             <th scope="col">Assistant ID</th>
+            <th scope="col">Necessary Parts</th>
         </tr>
     </thead>
     <tbody>
@@ -25,8 +28,11 @@
             <td>{{cita.time}}</td>
             <td>{{cita.attendedClientID}}</td>
             <td>{{cita.licensePlate}}</td>
+            <td>{{cita.branchID}}</td>
+            <td>{{cita.requiredService}}</td>
             <td>{{cita.mechanicID}}</td>
             <td>{{cita.assistantID}}</td>
+            <td>{{cita.necessaryParts}}</td>
         </tr>
     </tbody>
 </table>

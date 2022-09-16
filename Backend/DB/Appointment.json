@@ -29,5 +29,21 @@
             3,
             5
         ]
+    },
+    {
+        "ID": 2,
+        "Date": "01/01/2020",
+        "Time": "01:00 PM",
+        "AttendedClientID": 2,
+        "LicensePlate": "ABC123wwqs",
+        "BranchID": 3,
+        "RequiredService": 4,
+        "MechanicID": 1,
+        "AssistantID": 20,
+        "NecessaryParts": [
+            4,
+            5,
+            6
+        ]
     }
 ]
