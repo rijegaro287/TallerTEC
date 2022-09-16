@@ -80,9 +80,11 @@ public class AppointmentController : ControllerBase
     /// <param name="id">The id of the appointment to generate a bill for.</param>
     [HttpGet]
     [Route("generate_bill/{id}")]
-    public void SendBill(int id)
+    public async Task SendBill(int id)
     {
-        Bill bill = Appointment.GenerateBill(id);
-        Response.WriteAsJsonAsync(bill);
+        Appointment.GenerateBill(id);
+
+        string filePath = "Reports/Bill.pdf";
+        await Response.SendFileAsync(filePath);
     }
 }

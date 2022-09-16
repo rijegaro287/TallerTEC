@@ -105,30 +105,12 @@ public class Appointment
     /// This method generates a Bill for an appointment.
     /// </summary>
     /// <param name="ID">The ID of the appointment to be billed.</param>
-    public static Bill GenerateBill(int ID)
+    public static void GenerateBill(int ID)
     {
         Appointment appointment = SelectAppointment(ID);
 
-        // Client attendedClient = Client.SelectClient(appointment.AttendedClientID);
-        // Employee mechanic = Employee.SelectEmployee(appointment.MechanicID);
-        // Employee assistant = Employee.SelectEmployee(appointment.AssistantID);
-        // Branch branch = Branch.SelectBranch(appointment.BranchID);
-        // Service requiredService = Service.SelectService(appointment.RequiredService);
-        // Product[] necessaryParts = appointment.NecessaryParts
-        //     .Select(productID => Product.SelectProduct(productID)).ToArray<Product>();
-
-        // Bill newBill = new Bill(
-        //     appointment.ID,
-        //     branch.ID,
-        //     requiredService.Price,
-        //     necessaryParts.Sum(product => product.Price)
-        // );
-
-        // Bill.InsertBill(newBill);
-
-        HandlerPDF.buildBillPDF(appointment);
-
-        return null;
+        Bill newBill = HandlerPDF.buildBillPDF(appointment);
+        Bill.InsertBill(newBill);
     }
 }
 
