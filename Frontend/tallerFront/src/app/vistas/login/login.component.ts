@@ -34,9 +34,9 @@ export class LoginComponent implements OnInit {
   onLogin(form: any) {
 
     //this.router.navigate(['dashboard'])
-    this.api.loginID(form).subscribe(data => {
+    this.api.loginID(form).subscribe((data: any) => {
       console.log(form);
-      console.log(data);
+      console.log(data.error);
     });
 
   }

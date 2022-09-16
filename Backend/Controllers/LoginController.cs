@@ -19,13 +19,9 @@ public class LoginController : ControllerBase
         string email = loginInfo.email;
         string password = loginInfo.password;
 
-        Console.WriteLine(email);
-        Console.WriteLine(password);
-
         try
         {
             bool isValidPassword = false;
-
             isValidPassword = EmployeePassword.ValidatePassword(email, password);
 
             await GenerateCookieAsync(isValidPassword);
@@ -62,6 +58,7 @@ public class LoginController : ControllerBase
 
             await HttpContext.SignInAsync("AuthCookie", principal);
             Response.StatusCode = 200;
+            await Response.WriteAsJsonAsync(new { status = "Ok" });
         }
         else
         {

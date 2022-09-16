@@ -11,7 +11,7 @@ import { ListaClientesI } from 'src/app/modelos/listaClientes.interface';
 })
 export class ApiService {
 
-  url: string = "https://localhost:3456/";
+  url: string = "https://localhost:8080/";
 
   constructor(private http: HttpClient) { }
 
@@ -45,7 +45,7 @@ export class ApiService {
   }
 
 
-  getAllClientes(){
+  getAllClientes() {
     let direccion = this.url + "client/get_all";
 
     return this.http.get<ListaClientesI[]>(direccion);
