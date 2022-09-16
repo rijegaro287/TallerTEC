@@ -22,7 +22,7 @@ export class MainmenuComponent implements OnInit {
   }
 
   gestionCitas(){
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['dashboard3']);
   }
   
   gestionFacturacion(){

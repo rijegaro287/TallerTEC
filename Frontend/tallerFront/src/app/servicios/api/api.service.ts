@@ -6,13 +6,14 @@ import { EmpleadoI } from "../../modelos//empleado.interface";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ListaClientesI } from 'src/app/modelos/listaClientes.interface';
+import { ListaCitasI } from 'src/app/modelos/listaCitas.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  url: string = "https://localhost:8080/";
+  url: string = "https://localhost:3456/";
 
   constructor(private http: HttpClient) { }
 
@@ -51,11 +52,19 @@ export class ApiService {
     return this.http.get<ListaClientesI[]>(direccion);
   }
 
+<<<<<<< HEAD
   getSingleEmpleado(id: any) {
     let direccion = this.url + "empleados?id=" + id;
     return this.http.get<EmpleadoI>(direccion);
   }    
   
+=======
+  getAllCitas() {
+    let direccion = this.url + "appointment/get_all";
+
+    return this.http.get<ListaCitasI[]>(direccion);
+  }
+>>>>>>> c8f71b87f768fd5afcb5ec6676b05db73f69c446
 
 }
 

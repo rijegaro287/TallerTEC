@@ -1,39 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
-import { ListaClientesI } from 'src/app/modelos/listaClientes.interface';
+import { ListaCitasI } from 'src/app/modelos/listaCitas.interface';
 import { ApiService } from 'src/app/servicios/api/api.service';
 
 import { ListaEmpleadosI } from '../../modelos/listaempleados.interface'
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard2.component.html',
-  styleUrls: ['./dashboard2.component.css']
+  templateUrl: './dashboard3.component.html',
+  styleUrls: ['./dashboard3.component.css']
 })
 
 
-export class DashboardComponent2 implements OnInit {
+export class DashboardComponent3 implements OnInit {
 
-  clientes: ListaClientesI[] = [];
+  citas: ListaCitasI[] = [];
   
   constructor(private api:ApiService, private router:Router) { 
   }
 
   ngOnInit(): void {
-    this.api.getAllClientes().subscribe(data =>{
-      this.clientes = data;
+    this.api.getAllCitas().subscribe(data =>{
+      this.citas = data;
       console.log(data)
     })
   }
 
-  editarCliente(id: any){
+  editarCita(id: any){
     this.router.navigate(['editar', id])
   }
 
-  nuevoCliente(){
+  nuevoCita(){
     this.router.navigate(['nuevo']);
 
   }
 }
-
-
