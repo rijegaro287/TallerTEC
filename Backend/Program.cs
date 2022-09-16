@@ -1,3 +1,4 @@
+using System.Security.Claims;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
@@ -20,7 +21,7 @@ builder.Services.AddAuthentication("AuthCookie")
 
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("Employee", policy => policy.RequireClaim("userType", "employee"));
+    options.AddPolicy("Employee", policy => policy.RequireClaim(ClaimTypes.Role, "employee"));
 });
 
 var app = builder.Build();

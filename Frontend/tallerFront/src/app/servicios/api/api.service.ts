@@ -37,13 +37,13 @@ export class ApiService {
         "ID": 26,
         "Name": "Sashiia",
         "LastName": "Varelan",
-        "Email": "shashia2@gmail.com",
+        "Email": "shashia3@gmail.com",
         "BirthDate": "01/01/1980",
         "Age": 19,
         "Position": "Bottom",
         "StartingDate": "01/01/2020"
       },
-      "password": "1234567"
+      "password": "12345678"
     });
   }
 
@@ -64,12 +64,21 @@ export class ApiService {
     return this.http.get<ListaCitasI[]>(direccion);
   }
 
-  postEmpleado(form:NewEmpleadoI):Observable<ResponseI>{
+
+  postEmpleado(form:NewEmpleadoI){
 
     let direccion = this.url + "employee/add";
 
     return 
   }
+
+  putEmpleado(form:EmpleadoI){
+    let direccion = this.url + 'empleados';
+    return this.http.put<ResponseI>(direccion, form)
+
+  }
+
+
 }
 
 

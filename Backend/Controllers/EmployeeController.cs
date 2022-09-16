@@ -7,6 +7,7 @@ namespace Backend.Controllers;
 
 [ApiController]
 [Route("employee")]
+[Authorize]
 public class EmployeeController : ControllerBase
 {
     [HttpGet]
