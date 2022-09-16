@@ -1,0 +1,23 @@
+[
+    {
+        "ID": 1,
+        "Name": "MicroJPM",
+        "Email": "micro@jpm.com",
+        "Address": "Por el estadio",
+        "PhoneNumber": "88776655"
+    },
+    {
+        "ID": 2,
+        "Name": "TEC Motors",
+        "Email": "motors@tec.com",
+        "Address": "Frente al TEC",
+        "PhoneNumber": "55667788"
+    },
+    {
+        "ID": 3,
+        "Name": "Mecatec",
+        "Email": "meca@tec.com",
+        "Address": "Al costado del TEC",
+        "PhoneNumber": "88557766"
+    }
+]

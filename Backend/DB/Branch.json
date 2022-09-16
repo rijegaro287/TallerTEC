@@ -1,0 +1,79 @@
+[
+    {
+        "ID": 1,
+        "Name": "Sucursal 1",
+        "Location": "Cartago Centro",
+        "PhoneNumber": 26327172,
+        "Employees": [
+            1,
+            3
+        ],
+        "OpeningDate": "01/01/2022",
+        "ManagerStartingDate": "01/01/2022",
+        "Services": [
+            1,
+            5,
+            3
+        ]
+    },
+    {
+        "ID": 2,
+        "Name": "Sucursal 2",
+        "Location": "Oreamuno de Cartago",
+        "PhoneNumber": 26327172,
+        "Employees": [
+            2,
+            4
+        ],
+        "OpeningDate": "01/01/2022",
+        "ManagerStartingDate": "01/01/2022",
+        "Services": [
+            1,
+            2,
+            3,
+            4
+        ]
+    },
+    {
+        "ID": 3,
+        "Name": "Sucursal 3",
+        "Location": "Pinares, Curridabat",
+        "PhoneNumber": 26327172,
+        "Employees": [
+            20
+        ],
+        "OpeningDate": "01/01/2022",
+        "ManagerStartingDate": "01/01/2022",
+        "Services": [
+            4,
+            5
+        ]
+    },
+    {
+        "ID": 4,
+        "Name": "Sucursal 4",
+        "Location": "Río Oro, Santa Ana",
+        "PhoneNumber": 26327172,
+        "Employees": [],
+        "OpeningDate": "01/01/2022",
+        "ManagerStartingDate": "01/01/2022",
+        "Services": [
+            4,
+            5
+        ]
+    },
+    {
+        "ID": 5,
+        "Name": "Sucursal 5",
+        "Location": "Ciudad de Panamá",
+        "PhoneNumber": 26327172,
+        "Employees": [],
+        "OpeningDate": "01/01/2022",
+        "ManagerStartingDate": "01/01/2022",
+        "Services": [
+            1,
+            2,
+            3
+        ]
+    }
+]

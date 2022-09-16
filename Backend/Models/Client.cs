@@ -11,8 +11,6 @@ public class Client : Person
     public int PhoneNumber { get; set; }
     public string Address { get; set; }
 
-    public int TotalSpent { get; set; }
-
     public Client(
         int ID,
         string Name,
@@ -24,7 +22,6 @@ public class Client : Person
         this.Email = Email;
         this.PhoneNumber = PhoneNumber;
         this.Address = Address;
-        this.TotalSpent = 0;
     }
 
     public static Client SelectClient(int id)
@@ -47,12 +44,18 @@ public class Client : Person
         return allClients;
     }
 
-    // !Return bool
-    public static void InsertClient(Client newClient, string password)
+    public static async Task InsertClientAsync(Client newClient)
     {
-        string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
-        ClientPassword employeePassword = new ClientPassword(
-            newClient.ID, hashedPassword);
+        string randomPassword = GenerateRandomPassword();
+        string hashedPassword = BCrypt.Net.BCrypt.HashPassword(randomPassword);
+
+        ClientPassword employeePassword = new ClientPassword(newClient.ID,
+                                                             hashedPassword);
+
+        // await EmailSender.SendEmailAsync(newClient.Name,
+        //                                  newClient.Email,
+        //                                  "TallerTEC - Password",
+        //                                  $"Your password is: {randomPassword}");
 
         JSONFiles.WriteJSONFile<Client>(newClient, table_path);
         JSONFiles.WriteJSONFile<ClientPassword>(employeePassword, password_table_path);
@@ -100,12 +103,26 @@ public class Client : Person
     //     return wasUpdated;
     // }
 
-    public static void UpdateSpent(int Id, int TotalSpent)
-    {
-        Client client = SelectClient(Id);
-        client.TotalSpent += TotalSpent;
+    // public static void UpdateSpent(int Id, int TotalSpent)
+    // {
+    //     Client client = SelectClient(Id);
+    //     client.TotalSpent += TotalSpent;
 
-        UpdateClient(Id, client);
+    //     UpdateClient(Id, client);
+    // }
+
+    private static string GenerateRandomPassword()
+    {
+        int passwordLength = 12;
+        string password = "";
+
+        Random random = new Random();
+        for (int i = 0; i < passwordLength; i++)
+        {
+            password += (char)random.Next(35, 126);
+        }
+
+        return password;
     }
 }
 

@@ -1,0 +1,9 @@
+[
+    {
+        "appointmentID": 1,
+        "servicePrice": 5000,
+        "partsPrice": 437500,
+        "totalPrice": 442500,
+        "branchID": 1
+    }
+]

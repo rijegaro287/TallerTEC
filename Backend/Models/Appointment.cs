@@ -10,11 +10,11 @@ public class Appointment
     public string Time { get; set; }
     public int AttendedClientID { get; set; }
     public string LicensePlate { get; set; }
+    public int BranchID { get; set; }
+    public int RequiredService { get; set; }
     public int MechanicID { get; set; }
     public int AssistantID { get; set; }
-    public int SelectedBranch { get; set; }
-    // public Service ReqiuredService { get; set; }
-    // public List<Product> NecessaryParts { get; set; }
+    public int[] NecessaryParts { get; set; }
 
 
     public Appointment(
@@ -23,20 +23,22 @@ public class Appointment
         string Time,
         int AttendedClientID,
         string LicensePlate,
-        int SelectedBranch,
-        // Service ReqiuredService,
+        int BranchID,
+        int RequiredService,
         int MechanicID,
-        int AssistantID)
+        int AssistantID,
+        int[] NecessaryParts)
     {
         this.ID = ID;
         this.Date = Date;
         this.Time = Time;
         this.AttendedClientID = AttendedClientID;
         this.LicensePlate = LicensePlate;
-        this.SelectedBranch = SelectedBranch;
-        // this.RequiredService = RequiredService;
+        this.BranchID = BranchID;
+        this.RequiredService = RequiredService;
         this.MechanicID = MechanicID;
         this.AssistantID = AssistantID;
+        this.NecessaryParts = NecessaryParts;
     }
 
     public static Appointment SelectAppointment(int ID)
@@ -83,24 +85,25 @@ public class Appointment
     public static Bill GenerateBill(int ID)
     {
         Appointment appointment = SelectAppointment(ID);
-        int branchID = appointment.SelectedBranch;
-        int servicePrice = 1000;
-        int partsPrice = 1000;
-        int totalPrice = servicePrice + partsPrice;
-        
-        Bill bill = new Bill(
+
+        Client attendedClient = Client.SelectClient(appointment.AttendedClientID);
+        Employee mechanic = Employee.SelectEmployee(appointment.MechanicID);
+        Employee assistant = Employee.SelectEmployee(appointment.AssistantID);
+        Branch branch = Branch.SelectBranch(appointment.BranchID);
+        Service requiredService = Service.SelectService(appointment.RequiredService);
+        Product[] necessaryParts = appointment.NecessaryParts
+            .Select(productID => Product.SelectProduct(productID)).ToArray<Product>();
+
+        Bill newBill = new Bill(
             appointment.ID,
-            branchID,
-            servicePrice,
-            partsPrice);
-        Bill.AddBill(bill);
-        
-        int clientID = appointment.AttendedClientID;
-        Client.UpdateSpent(clientID, totalPrice);
+            branch.ID,
+            requiredService.Price,
+            necessaryParts.Sum(product => product.Price)
+        );
 
-        return bill;
+        Bill.InsertBill(newBill);
 
+        return newBill;
     }
 }
-
 

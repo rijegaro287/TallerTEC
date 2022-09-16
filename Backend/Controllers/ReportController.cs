@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 
 using Backend.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace Backend.Controllers;
 
 [ApiController]
 [Route("report")]
+[EnableCors("AllowAllOrigins")]
 public class ReportController : ControllerBase
 {
 
@@ -13,7 +15,7 @@ public class ReportController : ControllerBase
     [Route("sales_per_branch")]
 
     public void SalesPerBranch([FromBody] DatesInfo dates)
-    {   
+    {
         string fromDate = dates.FromDate;
         string toDate = dates.ToDate;
         Dictionary<int,int> salesPerBranch = Report.SalesPerBranch(fromDate, toDate);
@@ -27,7 +29,7 @@ public class ReportController : ControllerBase
 
     public void geTopClients()
     {
-        Dictionary<int,int> clients = Report.TopFrequentClients();
+        Dictionary<int, int> clients = Report.TopFrequentClients();
         Response.WriteAsJsonAsync(clients);
     }
 
@@ -37,7 +39,7 @@ public class ReportController : ControllerBase
     public void geTopVehicles()
     {
         // string[]? vehiclesPlates = Report.TopFrequentVehicles();
-        Dictionary<string,int> vehiclesPlatesFrequency = Report.TopFrequentVehicles();
+        Dictionary<string, int> vehiclesPlatesFrequency = Report.TopFrequentVehicles();
         Response.WriteAsJsonAsync(vehiclesPlatesFrequency);
     }
 }

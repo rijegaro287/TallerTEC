@@ -19,20 +19,15 @@ public class LoginController : ControllerBase
         string email = loginInfo.email;
         string password = loginInfo.password;
 
-        Console.WriteLine(email);
-        Console.WriteLine(password);
-
         try
         {
             bool isValidPassword = false;
-
             isValidPassword = EmployeePassword.ValidatePassword(email, password);
 
             await GenerateCookieAsync(isValidPassword);
         }
         catch (System.Exception error)
         {
-            Response.StatusCode = 403;
             await Response.WriteAsJsonAsync(new { error = error.Message });
         }
     }
@@ -47,7 +42,6 @@ public class LoginController : ControllerBase
         }
         catch (System.Exception error)
         {
-            Response.StatusCode = 500;
             await Response.WriteAsJsonAsync(new { error = error.Message });
         }
     }
@@ -61,7 +55,7 @@ public class LoginController : ControllerBase
             var principal = new ClaimsPrincipal(identity);
 
             await HttpContext.SignInAsync("AuthCookie", principal);
-            Response.StatusCode = 200;
+            await Response.WriteAsJsonAsync(new { status = "Ok" });
         }
         else
         {

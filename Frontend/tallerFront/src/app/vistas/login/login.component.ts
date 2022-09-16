@@ -32,11 +32,20 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(form: any) {
-    this.api.loginID(form).subscribe(data => {
-      console.log(form);
+
+    this.api.loginID(form).subscribe((data: any) => {
       console.log(data);
+      let dataResponse:ResponseI = data;
+      console.log(dataResponse.status);
+      if (dataResponse.status == "Ok"){
+        this.router.navigate(['mainmenu'])
+      }else{
+        this.errorStat = true;
+        this.errormsj = "Usuario o contraseña incorrectos"
+      }
 
     });
+
   }
 }
 

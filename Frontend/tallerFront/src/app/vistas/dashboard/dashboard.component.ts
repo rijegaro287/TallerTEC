@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.getAllEmpleados().subscribe(data =>{
-
+      this.empleados = data;
       console.log(data)
     })
   }

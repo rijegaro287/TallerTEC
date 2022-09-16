@@ -1,4 +1,5 @@
 .vscode
 Backend/bin
 Backend/obj
-Backend/DB
+
+Backend/.env

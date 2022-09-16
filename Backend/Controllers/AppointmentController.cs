@@ -1,11 +1,12 @@
 using Backend.Models;
-
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers;
 
 [ApiController]
 [Route("appointment")]
+[EnableCors("AllowAllOrigins")]
 public class AppointmentController : ControllerBase
 {
     [HttpGet]
@@ -55,7 +56,7 @@ public class AppointmentController : ControllerBase
     }
 
     [HttpGet]
-    [Route("get_bill/{id}")]
+    [Route("generate_bill/{id}")]
     public void SendBill(int id)
     {
         Bill bill = Appointment.GenerateBill(id);
