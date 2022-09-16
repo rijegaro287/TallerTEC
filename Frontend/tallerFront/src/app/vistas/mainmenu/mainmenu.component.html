@@ -1,27 +1,28 @@
 <app-header></app-header>
 
 <div class="container">
-    <h1 class="text-center">Menú Principal</h1>
-    <hr class="my-5" />
-    
-    <h4>Gestión</h4>
-	<div class="row">
-		<div class="col">
-		    <button class="col btn btn-lg btn-purple-moon btn-rounded" (click)="gestionEmpleado()">Empleados</button>
-		</div>
-		<div class="col">
-		    <button class="col btn btn-lg btn-ultra-voilet btn-rounded" (click)="gestionCliente()">Clientes</button>
-		</div>
-        <div class="col">
-		    <button class="col btn btn-lg btn-pink-moon btn-rounded" (click)="gestionCitas()">Citas</button>
-		</div>
-		</div>
-	
+	<h1 style="font-family:'Monaco" class="text-center">Menú Principal</h1>
 	<hr class="my-5" />
-	<h4>Otros</h4>
+
+	<h4 style="font-family:'Monaco">Gestión</h4>
 	<div class="row">
 		<div class="col">
-		    <button class="col btn btn-lg btn-purple-moon btn-rounded" (click)="gestionFacturacion()">Facturación</button>
+			<button class="col btn btn-lg btn-purple-moon btn-rounded" (click)="gestionEmpleado()">Empleados</button>
+		</div>
+		<div class="col">
+			<button class="col btn btn-lg btn-ultra-voilet btn-rounded" (click)="gestionCliente()">Clientes</button>
+		</div>
+		<div class="col">
+			<button class="col btn btn-lg btn-pink-moon btn-rounded" (click)="gestionCitas()">Citas</button>
+		</div>
+	</div>
+
+	<hr class="my-5" />
+	<h4 style="font-family:'Monaco">Otros</h4>
+	<div class="row">
+		<div class="col">
+			<button class="col btn btn-lg btn-purple-moon btn-rounded"
+				(click)="gestionFacturacion()">Facturación</button>
 		</div>
 	</div>
 </div>
