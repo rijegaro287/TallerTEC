@@ -1,5 +1,5 @@
 
-POST https://localhost:8080/login
+POST https://localhost:7279/login
 content-type: application/json
 
 {
@@ -12,18 +12,19 @@ GET https://localhost:7279/employee/get/69
 
 ###
 
-GET https://localhost:8080/employee/get_all
+GET https://localhost:7279/employee/get_all
 
 ###
 
-PATCH  https://localhost:7279/employee/update/2328
+PATCH  https://localhost:7279/employee/update/4
 content-type: application/json
 
 {
-    "ID": 72,
+    "ID": 200,
     "Name": "Maria",
     "LastName": "Varela",
     "BirthDate": "01/01/1980",
+    "Email": "bremen@gmail.com",
     "Age": 19,
     "Position": "Bottom",
     "StartingDate": "01/01/2020"
@@ -50,11 +51,11 @@ content-type: application/json
 
 ###
 
-DELETE https://localhost:7279/employee/delete/1000
+DELETE https://localhost:7279/employee/delete/1
 
 ### ------------Client---------------
 
-GET https://localhost:8080/client/get_all
+GET https://localhost:7279/client/get_all
 
 ###
 GET https://localhost:7279/client/get/70
@@ -75,7 +76,7 @@ content-type: application/json
     "password": "123456"
 }
 ###
-PATCH  https://localhost:7279/client/update/83
+PATCH  https://localhost:7279/client/update/1
 content-type: application/json
 
 {
@@ -89,7 +90,7 @@ content-type: application/json
 }
 
 ###
-DELETE https://localhost:7279/client/delete/90
+DELETE https://localhost:7279/client/delete/83
 ###
 
 PATCH  https://localhost:7279/client/change_password/ybrenesr@gmail.com
@@ -103,11 +104,11 @@ content-type: application/json
 
 ### -----------Appointments-----------------
 
-GET https://localhost:8080/appointment/get_all
+GET https://localhost:7279/appointment/get_all
 
 ###
 
-GET https://localhost:7279/appointment/get/69
+GET https://localhost:7279/appointment/get/30
 
 ###
 
@@ -115,39 +116,38 @@ POST https://localhost:7279/appointment/add
 content-type: application/json
 
 {
-    "ID": 7,
+    "ID": 30,
     "Date": "01/01/2020",
     "Time": "01:00",
     "AttendedClientID": 83,
-    "SelectedBranch": 32,
+    "BranchID": 32,
     "LicensePlate": "ABC123",
     "SelectedBranch": 69,
-    "RequiredService": "Lavado",
+    "RequiredService": 1,
     "MechanicID": 69,
-    "AssistantID": 69
+    "AssistantID": 69,
+    "NecessaryParts": []
 }
 
 ###
 
-PATCH  https://localhost:7279/appointment/update/80
+PATCH  https://localhost:7279/appointment/update/7
 content-type: application/json
 
 {
-    "ID": 7,
+    "ID": 30,
     "Date": "01/01/2020",
     "Time": "01:00",
-    "AttendedClientID": 69,
-    "SelectedBranch": 32,
+    "AttendedClientID": 83,
+    "BranchID": 32,
     "LicensePlate": "ABC123",
     "SelectedBranch": 69,
-    "RequiredService": "Lavado",
+    "RequiredService": 1,
     "MechanicID": 69,
-    "AssistantID": 69
+    "AssistantID": 69,
+    "NecessaryParts": []
 }
 
 ###
-DELETE  https://localhost:7279/appointment/delete/7
-
-###
-GET https://localhost:3456/appointment/generate_bill/1
+DELETE  https://localhost:7279/appointment/delete/15
 

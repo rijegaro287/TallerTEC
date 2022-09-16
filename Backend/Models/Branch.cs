@@ -2,6 +2,9 @@ using Backend.Helpers;
 
 namespace Backend.Models;
 
+///<summary>
+/// Represents a branch from the company.
+///</summary>
 public class Branch
 {
     private static string table_path = "DB/Branch.json";
@@ -34,6 +37,10 @@ public class Branch
         this.Services = Services;
     }
 
+    ///<summary>
+    /// Returns a list of all branches.
+    ///</summary>
+    ///<param name="branchID">The ID of the branch to be selected.</param>
     public static Branch SelectBranch(int branchID)
     {
         Branch[] allBranches = JSONFiles.ReadJSONFile<Branch[]>(table_path);
