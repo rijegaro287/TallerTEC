@@ -34,8 +34,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [LoginComponent, DashboardComponent, DashboardComponent2, DashboardComponent3, 
-<<<<<<< HEAD
   NuevoComponent, NuevoComponent2, NuevoComponent3,EditarComponent, EditarComponent2, EditarComponent3, MainmenuComponent]
-=======
-  NuevoComponent, NuevoComponent2, NuevoComponent3, EditarComponent, MainmenuComponent]
->>>>>>> a554c39dbd1b394cd9517b073082cb165afaf683
