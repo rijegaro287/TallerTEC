@@ -1,10 +1,6 @@
-// using MailKit.Net.Smtp;
-// using MimeKit;
-using System;
-using System.Threading.Tasks;
-
 using SendGrid;
 using SendGrid.Helpers.Mail;
+
 
 namespace Backend.Helpers;
 
@@ -20,7 +16,7 @@ public class EmailSender
 
         var client = new SendGridClient(apiKey);
 
-        var fromEmail = new EmailAddress("gatgens48@gmail.com", "TallerTEC");
+        var fromEmail = new EmailAddress("gatgens27@gmail.com", "TallerTEC");
         var toEmail = new EmailAddress(clientEmail, clientName);
 
         var plainTextContent = emailBody;

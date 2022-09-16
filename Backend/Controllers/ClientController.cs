@@ -31,7 +31,7 @@ public class ClientController : ControllerBase
     [HttpPost]
     [Route("add")]
     [Authorize(Policy = "Employee")]
-    public async void AddClient([FromBody] Client newClient)
+    public async Task AddClient([FromBody] Client newClient)
     {
         try
         {
