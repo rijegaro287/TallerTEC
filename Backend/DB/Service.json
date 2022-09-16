@@ -1,0 +1,38 @@
+[
+    {
+        "ID": 1,
+        "Name": "Cambio de aceite",
+        "Price": 5000,
+        "EstimatedDuration": 30
+    },
+    {
+        "ID": 2,
+        "Name": "Alineado",
+        "Price": 10000,
+        "EstimatedDuration": 30
+    },
+    {
+        "ID": 1,
+        "Name": "Tramado",
+        "Price": 10000,
+        "EstimatedDuration": 30
+    },
+    {
+        "ID": 3,
+        "Name": "Revisión 5k",
+        "Price": 15000,
+        "EstimatedDuration": 30
+    },
+    {
+        "ID": 4,
+        "Name": "Revisión 10k",
+        "Price": 15000,
+        "EstimatedDuration": 30
+    },
+    {
+        "ID": 5,
+        "Name": "Revisión 20k",
+        "Price": 15000,
+        "EstimatedDuration": 30
+    }
+]

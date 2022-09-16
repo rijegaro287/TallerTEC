@@ -3,45 +3,60 @@
         "ID": 1,
         "Date": "01/02/2020",
         "Time": "01:00",
-        "AttendedClientID": 80,
+        "AttendedClientID": 1,
         "LicensePlate": "123A",
-        "MechanicID": 69,
-        "AssistantID": 69
+        "BranchID": 1,
+        "RequiredService": 1,
+        "MechanicID": 1,
+        "AssistantID": 20,
+        "NecessaryParts": []
     },
     {
         "ID": 2,
         "Date": "01/02/2020",
         "Time": "01:00",
-        "AttendedClientID": 83,
+        "AttendedClientID": 2,
         "LicensePlate": "123B",
-        "MechanicID": 69,
-        "AssistantID": 69
+        "BranchID": 2,
+        "RequiredService": 2,
+        "MechanicID": 20,
+        "AssistantID": 1,
+        "NecessaryParts": []
     },
     {
         "ID": 3,
         "Date": "01/02/2020",
         "Time": "01:00",
-        "AttendedClientID": 83,
+        "AttendedClientID": 3,
         "LicensePlate": "123A",
-        "MechanicID": 69,
-        "AssistantID": 69
+        "BranchID": 3,
+        "RequiredService": 3,
+        "MechanicID": 1,
+        "AssistantID": 20,
+        "NecessaryParts": []
     },
     {
         "ID": 4,
         "Date": "01/02/2020",
         "Time": "01:00",
-        "AttendedClientID": 83,
+        "AttendedClientID": 4,
         "LicensePlate": "123A",
-        "MechanicID": 69,
-        "AssistantID": 69
+        "BranchID": 4,
+        "RequiredService": 4,
+        "MechanicID": 20,
+        "AssistantID": 1,
+        "NecessaryParts": []
     },
     {
-        "ID": 5,
+        "ID": 4,
         "Date": "01/02/2020",
         "Time": "01:00",
-        "AttendedClientID": 83,
-        "LicensePlate": "123B",
-        "MechanicID": 69,
-        "AssistantID": 69
+        "AttendedClientID": 4,
+        "LicensePlate": "123A",
+        "BranchID": 5,
+        "RequiredService": 5,
+        "MechanicID": 1,
+        "AssistantID": 20,
+        "NecessaryParts": []
     }
 ]
