@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ListaClientesI } from 'src/app/modelos/listaClientes.interface';
 import { ListaCitasI } from 'src/app/modelos/listaCitas.interface';
+import { NewEmpleadoI } from 'src/app/modelos/newEmpleado.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -29,31 +30,13 @@ export class ApiService {
     return this.http.get<ListaEmpleadosI[]>(direccion);
   }
 
-  addEmpleado() {
-    let direccion = this.url + "employee/add";
-    return this.http.post(direccion, {
-      "newEmployee": {
-        "ID": 26,
-        "Name": "Sashiia",
-        "LastName": "Varelan",
-        "Email": "shashia2@gmail.com",
-        "BirthDate": "01/01/1980",
-        "Age": 19,
-        "Position": "Bottom",
-        "StartingDate": "01/01/2020"
-      },
-      "password": "1234567"
-    });
-  }
-
-
   getAllClientes() {
     let direccion = this.url + "client/get_all";
     return this.http.get<ListaClientesI[]>(direccion);
   }
 
   getSingleEmpleado(id: any) {
-    let direccion = this.url + "empleados?id=" + id;
+    let direccion = this.url + "employee/get/" + id;
     return this.http.get<EmpleadoI>(direccion);
   }    
   
@@ -62,6 +45,21 @@ export class ApiService {
 
     return this.http.get<ListaCitasI[]>(direccion);
   }
+
+
+  postEmpleado(form:any){
+
+    let direccion = this.url + "employee/add";
+
+    return this.http.post(direccion, form);
+  }
+
+  putEmpleado(form:EmpleadoI){
+    let direccion = this.url + 'empleados';
+    return this.http.put<ResponseI>(direccion, form)
+
+  }
+
 
 }
 
