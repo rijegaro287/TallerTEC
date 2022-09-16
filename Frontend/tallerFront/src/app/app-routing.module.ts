@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'dashboard', component:DashboardComponent},
   {path:'dashboard2', component:DashboardComponent2},
   {path:'nuevo', component:NuevoComponent},
-  {path:'editar', component:EditarComponent},
+  {path:'editar/:id', component:EditarComponent},
   {path:'mainmenu', component:MainmenuComponent}
 
 ];
