@@ -33,7 +33,7 @@ export class NuevoComponent2 implements OnInit {
     let phoneN = form.phoneNumber as number;
 
     let peticion = {ID:idN, Name:form.name, LastName:form.lastName, Email:form.email,
-    PhoneNumber:phoneN, Address:form.address}
+    PhoneNumber:phoneN, Address:form.address};
 
     this.api.postCliente(peticion).subscribe(data=>{
       console.log(data);

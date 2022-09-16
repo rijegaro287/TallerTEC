@@ -15,16 +15,18 @@ export class NuevoComponent3 implements OnInit {
   constructor(private activerouter:ActivatedRoute, private router:Router, private api:ApiService) { }
     infoStat: boolean = false;
     infoText: any = "";
+
     nuevoForm = new FormGroup({
     id: new FormControl(''),
-    name: new FormControl(''),
-    lastName: new FormControl(''),
-    email: new FormControl(''),
-    birthDate: new FormControl(''),
-    age: new FormControl(''),
-    position: new FormControl(''),
-    startingDate: new FormControl(''),
-    password: new FormControl('')
+    date: new FormControl(''),
+    time: new FormControl(''),
+    attendedClient: new FormControl(''),
+    licensePlate: new FormControl(''),
+    branchID: new FormControl(''),
+    requiredService: new FormControl(''),
+    mechanicId: new FormControl(''),
+    assistantId: new FormControl(''),
+    necessaryParts: new FormControl('')
   });
 
   ngOnInit(): void {
@@ -32,11 +34,22 @@ export class NuevoComponent3 implements OnInit {
   }
 
   postForm(form:any){
-    let idN  = form.id as number;
-    let ageN = form.age as number;
-    let peticion = {newEmployee:{ID:idN, Name:form.name, LastName:form.lastName, Email:form.email,
-    BirthDate:form.birthDate, Age:ageN, Position:form.position, StartingDate:form.startingDate}, Password:form.password}
-    this.api.postEmpleado(peticion).subscribe(data=>{
+
+    let idN  = parseInt(form.id);
+    let attID = parseInt(form.attendedClient);
+    let branchN = parseInt(form.branchID);
+    let requiredN = parseInt(form.requiredService);
+    let mechN = parseInt(form.mechanicId);
+    let assistN = parseInt(form.assistantId);
+    let parts = form.necessaryParts.split(',').map(Number);
+
+    console.log(parts);
+    let peticion = {ID:idN, Date:form.date, Time:form.time, AttendedClientID:attID, LicensePlate:form.licensePlate,
+      BranchID:branchN, RequiredService:requiredN, MechanicID:mechN, AssistantID:assistN, NecessaryParts:parts};
+
+    console.log(peticion);
+
+    this.api.postCita(peticion).subscribe(data=>{
       console.log(data);
       let dataResponse:ResponseI = data as ResponseI;
       console.log(dataResponse.status);

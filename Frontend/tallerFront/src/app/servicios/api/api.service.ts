@@ -61,6 +61,13 @@ export class ApiService {
     return this.http.post(direccion, form);
   }
 
+  postCita(form:any){
+
+    let direccion = this.url + "appointment/add";
+
+    return this.http.post(direccion, form);
+  }
+
   putEmpleado(form:EmpleadoI){
     let direccion = this.url + 'empleados';
     return this.http.put<ResponseI>(direccion, form)
