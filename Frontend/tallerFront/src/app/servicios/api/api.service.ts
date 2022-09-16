@@ -4,13 +4,14 @@ import { ResponseI } from 'src/app/modelos/response.interface';
 import { ListaEmpleadosI } from 'src/app/modelos/listaempleados.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ListaClientesI } from 'src/app/modelos/listaClientes.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  url: string = "https://localhost:8080/";
+  url: string = "https://localhost:3456/";
 
   constructor(private http: HttpClient) { }
 
@@ -41,6 +42,13 @@ export class ApiService {
       },
       "password": "1234567"
     });
+  }
+
+
+  getAllClientes(){
+    let direccion = this.url + "client/get_all";
+
+    return this.http.get<ListaClientesI[]>(direccion);
   }
 
 }

@@ -6,6 +6,5 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3"/>
-    <PackageReference Include="Aspose.PDF" Version="22.9.0"/>
   </ItemGroup>
 </Project>

@@ -18,7 +18,7 @@ export class MainmenuComponent implements OnInit {
   }
 
   gestionCliente(){
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['dashboard2']);
   }
 
   gestionCitas(){
