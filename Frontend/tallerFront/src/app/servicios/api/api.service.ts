@@ -15,7 +15,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  loginID(form: LoginI) {
+  loginID(form: LoginI){
     console.log(form);
     let direccion = this.url + "login";
     return this.http.post(direccion, form);
