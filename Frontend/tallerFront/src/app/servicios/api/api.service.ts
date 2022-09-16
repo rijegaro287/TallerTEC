@@ -52,19 +52,16 @@ export class ApiService {
     return this.http.get<ListaClientesI[]>(direccion);
   }
 
-<<<<<<< HEAD
   getSingleEmpleado(id: any) {
     let direccion = this.url + "empleados?id=" + id;
     return this.http.get<EmpleadoI>(direccion);
   }    
   
-=======
   getAllCitas() {
     let direccion = this.url + "appointment/get_all";
 
     return this.http.get<ListaCitasI[]>(direccion);
   }
->>>>>>> c8f71b87f768fd5afcb5ec6676b05db73f69c446
 
 }
 
