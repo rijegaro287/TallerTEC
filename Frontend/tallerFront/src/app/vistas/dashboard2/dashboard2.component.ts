@@ -3,7 +3,6 @@ import {Router} from '@angular/router'
 import { ListaClientesI } from 'src/app/modelos/listaClientes.interface';
 import { ApiService } from 'src/app/servicios/api/api.service';
 
-import { ListaEmpleadosI } from '../../modelos/listaempleados.interface'
 
 @Component({
   selector: 'app-dashboard',
@@ -31,7 +30,7 @@ export class DashboardComponent2 implements OnInit {
   }
 
   nuevoCliente(){
-    this.router.navigate(['nuevo']);
+    this.router.navigate(['nuevo2']);
 
   }
 }
