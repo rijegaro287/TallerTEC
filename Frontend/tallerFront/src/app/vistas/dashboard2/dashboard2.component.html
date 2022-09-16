@@ -18,8 +18,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let cliente of clientes" (click)="editarCliente(cliente.ID)">
-            <th scope="row">{{cliente.ID}}</th>
+        <tr *ngFor="let cliente of clientes" (click)="editarCliente(cliente.id)">
+            <th scope="row">{{cliente.id}}</th>
             <td>{{cliente.name}}</td>
             <td>{{cliente.lastName}}</td>
             <td>{{cliente.email}}</td>

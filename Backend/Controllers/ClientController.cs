@@ -12,7 +12,7 @@ public class ClientController : ControllerBase
 {
     [HttpGet]
     [Route("get_all")]
-    [Authorize(Policy = "Employee")]
+    //[Authorize(Policy = "Employee")]
     public void getAllClients()
     {
         Client[]? clients = Client.SelectAllClients();
@@ -21,7 +21,7 @@ public class ClientController : ControllerBase
 
     [HttpGet]
     [Route("get/{id}")]
-    [Authorize(Policy = "Employee")]
+    //[Authorize(Policy = "Employee")]
     public void getClient(int id)
     {
         Client client = Client.SelectClient(id);
