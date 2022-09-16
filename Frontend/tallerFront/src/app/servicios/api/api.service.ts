@@ -43,7 +43,7 @@ export class ApiService {
   }    
   
   getSingleCliente(id: any) {
-    let direccion = this.url + "cliente/get/" + id;
+    let direccion = this.url + "client/get/" + id;
     return this.http.get<ClienteI>(direccion);
   }    
   
@@ -76,30 +76,34 @@ export class ApiService {
     return this.http.post(direccion, form);
   }
 
-  putEmpleado(form:EmpleadoI){
-    let direccion = this.url + 'empleados';
-    return this.http.put<ResponseI>(direccion, form)
+  patchEmpleado(form:any, id:string){
+    let direccion = this.url + 'employee/update/'+id;
+    return this.http.patch<ResponseI>(direccion, form)
   }
 
-  putCliente(form:ClienteI){
-    let direccion = this.url + 'clientes';
-    return this.http.put<ResponseI>(direccion, form)
+  patchCliente(form:any, id:string){
+    let direccion = this.url + 'client/update/'+id;
+    return this.http.patch<ResponseI>(direccion, form)
   }
 
-  putCita(form:CitaI){
-    let direccion = this.url + 'citas';
-    return this.http.put<ResponseI>(direccion, form)
+  patchCita(form:any, id:string){
+    let direccion = this.url + 'appointment/update/'+id;
+    return this.http.patch<ResponseI>(direccion, form)
   }
 
-  deleteEmpleado(form:EmpleadoI):Observable<ResponseI>{
-    let direccion = this.url + 'empleados';
-    let Options = {
-      headers: new HttpHeaders({
-        'Content-type': 'application/json'
-      }),
-      body:form 
-    }
-    return this.http.delete<ResponseI>(direccion, Options)
+  deleteEmpleado(id:any):Observable<ResponseI>{
+    let direccion = this.url + 'employee/delete/'+id;
+    return this.http.delete<ResponseI>(direccion);
+  }
+
+  deleteCliente(id:any):Observable<ResponseI>{
+    let direccion = this.url + 'client/delete/'+id;
+    return this.http.delete<ResponseI>(direccion);
+  }
+
+  deleteCita(id:any):Observable<ResponseI>{
+    let direccion = this.url + 'appointments/delete/'+id;
+    return this.http.delete<ResponseI>(direccion);
   }
 
 

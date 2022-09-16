@@ -26,7 +26,7 @@ export class DashboardComponent2 implements OnInit {
   }
 
   editarCliente(id: any){
-    this.router.navigate(['editar', id])
+    this.router.navigate(['editar2', id])
   }
 
   nuevoCliente(){

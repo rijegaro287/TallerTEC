@@ -33,7 +33,7 @@ export class EditarComponent3 implements OnInit {
 
   ngOnInit(): void {
     let citaid = this.activerouter.snapshot.paramMap.get('id')
-    let token = this.getToken;
+
     this.api.getSingleEmpleado(citaid).subscribe(data =>{
       this.datosCita = data;
       
@@ -60,9 +60,6 @@ export class EditarComponent3 implements OnInit {
   postForm(form:any){
     let idN  = form.id as number;
     let ageN = form.age as number;
-    this.api.putEmpleado(form).subscribe(data =>{
-      console.log(data)
-    })
     console.log(form);
   }
 

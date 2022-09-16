@@ -2,7 +2,7 @@
 
     <div class="container">
         
-        <form [formGroup]="editarForm" (ngSubmit)="postForm(editarForm.value)">
+        <form [formGroup]="editarForm" (ngSubmit)="patchForm(editarForm.value)">
             <div class="form-group">
                 <label for="exampleFormControlInput1"> Nombre</label>
                 <input type="text" class="form-control" placeholder="Nombre" formControlName="name">
@@ -42,8 +42,11 @@
             </div>
             <br>
             <button class="col btn btn-lg btn-purple-moon btn-rounded">Guardar</button>
-            <button class="col btn btn-lg btn-ultra-voilet btn-rounded" (click)="eliminar">Eliminar</button>
+            <button class="col btn btn-lg btn-ultra-voilet btn-rounded" (click)="eliminar(editarForm.value)">Eliminar</button>
         </form>
+        <div class="alert alert-primary" *ngIf="infoStat">
+            <p>{{ infoText }}</p>
+          </div>
     </div>
 
 
