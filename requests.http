@@ -149,5 +149,5 @@ content-type: application/json
 DELETE  https://localhost:7279/appointment/delete/7
 
 ###
-GET https://localhost:7279/appointment/get_bill/7
+GET https://localhost:3456/appointment/generate_bill/1
 

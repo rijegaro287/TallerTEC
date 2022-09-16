@@ -9,7 +9,11 @@
         "RequiredService": 1,
         "MechanicID": 1,
         "AssistantID": 20,
-        "NecessaryParts": []
+        "NecessaryParts": [
+            2,
+            3,
+            4
+        ]
     },
     {
         "ID": 2,
@@ -21,7 +25,10 @@
         "RequiredService": 2,
         "MechanicID": 20,
         "AssistantID": 1,
-        "NecessaryParts": []
+        "NecessaryParts": [
+            1,
+            5
+        ]
     },
     {
         "ID": 3,
@@ -48,7 +55,7 @@
         "NecessaryParts": []
     },
     {
-        "ID": 4,
+        "ID": 5,
         "Date": "01/02/2020",
         "Time": "01:00",
         "AttendedClientID": 4,

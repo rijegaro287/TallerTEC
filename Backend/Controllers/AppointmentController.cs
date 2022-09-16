@@ -56,7 +56,7 @@ public class AppointmentController : ControllerBase
     }
 
     [HttpGet]
-    [Route("get_bill/{id}")]
+    [Route("generate_bill/{id}")]
     public void SendBill(int id)
     {
         Bill bill = Appointment.GenerateBill(id);
