@@ -28,10 +28,14 @@ public class Product
         this.PartSupplierID = PartSupplierID;
     }
 
-    public static Product SelectProduct(int productID)
+    ///<summary>
+    ///Returns a product
+    ///</summary>
+    ///<param name="ID">The ID of the product to be selected.</param>
+    public static Product SelectProduct(int ID)
     {
         Product[] allProducts = JSONFiles.ReadJSONFile<Product[]>(table_path);
-        Product product = allProducts.FirstOrDefault(product => product.ID == productID);
+        Product product = allProducts.FirstOrDefault(product => product.ID == ID);
 
         return product;
     }

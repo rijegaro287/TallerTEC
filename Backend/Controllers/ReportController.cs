@@ -11,9 +11,12 @@ namespace Backend.Controllers;
 public class ReportController : ControllerBase
 {
 
+    /// <summary>
+    /// Sends a PDF of the total sales per branch between two dates.
+    /// </summary>
+    /// <param name="body">The dates to use.</param>
     [HttpGet]
     [Route("sales_per_branch")]
-
     public async Task SalesPerBranch([FromBody] DatesInfo dates)
     {
         string fromDate = dates.FromDate;
@@ -32,6 +35,9 @@ public class ReportController : ControllerBase
         await Response.SendFileAsync(filePath);
     }
 
+    /// <summary>
+    /// Sends a PDF of the top 10 most frequent clients.
+    /// </summary>
     [HttpGet]
     [Route("get_top_clients")]
 
@@ -43,6 +49,9 @@ public class ReportController : ControllerBase
         await Response.SendFileAsync(filePath);
     }
 
+    /// <summary>
+    /// Sends a PDF of the top 10 most frequent vehicles.
+    /// </summary>
     [HttpGet]
     [Route("get_top_vehicles")]
     public async Task geTopVehicles()

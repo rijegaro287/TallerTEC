@@ -12,18 +12,19 @@ GET https://localhost:7279/employee/get/69
 
 ###
 
-GET https://localhost:8080/employee/get_all
+GET https://localhost:7279/employee/get_all
 
 ###
 
-PATCH  https://localhost:7279/employee/update/2328
+PATCH  https://localhost:7279/employee/update/4
 content-type: application/json
 
 {
-    "ID": 72,
+    "ID": 200,
     "Name": "Maria",
     "LastName": "Varela",
     "BirthDate": "01/01/1980",
+    "Email": "bremen@gmail.com",
     "Age": 19,
     "Position": "Bottom",
     "StartingDate": "01/01/2020"
