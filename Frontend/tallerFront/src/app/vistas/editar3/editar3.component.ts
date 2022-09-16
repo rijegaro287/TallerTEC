@@ -6,17 +6,17 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { formatCurrency } from '@angular/common';
 
 @Component({
-  selector: 'app-editar',
-  templateUrl: './editar.component.html',
-  styleUrls: ['./editar.component.css']
+  selector: 'app-editar3',
+  templateUrl: './editar3.component.html',
+  styleUrls: ['./editar3.component.css']
 })
-export class EditarComponent implements OnInit {
+export class EditarComponent3 implements OnInit {
 
   constructor(private activerouter:ActivatedRoute, private router:Router, private api:ApiService) { }
 
-  datosEmpleado:EmpleadoI | undefined;
+  datosCita:EmpleadoI | undefined;
 
-  editarForm = new FormGroup({
+  editarForm3 = new FormGroup({
     id: new FormControl(''),
     name: new FormControl(''),
     lastName: new FormControl(''),
@@ -32,25 +32,25 @@ export class EditarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let empleadoid = this.activerouter.snapshot.paramMap.get('id')
+    let citaid = this.activerouter.snapshot.paramMap.get('id')
     let token = this.getToken;
-    this.api.getSingleEmpleado(empleadoid).subscribe(data =>{
-      this.datosEmpleado = data;
+    this.api.getSingleEmpleado(citaid).subscribe(data =>{
+      this.datosCita = data;
       
-      this.editarForm.setValue({
-        'id': empleadoid,
-        'name': this.datosEmpleado.name,
-        'lastName': this.datosEmpleado.lastName,
-        'email': this.datosEmpleado.email,
-        'birthDate': this.datosEmpleado.birthDate,
-        'age': this.datosEmpleado.age as unknown as string,
-        'position': this.datosEmpleado.position,
-        'startingDate': this.datosEmpleado.startingDate
+      this.editarForm3.setValue({
+        'id': citaid,
+        'name': this.datosCita.name,
+        'lastName': this.datosCita.lastName,
+        'email': this.datosCita.email,
+        'birthDate': this.datosCita.birthDate,
+        'age': this.datosCita.age as unknown as string,
+        'position': this.datosCita.position,
+        'startingDate': this.datosCita.startingDate
       });
 
-      console.log(this.datosEmpleado);
+      console.log(this.datosCita);
     })
-    console.log(empleadoid)
+    console.log(citaid)
   }
 
   salir(){

@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 import { ListaClientesI } from 'src/app/modelos/listaClientes.interface';
 import { ListaCitasI } from 'src/app/modelos/listaCitas.interface';
 import { NewEmpleadoI } from 'src/app/modelos/newEmpleado.interface';
+import { ClienteI } from 'src/app/modelos/cliente.interface';
+import { CitaI } from 'src/app/modelos/citas.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +42,12 @@ export class ApiService {
     return this.http.get<EmpleadoI>(direccion);
   }    
   
+  getSingleCliente(id: any) {
+    let direccion = this.url + "cliente/get/" + id;
+    return this.http.get<ClienteI>(direccion);
+  }    
+  
+
   getAllCitas() {
     let direccion = this.url + "appointment/get_all";
 
@@ -71,7 +79,27 @@ export class ApiService {
   putEmpleado(form:EmpleadoI){
     let direccion = this.url + 'empleados';
     return this.http.put<ResponseI>(direccion, form)
+  }
 
+  putCliente(form:ClienteI){
+    let direccion = this.url + 'clientes';
+    return this.http.put<ResponseI>(direccion, form)
+  }
+
+  putCita(form:CitaI){
+    let direccion = this.url + 'citas';
+    return this.http.put<ResponseI>(direccion, form)
+  }
+
+  deleteEmpleado(form:EmpleadoI):Observable<ResponseI>{
+    let direccion = this.url + 'empleados';
+    let Options = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json'
+      }),
+      body:form 
+    }
+    return this.http.delete<ResponseI>(direccion, Options)
   }
 
 
