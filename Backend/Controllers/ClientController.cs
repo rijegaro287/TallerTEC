@@ -30,7 +30,7 @@ public class ClientController : ControllerBase
 
     [HttpPost]
     [Route("add")]
-    [Authorize(Policy = "Employee")]
+    //[Authorize(Policy = "Employee")]
     public async Task AddClient([FromBody] Client newClient)
     {
         try
@@ -46,7 +46,7 @@ public class ClientController : ControllerBase
 
     [HttpPatch]
     [Route("update/{id}")]
-    [Authorize(Policy = "Employee")]
+    //[Authorize(Policy = "Employee")]
     public void UpdateClient(int id, [FromBody] Client newClient)
     {
         if (Client.UpdateClient(id, newClient))
@@ -61,7 +61,7 @@ public class ClientController : ControllerBase
 
     [HttpDelete]
     [Route("delete/{id}")]
-    [Authorize(Policy = "Employee")]
+    //[Authorize(Policy = "Employee")]
     public void DeleteClient(int id)
     {
         Client.DeleteClient(id);

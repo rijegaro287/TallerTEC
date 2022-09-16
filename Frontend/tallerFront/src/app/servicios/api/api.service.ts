@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ListaClientesI } from 'src/app/modelos/listaClientes.interface';
 import { ListaCitasI } from 'src/app/modelos/listaCitas.interface';
+import { NewEmpleadoI } from 'src/app/modelos/newEmpleado.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -63,6 +64,12 @@ export class ApiService {
     return this.http.get<ListaCitasI[]>(direccion);
   }
 
+  postEmpleado(form:NewEmpleadoI):Observable<ResponseI>{
+
+    let direccion = this.url + "employee/add";
+
+    return 
+  }
 }
 
 
