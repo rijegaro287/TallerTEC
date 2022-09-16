@@ -85,6 +85,7 @@ public class AppointmentController : ControllerBase
         Appointment.GenerateBill(id);
 
         string filePath = "Reports/Bill.pdf";
+        Response.Headers.Add("Content-Disposition", "attachment; filename=Bill.pdf");
         await Response.SendFileAsync(filePath);
     }
 }
