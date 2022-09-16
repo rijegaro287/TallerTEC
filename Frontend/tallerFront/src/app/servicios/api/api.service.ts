@@ -64,7 +64,17 @@ export class ApiService {
   putEmpleado(form:EmpleadoI){
     let direccion = this.url + 'empleados';
     return this.http.put<ResponseI>(direccion, form)
+  }
 
+  deleteEmpleado(form:EmpleadoI):Observable<ResponseI>{
+    let direccion = this.url + 'empleados';
+    let Options = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json'
+      }),
+      body:form 
+    }
+    return this.http.delete<ResponseI>(direccion, Options)
   }
 
 

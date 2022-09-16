@@ -58,10 +58,21 @@ export class EditarComponent implements OnInit {
   }
 
   postForm(form:any){
+    let idN  = form.id as number;
+    let ageN = form.age as number;
     this.api.putEmpleado(form).subscribe(data =>{
       console.log(data)
     })
     console.log(form);
+  }
+
+  eliminar(){
+    //this.api.deleteEmpleado(this.editarForm)
+    //let datos:EmpleadoI = this.editarForm.value;
+    //this.api.deleteEmpleado(datos).subscribe(data =>{
+     // console.log(data);
+    //})
+    //console.log("eliminar");
   }
 
 }
