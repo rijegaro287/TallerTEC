@@ -6,6 +6,8 @@ import { DashboardComponent2 } from './vistas/dashboard2/dashboard2.component';
 import { DashboardComponent3 } from './vistas/dashboard3/dashboard3.component';
 import { NuevoComponent } from './vistas/nuevo/nuevo.component';
 import { EditarComponent } from './vistas/editar/editar.component';
+import { EditarComponent2 } from './vistas/editar2/editar2.component';
+import { EditarComponent3 } from './vistas/editar3/editar3.component';
 import { MainmenuComponent } from './vistas/mainmenu/mainmenu.component';
 import { NuevoComponent2 } from './vistas/nuevo2/nuevo2.component';
 import { NuevoComponent3 } from './vistas/nuevo3/nuevo3.component';
@@ -20,6 +22,8 @@ const routes: Routes = [
   {path:'nuevo2', component:NuevoComponent2},
   {path:'nuevo3', component:NuevoComponent3},
   {path:'editar/:id', component:EditarComponent},
+  {path:'editar2/:id', component:EditarComponent2},
+  {path:'editar3/:id', component:EditarComponent2},
   {path:'mainmenu', component:MainmenuComponent}
 
 ];
