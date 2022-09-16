@@ -20,8 +20,8 @@ export class DashboardComponent2 implements OnInit {
   }
 
   ngOnInit(): void {
-    this.api.getAllEmpleados().subscribe(data =>{
-
+    this.api.getAllClientes().subscribe(data =>{
+      this.clientes = data;
       console.log(data)
     })
   }
