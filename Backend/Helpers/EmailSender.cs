@@ -10,12 +10,14 @@ namespace Backend.Helpers;
 
 public class EmailSender
 {
-    private static string apiKey = "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";
     public static async Task SendEmailAsync(string clientName,
                                             string clientEmail,
                                             string emailSubject,
                                             string emailBody)
     {
+        DotNetEnv.Env.TraversePath().Load();
+        string apiKey = DotNetEnv.Env.GetString("SENDGRID_API_KEY");
+
         var client = new SendGridClient(apiKey);
 
         var fromEmail = new EmailAddress("gatgens48@gmail.com", "TallerTEC");

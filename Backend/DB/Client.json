@@ -1,1 +1,34 @@
-[]
+[
+    {
+        "Email": "client1@gmail.com",
+        "PhoneNumber": 89898989,
+        "Address": "Para arriba",
+        "ID": 1,
+        "Name": "Sasha",
+        "LastName": "Varela"
+    },
+    {
+        "Email": "client2@gmail.com",
+        "PhoneNumber": 89898989,
+        "Address": "Para arriba",
+        "ID": 2,
+        "Name": "Sasha",
+        "LastName": "Varela"
+    },
+    {
+        "Email": "client3@gmail.com",
+        "PhoneNumber": 89898989,
+        "Address": "Para arriba",
+        "ID": 3,
+        "Name": "Sasha",
+        "LastName": "Varela"
+    },
+    {
+        "Email": "client4@gmail.com",
+        "PhoneNumber": 89898989,
+        "Address": "Para arriba",
+        "ID": 4,
+        "Name": "Sasha",
+        "LastName": "Varela"
+    }
+]
