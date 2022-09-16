@@ -1,8 +1,8 @@
 export interface ListaClientesI{
-    ID:number,
-    Name:string,
-    LastName:string,
-    Email:string,
-    PhoneNumber:number,
-    Address:string
+    id:number,
+    name:string,
+    lastName:string,
+    email:string,
+    phoneNumber:number,
+    address:string
 }

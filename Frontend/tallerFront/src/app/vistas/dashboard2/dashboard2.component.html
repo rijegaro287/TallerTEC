@@ -1,17 +1,11 @@
 <app-header></app-header>
 <div class = "container">
-<<<<<<< HEAD
-    <h3> Gestión de Clientes</h3>
-    <br>
-    <button type="button" class="btn btn-primary" (click)="nuevoCliente()">Nuevo Clientes</button>
-=======
     <h3 style="font-family:'Monaco"> Gestión de Clientes</h3>
     <br>
     <div class="col">
         <button class="col btn btn-lg btn-purple-moon btn-rounded" (click)="nuevoCliente()">Nuevo Cliente</button>
     </div>
     <br>
->>>>>>> db8f601 (zzzz)
 <table class="table table-dark table-hover">
     <thead>
         <tr>
@@ -26,11 +20,11 @@
     <tbody>
         <tr *ngFor="let cliente of clientes" (click)="editarCliente(cliente.ID)">
             <th scope="row">{{cliente.ID}}</th>
-            <td>{{cliente.Name}}</td>
-            <td>{{cliente.LastName}}</td>
-            <td>{{cliente.Email}}</td>
-            <td>{{cliente.PhoneNumber}}</td>
-            <td>{{cliente.Address}}</td>
+            <td>{{cliente.name}}</td>
+            <td>{{cliente.lastName}}</td>
+            <td>{{cliente.email}}</td>
+            <td>{{cliente.phoneNumber}}</td>
+            <td>{{cliente.address}}</td>
         </tr>
     </tbody>
 </table>
