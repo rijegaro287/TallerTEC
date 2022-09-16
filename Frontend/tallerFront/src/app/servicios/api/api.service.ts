@@ -30,31 +30,13 @@ export class ApiService {
     return this.http.get<ListaEmpleadosI[]>(direccion);
   }
 
-  addEmpleado() {
-    let direccion = this.url + "employee/add";
-    return this.http.post(direccion, {
-      "newEmployee": {
-        "ID": 26,
-        "Name": "Sashiia",
-        "LastName": "Varelan",
-        "Email": "shashia3@gmail.com",
-        "BirthDate": "01/01/1980",
-        "Age": 19,
-        "Position": "Bottom",
-        "StartingDate": "01/01/2020"
-      },
-      "password": "12345678"
-    });
-  }
-
-
   getAllClientes() {
     let direccion = this.url + "client/get_all";
     return this.http.get<ListaClientesI[]>(direccion);
   }
 
   getSingleEmpleado(id: any) {
-    let direccion = this.url + "empleados?id=" + id;
+    let direccion = this.url + "employee/get/" + id;
     return this.http.get<EmpleadoI>(direccion);
   }    
   
@@ -65,11 +47,11 @@ export class ApiService {
   }
 
 
-  postEmpleado(form:NewEmpleadoI){
+  postEmpleado(form:any){
 
     let direccion = this.url + "employee/add";
 
-    return 
+    return this.http.post(direccion, form);
   }
 
   putEmpleado(form:EmpleadoI){
