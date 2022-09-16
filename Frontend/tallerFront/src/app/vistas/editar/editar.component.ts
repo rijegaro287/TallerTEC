@@ -52,5 +52,9 @@ export class EditarComponent implements OnInit {
     console.log(empleadoid)
   }
 
+  salir(){
+    this.router.navigate(['mainmenu']);
+  }
+
 }
 
