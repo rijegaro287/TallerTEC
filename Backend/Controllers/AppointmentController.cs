@@ -40,7 +40,7 @@ public class AppointmentController : ControllerBase
     public void AddAppointment([FromBody] Appointment newAppointment)
     {
         Appointment.InsertAppointment(newAppointment);
-        Response.WriteAsJsonAsync(new { message = "Appointment added" });
+        Response.WriteAsJsonAsync(new { status = "Ok" });
     }
 
     /// <summary>
@@ -54,11 +54,11 @@ public class AppointmentController : ControllerBase
     {
         if (Appointment.UpdateAppointment(id, newAppointment))
         {
-            Response.WriteAsJsonAsync(new { message = "Appointment updated" });
+            Response.WriteAsJsonAsync(new { status = "Ok" });
         }
         else
         {
-            Response.WriteAsJsonAsync(new { message = "Appointment not found" });
+            Response.WriteAsJsonAsync(new { error = "Appointment not found" });
         }
     }
 
@@ -71,7 +71,7 @@ public class AppointmentController : ControllerBase
     public void DeleteAppointment(int id)
     {
         Appointment.DeleteAppointment(id);
-        Response.WriteAsJsonAsync(new { message = "Appointment deleted" });
+        Response.WriteAsJsonAsync(new { status = "Ok" });
     }
 
     /// <summary>

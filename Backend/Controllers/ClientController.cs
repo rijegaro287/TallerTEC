@@ -67,11 +67,11 @@ public class ClientController : ControllerBase
     {
         if (Client.UpdateClient(id, newClient))
         {
-            Response.WriteAsJsonAsync(new { message = "Client updated" });
+            Response.WriteAsJsonAsync(new { status = "Ok" });
         }
         else
         {
-            Response.WriteAsJsonAsync(new { message = "Client not found" });
+            Response.WriteAsJsonAsync(new { error = "Client not found" });
         }
     }
 
@@ -85,7 +85,7 @@ public class ClientController : ControllerBase
     public void DeleteClient(int id)
     {
         Client.DeleteClient(id);
-        Response.WriteAsJsonAsync(new { message = "Client deleted" });
+        Response.WriteAsJsonAsync(new { message = "Ok" });
     }
 }
 
