@@ -1,11 +1,21 @@
 [
     {
+        "Email": "employee1@estudiantec.cr",
+        "BirthDate": "01/01/2000",
+        "Age": 14,
+        "Position": "Developer",
+        "StartingDate": "01/01/2020",
+        "ID": 1,
+        "Name": "Pepito",
+        "LastName": "Varela"
+    },
+    {
         "Email": "employee2@estudiantec.cr",
         "BirthDate": "01/01/2000",
         "Age": 14,
         "Position": "Developer",
         "StartingDate": "01/01/2020",
-        "ID": 69,
+        "ID": 2,
         "Name": "Pepito",
         "LastName": "Varela"
     },
@@ -25,7 +35,7 @@
         "Age": 19,
         "Position": "Bottom",
         "StartingDate": "01/01/2020",
-        "ID": 200,
+        "ID": 4,
         "Name": "Maria",
         "LastName": "Varela"
     },
@@ -48,15 +58,5 @@
         "ID": 20,
         "Name": "Sasha",
         "LastName": "Varela"
-    },
-    {
-        "Email": "antoca@15",
-        "BirthDate": "12/08/22",
-        "Age": 15,
-        "Position": "dev",
-        "StartingDate": "01/01/2015",
-        "ID": 78,
-        "Name": "",
-        "LastName": "Achoy"
     }
 ]

@@ -1,5 +1,5 @@
 .vscode
 Backend/bin
 Backend/obj
-Backend/Reports/*
 Backend/.env
+Backend/Reports/*

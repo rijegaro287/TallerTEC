@@ -1,14 +1,18 @@
 [
     {
-        "ID": 30,
+        "ID": 1,
         "Date": "01/01/2020",
         "Time": "01:00",
-        "AttendedClientID": 83,
+        "AttendedClientID": 1,
         "LicensePlate": "ABC123",
-        "BranchID": 32,
+        "BranchID": 1,
         "RequiredService": 1,
-        "MechanicID": 69,
-        "AssistantID": 69,
-        "NecessaryParts": []
+        "MechanicID": 20,
+        "AssistantID": 1,
+        "NecessaryParts": [
+            1,
+            2,
+            6
+        ]
     }
 ]

@@ -174,9 +174,9 @@ public class HandlerPDF
                     <p>Hora: " + appointment.Time + @"</p>
                     <p>Cliente: " + attendedClient.Name + @"</p>
                     <p>Placa: " + appointment.LicensePlate + @"</p>
+                    <p>Sucursal: " + branch.Name + @" - " + branch.Location + @"</p>
                     <p>Mecánico encargado: " + mechanic.Name + @"</p>
                     <p>Mecánico asistente: " + assistant.Name + @"</p>
-                    <p>Sucursal: " + branch.Name + @"</p>
                     <p>Servicio: " + requiredService.Name + @"</p>
                     <p>Costo del servicio: " + requiredService.Price + @"</p>
                     <p>Partes necesarias: </p>
