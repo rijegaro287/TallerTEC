@@ -109,24 +109,26 @@ public class Appointment
     {
         Appointment appointment = SelectAppointment(ID);
 
-        Client attendedClient = Client.SelectClient(appointment.AttendedClientID);
-        Employee mechanic = Employee.SelectEmployee(appointment.MechanicID);
-        Employee assistant = Employee.SelectEmployee(appointment.AssistantID);
-        Branch branch = Branch.SelectBranch(appointment.BranchID);
-        Service requiredService = Service.SelectService(appointment.RequiredService);
-        Product[] necessaryParts = appointment.NecessaryParts
-            .Select(productID => Product.SelectProduct(productID)).ToArray<Product>();
+        // Client attendedClient = Client.SelectClient(appointment.AttendedClientID);
+        // Employee mechanic = Employee.SelectEmployee(appointment.MechanicID);
+        // Employee assistant = Employee.SelectEmployee(appointment.AssistantID);
+        // Branch branch = Branch.SelectBranch(appointment.BranchID);
+        // Service requiredService = Service.SelectService(appointment.RequiredService);
+        // Product[] necessaryParts = appointment.NecessaryParts
+        //     .Select(productID => Product.SelectProduct(productID)).ToArray<Product>();
 
-        Bill newBill = new Bill(
-            appointment.ID,
-            branch.ID,
-            requiredService.Price,
-            necessaryParts.Sum(product => product.Price)
-        );
+        // Bill newBill = new Bill(
+        //     appointment.ID,
+        //     branch.ID,
+        //     requiredService.Price,
+        //     necessaryParts.Sum(product => product.Price)
+        // );
 
-        Bill.InsertBill(newBill);
+        // Bill.InsertBill(newBill);
 
-        return newBill;
+        HandlerPDF.buildBillPDF(appointment);
+
+        return null;
     }
 }
 

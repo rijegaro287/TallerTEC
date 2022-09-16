@@ -19,19 +19,19 @@ public class ReportController : ControllerBase
         string fromDate = dates.FromDate;
         string toDate = dates.ToDate;
         Report.SalesPerBranch(fromDate, toDate);
-        string filePath = "SalesPerBranch.pdf";
+        string filePath = "Reports/SalesPerBranch.pdf";
         await Response.SendFileAsync(filePath);
-    }    
+    }
 
     [HttpGet]
     [Route("sales_per_branch2")]
 
     public async Task SalesPerBranch2()
     {
-        string filePath = "SalesPerBranch.pdf";
+        string filePath = "Reports/SalesPerBranch.pdf";
         await Response.SendFileAsync(filePath);
-    }    
-    
+    }
+
     [HttpGet]
     [Route("get_top_clients")]
 
@@ -39,7 +39,7 @@ public class ReportController : ControllerBase
     {
         Report.TopFrequentClients();
         // Response.WriteAsJsonAsync(clients);
-        string filePath = "TopClients.pdf";
+        string filePath = "Reports/TopClients.pdf";
         await Response.SendFileAsync(filePath);
     }
 
@@ -48,7 +48,7 @@ public class ReportController : ControllerBase
     public async Task geTopVehicles()
     {
         Report.TopFrequentVehicles();
-        string filePath = "TopVehicles.pdf";
+        string filePath = "Reports/TopVehicles.pdf";
         await Response.SendFileAsync(filePath);
     }
 }
