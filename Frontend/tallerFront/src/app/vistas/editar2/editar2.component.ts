@@ -10,6 +10,8 @@ import { formatCurrency } from '@angular/common';
   templateUrl: './editar2.component.html',
   styleUrls: ['./editar2.component.css']
 })
+
+// Componente Editar utilizado para la edición de datos de clientes
 export class EditarComponent2 implements OnInit {
 
   constructor(private activerouter:ActivatedRoute, private router:Router, private api:ApiService) { }
@@ -48,6 +50,7 @@ export class EditarComponent2 implements OnInit {
   salir(){
     this.router.navigate(['mainmenu']);
   }
+
 
   postForm(form:any){
     let idN  = form.id as number;

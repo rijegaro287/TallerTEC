@@ -47,6 +47,11 @@ export class ApiService {
     return this.http.get<ClienteI>(direccion);
   }    
   
+  getSingleCita(id: any) {
+    let direccion = this.url + "cita/get/" + id;
+    return this.http.get<CitaI>(direccion);
+  }    
+  
 
   getAllCitas() {
     let direccion = this.url + "appointment/get_all";
