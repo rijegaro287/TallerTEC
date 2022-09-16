@@ -7,11 +7,12 @@ namespace Backend.Controllers;
 
 [ApiController]
 [Route("employee")]
+[Authorize]
 public class EmployeeController : ControllerBase
 {
     [HttpGet]
     [Route("get_all")]
-    [Authorize(Policy = "Employee")]
+    // [Authorize]
     public async void GetAllEmployees()
     {
         Employee[] employees = Employee.SelectAllEmployees();
