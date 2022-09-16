@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
 
   onLogin(form: any) {
 
-    
+    //this.router.navigate(['dashboard'])
     this.api.loginID(form).subscribe(data => {
       console.log(form);
       console.log(data);

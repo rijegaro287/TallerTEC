@@ -1,10 +1,10 @@
 export interface ListaEmpleadosI{
-    ID:number;
-    Name:string;
-    LastName:string;
+    id:number;
+    name:string;
+    lastName:string;
     email:string;
-    birth:string;
+    birthDate:string;
     age:number;
     position:string;
-    startDate:string;
+    startingDate:string;
 }

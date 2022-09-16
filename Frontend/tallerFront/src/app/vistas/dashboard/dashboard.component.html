@@ -17,15 +17,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let empleado of empleados" (click)="editarEmpleado(empleado.ID)">
-            <th scope="row">{{empleado.ID}}</th>
-            <td>{{empleado.Name}}</td>
-            <td>{{empleado.LastName}}</td>
+        <tr *ngFor="let empleado of empleados" (click)="editarEmpleado(empleado.id)">
+            <th scope="row">{{empleado.id}}</th>
+            <td>{{empleado.name}}</td>
+            <td>{{empleado.lastName}}</td>
             <td>{{empleado.email}}</td>
-            <td>{{empleado.birth}}</td>
+            <td>{{empleado.birthDate}}</td>
             <td>{{empleado.age}}</td>
             <td>{{empleado.position}}</td>
-            <td>{{empleado.startDate}}</td>
+            <td>{{empleado.startingDate}}</td>
         </tr>
     </tbody>
 </table>
