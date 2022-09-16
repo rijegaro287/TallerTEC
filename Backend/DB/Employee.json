@@ -37,7 +37,7 @@
         "StartingDate": "01/01/2020",
         "ID": 4,
         "Name": "Maria",
-        "Email": "employee4@estudiantec.cr",
+        "Email": "employee4@estudiantec.cr"
     },
     {
         "Email": "employee5@estudiantec.cr",
@@ -58,18 +58,5 @@
         "ID": 20,
         "Name": "Sasha",
         "LastName": "Varela"
-<<<<<<< Updated upstream
-=======
-    },
-    {
-        "Email": "antoca@15",
-        "BirthDate": "12/08/22",
-        "Age": 15,
-        "Position": "dev",
-        "StartingDate": "01/01/2015",
-        "ID": 78,
-        "Name": "",
-        "LastName": "Achoy"
->>>>>>> Stashed changes
     }
 ]

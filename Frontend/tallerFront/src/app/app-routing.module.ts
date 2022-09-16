@@ -23,7 +23,7 @@ const routes: Routes = [
   {path:'nuevo3', component:NuevoComponent3},
   {path:'editar/:id', component:EditarComponent},
   {path:'editar2/:id', component:EditarComponent2},
-  {path:'editar3/:id', component:EditarComponent2},
+  {path:'editar3/:id', component:EditarComponent3},
   {path:'mainmenu', component:MainmenuComponent}
 
 ];
@@ -34,4 +34,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [LoginComponent, DashboardComponent, DashboardComponent2, DashboardComponent3, 
-  NuevoComponent, NuevoComponent2, NuevoComponent3,EditarComponent, MainmenuComponent]
+  NuevoComponent, NuevoComponent2, NuevoComponent3,EditarComponent, EditarComponent2, EditarComponent3, MainmenuComponent]
