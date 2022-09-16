@@ -106,6 +106,21 @@ public class Employee : Person
     ///<param name="ID">The ID of the employee to be deleted.</param>
     public static void DeleteEmployee(int ID)
     {
+        //Delete appointments with the employee as mechanic
+        Appointment[] allAppointments = Appointment.SelectAllAppointments();
+        Appointment[] appointmentsWithEmployee = allAppointments.Where(appointment => appointment.MechanicID == ID).ToArray();
+        foreach (Appointment appointment in appointmentsWithEmployee)
+        {
+            Appointment.DeleteAppointment(appointment.ID);
+        }
+        //Delete appointments with the employee as assistant
+        allAppointments = Appointment.SelectAllAppointments();
+        appointmentsWithEmployee = allAppointments.Where(appointment => appointment.AssistantID == ID).ToArray();
+        foreach (Appointment appointment in appointmentsWithEmployee)
+        {
+            Appointment.DeleteAppointment(appointment.ID);
+        }
+
         Employee[] allEmployees = JSONFiles.ReadJSONFile<Employee[]>(table_path);
         Employee[] newEmployees = allEmployees
             .Where(employee => employee.ID != ID).ToArray<Employee>();

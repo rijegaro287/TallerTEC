@@ -196,13 +196,13 @@ public class HandlerPDF
                 </body>
         ";
 
-        Bill newBill = new Bill(
-            appointment.ID,
-            branch.ID,
-            requiredService.Price,
-            partsPrice
-        );
-        Bill.InsertBill(newBill);
+        // Bill newBill = new Bill(
+        //     appointment.ID,
+        //     branch.ID,
+        //     requiredService.Price,
+        //     partsPrice
+        // );
+        // Bill.InsertBill(newBill);
 
         GeneratePDF(billHTML, "Bill.pdf");
     }

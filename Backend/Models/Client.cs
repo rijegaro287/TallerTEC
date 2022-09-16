@@ -101,7 +101,8 @@ public class Client : Person
     ///</summary>
     ///<param name="ID">The ID of the client to be deleted.</param>
     public static void DeleteClient(int ID)
-    {
+    {   
+        
         Client[] allClients = JSONFiles.ReadJSONFile<Client[]>(table_path);
         Client client = allClients.FirstOrDefault(client => client.ID == ID);
         if (client != null)

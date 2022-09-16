@@ -51,7 +51,7 @@ content-type: application/json
 
 ###
 
-DELETE https://localhost:7279/employee/delete/1000
+DELETE https://localhost:7279/employee/delete/1
 
 ### ------------Client---------------
 
@@ -108,7 +108,7 @@ GET https://localhost:7279/appointment/get_all
 
 ###
 
-GET https://localhost:7279/appointment/get/69
+GET https://localhost:7279/appointment/get/30
 
 ###
 
@@ -150,7 +150,4 @@ content-type: application/json
 
 ###
 DELETE  https://localhost:7279/appointment/delete/15
-
-###
-GET https://localhost:7279/appointment/generate_bill/2
 
