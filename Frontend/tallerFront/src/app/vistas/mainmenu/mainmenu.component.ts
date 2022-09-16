@@ -25,8 +25,5 @@ export class MainmenuComponent implements OnInit {
     this.router.navigate(['dashboard3']);
   }
   
-  gestionFacturacion(){
-    this.router.navigate(['dashboard']);
-  }
 
 }

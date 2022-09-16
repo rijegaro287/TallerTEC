@@ -31,7 +31,7 @@ export class DashboardComponent3 implements OnInit {
   }
 
   nuevoCita(){
-    this.router.navigate(['nuevo']);
+    this.router.navigate(['nuevo3']);
 
   }
 }

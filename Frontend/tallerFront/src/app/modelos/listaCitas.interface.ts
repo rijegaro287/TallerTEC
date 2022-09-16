@@ -4,6 +4,9 @@ export interface ListaCitasI{
     time:string,
     attendedClientID:number,
     licensePlate:string,
+    branchID:number;
+    requiredService:number,
     mechanicID:number,
-    assistantID:number
+    assistantID:number,
+    necessaryParts:number[]
 }
