@@ -3,8 +3,6 @@ namespace Backend.Models;
 public class Report
 {
     public static Dictionary<int,int> SalesPerBranch(string fromDate, string toDate)
-    // public static Bill[] SalesPerBranch(string fromDate, string toDate)
-    // public static List<Bill> SalesPerBranch(string fromDate, string toDate)
     {   
         DateTime DfromDate = Convert.ToDateTime(fromDate);
         DateTime DtoDate = Convert.ToDateTime(toDate);
@@ -15,8 +13,6 @@ public class Report
                 Convert.ToDateTime(toDate) <= DtoDate).ToArray();
         
         int[] appointmentsID = appointmentsBetweenDates.Select(appointment => appointment.ID).ToArray();
-        // Bill[]? billBetweenDates =  new Bill[appointmentsID.Length];
-        // Bill[]? billBetweenDates =  new Bill[Bill.selectAllBills().Length];
         List<Bill> billBetweenDates = new List<Bill>();
         for(int i = 0; i < appointmentsID.Length; i++)
         {
@@ -26,9 +22,8 @@ public class Report
                 billBetweenDates.Add(bill);
             }
         }
-        // return billBetweenDates;
         Dictionary<int, int> salesPerBranch = totalSalesPerBranch(billBetweenDates);
-        
+        HandlerPDF.buildSalesPerBranchPDF("Ventas por Sucursal", fromDate, toDate, salesPerBranch);
         return salesPerBranch;
     }
 
@@ -41,11 +36,12 @@ public class Report
         return mostFrequentVehicles;
 
     }
-
+    // TODO agregar los nombres de los clientes
     public static Dictionary<int,int> TopFrequentClients(){
         Appointment [] allAppointments = Appointment.SelectAllAppointments();
         int[] allClientsIDs = allAppointments.Select(appointment => appointment.AttendedClientID).ToArray();
         Dictionary<int, int> mostFrequentClients = getMostFrequentClients(allClientsIDs);
+        HandlerPDF.bulidTopClientsPDF("Top Clientes", mostFrequentClients);
         return mostFrequentClients;
     }
 

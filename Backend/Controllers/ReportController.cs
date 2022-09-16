@@ -38,7 +38,6 @@ public class ReportController : ControllerBase
 
     public void geTopVehicles()
     {
-        // string[]? vehiclesPlates = Report.TopFrequentVehicles();
         Dictionary<string, int> vehiclesPlatesFrequency = Report.TopFrequentVehicles();
         Response.WriteAsJsonAsync(vehiclesPlatesFrequency);
     }
