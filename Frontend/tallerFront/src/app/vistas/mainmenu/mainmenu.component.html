@@ -1,14 +1,29 @@
 <app-header></app-header>
 
 <div class="container">
-
-    <h2>Menú principal</h2><br>
-
-    <button type="button" class="btn btn-primary" (click)="gestionEmpleado()"> Gestionar empleados </button>
-    <button type="button" class="btn btn-primary" (click)="gestionCliente()"> Gestionar clientes </button>
-    <button type="button" class="btn btn-primary" (click)="gestionCitas()"> Registro de citas </button>
-    <button type="button" class="btn btn-primary" (click)="gestionFacturacion()"> Facturacion </button>
-
+    <h1 class="text-center">Menú Principal</h1>
+    <hr class="my-5" />
+    
+    <h4>Gestión</h4>
+	<div class="row">
+		<div class="col">
+		    <button class="col btn btn-lg btn-purple-moon btn-rounded" (click)="gestionEmpleado()">Empleados</button>
+		</div>
+		<div class="col">
+		    <button class="col btn btn-lg btn-ultra-voilet btn-rounded" (click)="gestionCliente()">Clientes</button>
+		</div>
+        <div class="col">
+		    <button class="col btn btn-lg btn-pink-moon btn-rounded" (click)="gestionCitas()">Citas</button>
+		</div>
+		</div>
+	
+	<hr class="my-5" />
+	<h4>Otros</h4>
+	<div class="row">
+		<div class="col">
+		    <button class="col btn btn-lg btn-purple-moon btn-rounded" (click)="gestionFacturacion()">Facturación</button>
+		</div>
+	</div>
 </div>
 
 <app-footer></app-footer>
