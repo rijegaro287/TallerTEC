@@ -1,16 +1,18 @@
 using Backend.Models;
-
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers;
 
 [ApiController]
 [Route("client")]
+[EnableCors("AllowAllOrigins")]
 public class ClientController : ControllerBase
 {
     [HttpGet]
     [Route("get_all")]
-
+    [Authorize(Policy = "Employee")]
     public void getAllClients()
     {
         Client[]? clients = Client.SelectAllClients();
@@ -19,6 +21,7 @@ public class ClientController : ControllerBase
 
     [HttpGet]
     [Route("get/{id}")]
+    [Authorize(Policy = "Employee")]
     public void getClient(int id)
     {
         Client client = Client.SelectClient(id);
@@ -27,17 +30,23 @@ public class ClientController : ControllerBase
 
     [HttpPost]
     [Route("add")]
-    public void AddClient([FromBody] NewClientInfo body)
+    [Authorize(Policy = "Employee")]
+    public async void AddClient([FromBody] Client newClient)
     {
-        Client newClient = body.newClient;
-        string password = body.password;
-
-        Client.InsertClient(newClient, password);
-        Response.WriteAsJsonAsync(new { message = "Client added" });
+        try
+        {
+            await Client.InsertClientAsync(newClient);
+            await Response.WriteAsJsonAsync(new { status = "Ok" });
+        }
+        catch (System.Exception error)
+        {
+            await Response.WriteAsJsonAsync(new { error = error.Message });
+        }
     }
 
     [HttpPatch]
     [Route("update/{id}")]
+    [Authorize(Policy = "Employee")]
     public void UpdateClient(int id, [FromBody] Client newClient)
     {
         if (Client.UpdateClient(id, newClient))
@@ -52,6 +61,7 @@ public class ClientController : ControllerBase
 
     [HttpDelete]
     [Route("delete/{id}")]
+    [Authorize(Policy = "Employee")]
     public void DeleteClient(int id)
     {
         Client.DeleteClient(id);
@@ -75,18 +85,6 @@ public class ClientController : ControllerBase
     //         Response.WriteAsJsonAsync(new { message = "Password not changed" });
     //     }
     // }
-}
-
-public struct NewClientInfo
-{
-    public Client newClient { get; set; }
-    public string password { get; set; }
-
-    public NewClientInfo(Client newClient, string password)
-    {
-        this.newClient = newClient;
-        this.password = password;
-    }
 }
 
 public class Passwords

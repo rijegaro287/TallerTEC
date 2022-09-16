@@ -11,7 +11,7 @@ public class EmployeeController : ControllerBase
 {
     [HttpGet]
     [Route("get_all")]
-    //[Authorize(Policy = "Employee")]
+    [Authorize(Policy = "Employee")]
     public async void GetAllEmployees()
     {
         Employee[] employees = Employee.SelectAllEmployees();
