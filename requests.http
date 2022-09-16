@@ -103,7 +103,7 @@ content-type: application/json
 
 ### -----------Appointments-----------------
 
-GET https://localhost:7279/appointment/get_all
+GET https://localhost:8080/appointment/get_all
 
 ###
 

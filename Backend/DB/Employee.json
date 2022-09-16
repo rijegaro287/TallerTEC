@@ -30,6 +30,26 @@
         "LastName": "Varela"
     },
     {
+        "Email": "employee4@estudiantec.cr",
+        "BirthDate": "01/01/2000",
+        "Age": 14,
+        "Position": "Developer",
+        "StartingDate": "01/01/2020",
+        "ID": 4,
+        "Name": "Pepito",
+        "LastName": "Varela"
+    },
+    {
+        "Email": "employee5@estudiantec.cr",
+        "BirthDate": "01/01/2000",
+        "Age": 14,
+        "Position": "Developer",
+        "StartingDate": "01/01/2020",
+        "ID": 5,
+        "Name": "Pepito",
+        "LastName": "Varela"
+    },
+    {
         "Email": "shashia@gmail.com",
         "BirthDate": "01/01/1980",
         "Age": 19,
