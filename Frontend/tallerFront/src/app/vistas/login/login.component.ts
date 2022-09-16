@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+// Componente login para acceder al menu principal
 export class LoginComponent implements OnInit {
 
   public loginForm = new FormGroup({
@@ -25,12 +27,14 @@ export class LoginComponent implements OnInit {
 
   }
 
+  // Función: chequea si el usuario ya verifico sus credenciles
   checkLocalStorage() {
     if (localStorage.getItem('token')) {
       this.router.navigate(['mainmenu'])
     }
   }
 
+  // Función: chequea si credencales son correctos
   onLogin(form: any) {
 
     this.api.loginID(form).subscribe((data: any) => {

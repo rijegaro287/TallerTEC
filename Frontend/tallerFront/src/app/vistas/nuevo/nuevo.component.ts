@@ -10,6 +10,8 @@ import { fromEvent } from 'rxjs';
   templateUrl: './nuevo.component.html',
   styleUrls: ['./nuevo.component.css']
 })
+
+// Componente para crear nuevos empleados
 export class NuevoComponent implements OnInit {
 
   constructor(private activerouter:ActivatedRoute, private router:Router, private api:ApiService) { }
@@ -31,6 +33,8 @@ export class NuevoComponent implements OnInit {
 
   }
 
+  //Función: Agregar nuevos empleados a la base de datos
+  //Entrada: form 
   postForm(form:any){
     let idN  = form.id as number;
     let ageN = form.age as number;
@@ -42,7 +46,7 @@ export class NuevoComponent implements OnInit {
       console.log(dataResponse.status);
       if (dataResponse.status == "Ok"){
         this.infoStat = true;
-        this.infoText = "Empleado creado";
+        this.infoText = "Cliente creado";
       }else{
         this.infoStat = true;
         this.infoText = "No se pudo crear";
@@ -50,6 +54,8 @@ export class NuevoComponent implements OnInit {
     })
   }
 
+
+  //Función: regresar a la ventana anterior
   salir(){
     this.router.navigate(['dashboard']);
   }
