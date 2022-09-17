@@ -42,8 +42,9 @@
             </div>
             <br>
             <button class="col btn btn-lg btn-purple-moon btn-rounded">Guardar</button>
-            <button class="col btn btn-lg btn-ultra-voilet btn-rounded" (click)="eliminar(editarForm.value)">Eliminar</button>
+            
         </form>
+        <button class="col btn btn-lg btn-ultra-voilet btn-rounded" (click)="eliminar(editarForm.value)">Eliminar</button>
         <div class="alert alert-primary" *ngIf="infoStat">
             <p>{{ infoText }}</p>
           </div>

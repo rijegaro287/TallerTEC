@@ -82,7 +82,7 @@ export class EditarComponent2 implements OnInit {
   }
 
   eliminar(form:any){
-    {
+    
       let idN = parseInt(form.id);
       if (idN == this.clienteid){
         this.api.deleteEmpleado(idN).subscribe(data =>{
@@ -90,14 +90,14 @@ export class EditarComponent2 implements OnInit {
           let dataResponse:ResponseI = data;
           if (dataResponse.status == "Ok"){
             this.infoStat = true;
-            this.infoText = "Empleado eliminado con exito";
+            this.infoText = "Cliente eliminado con exito";
           }else{
             this.infoStat = true;
-            this.infoText = "No se pudo crear";
+            this.infoText = "No se pudo eliminar";
           }
         });
       }
-    }
+    
   }
 
 }

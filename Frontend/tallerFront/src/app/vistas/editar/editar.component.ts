@@ -90,7 +90,7 @@ export class EditarComponent implements OnInit {
           this.infoText = "Empleado eliminado con exito";
         }else{
           this.infoStat = true;
-          this.infoText = "No se pudo crear";
+          this.infoText = "No se pudo eliminar";
         }
       });
     }

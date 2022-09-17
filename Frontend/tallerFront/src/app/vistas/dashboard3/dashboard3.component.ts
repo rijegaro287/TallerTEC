@@ -31,7 +31,7 @@ export class DashboardComponent3 implements OnInit {
   //Funcion: Editar una cita segun su id
   //Entrada: id 
   editarCita(id: any){
-    this.router.navigate(['editar', id])
+    this.router.navigate(['editar3', id])
   }
 
   //Funcion: Genera nueva cita 

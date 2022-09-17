@@ -48,8 +48,8 @@ export class ApiService {
   }    
   
   getSingleCita(id: any) {
-    let direccion = this.url + "cita/get/" + id;
-    return this.http.get<CitaI>(direccion);
+    let direccion = this.url + "appointment/get/" + id;
+    return this.http.get<ListaCitasI>(direccion);
   }    
   
 
@@ -107,10 +107,14 @@ export class ApiService {
   }
 
   deleteCita(id:any):Observable<ResponseI>{
-    let direccion = this.url + 'appointments/delete/'+id;
+    let direccion = this.url + 'appointment/delete/'+id;
     return this.http.delete<ResponseI>(direccion);
   }
 
+  getFactura(id:any){
+    let direccion = this.url + 'appointment/generate_bill/'+id;
+    return this.http.get<ResponseI>(direccion);
+  }
 
 }
 
