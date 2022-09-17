@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/servicios/api/api.service';
 
 @Component({
   selector: 'app-mainmenu',
@@ -8,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class MainmenuComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private api: ApiService) { }
+  infoStat: boolean = false;
+  infoText: any = "";
 
   ngOnInit(): void {
   }
@@ -27,6 +30,19 @@ export class MainmenuComponent implements OnInit {
     gestionCitas(){
     this.router.navigate(['dashboard3']);
   }
-  
+  reporteClientes(){
+    console.log("Reporte top clientes generado");
+    this.api.getReporteClientes();
+    this.infoStat = true;
+    this.infoText = "Reporte de top de clientes creado, revise en su carpeta de reportes";
+
+  }
+
+  reporteVehiculo(){
+    console.log("Reporte top vehiculos generado");
+    this.api.getReporteVehiculos();
+    this.infoStat = true;
+    this.infoText = "Reporte de top de vehiculos creado, revise en su carpeta de reportes";
+  }
 
 }

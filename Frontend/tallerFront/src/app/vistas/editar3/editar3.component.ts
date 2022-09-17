@@ -118,6 +118,8 @@ export class EditarComponent3 implements OnInit {
   factura(form:any){
     console.log("factura realizada");
     this.api.getFactura(this.citaid).subscribe(data=>{
+      this.infoStat = true;
+      this.infoText = "factura creada, revise en su carpeta de reportes";
       console.log(data);
     });
   }

@@ -16,8 +16,18 @@
 			<button class="col btn btn-lg btn-pink-moon btn-rounded" (click)="gestionCitas()">Citas</button>
 		</div>
 	</div>
-
-
+	<h4 style="font-family:'Monaco">Reportes</h4>
+	<div class="row">
+		<div class="col">
+			<button class="col btn btn-lg btn-purple-moon btn-rounded" (click)="reporteClientes()">Clientes</button>
+		</div>
+		<div class="col">
+			<button class="col btn btn-lg btn-ultra-voilet btn-rounded" (click)="reporteVehiculo()">Vehiculos</button>
+		</div>
+	</div>
+	<div class="alert alert-primary" *ngIf="infoStat">
+		<p>{{ infoText }}</p>
+	  </div>
 </div>
 
 <app-footer></app-footer>

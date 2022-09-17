@@ -116,6 +116,16 @@ export class ApiService {
     return this.http.get<ResponseI>(direccion);
   }
 
+  getReporteVehiculos(){
+    let direccion = this.url + 'report/get_top_clients';
+    return this.http.get<ResponseI>(direccion);
+  }
+
+  getReporteClientes(){
+    let direccion = this.url + 'report/get_top_vehicles';
+    return this.http.get<ResponseI>(direccion);
+  }
+
 }
 
 
