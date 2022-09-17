@@ -3,7 +3,7 @@ import {Router, ActivatedRoute} from '@angular/router';
 import { EmpleadoI } from '../../modelos/empleado.interface';
 import { ApiService } from 'src/app/servicios/api/api.service';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
-import { formatCurrency } from '@angular/common';
+import { ResponseI } from 'src/app/modelos/response.interface';
 
 @Component({
   selector: 'app-editar',
@@ -15,6 +15,9 @@ export class EditarComponent implements OnInit {
   constructor(private activerouter:ActivatedRoute, private router:Router, private api:ApiService) { }
 
   datosEmpleado:EmpleadoI | undefined;
+  empleadoid:any;
+  infoStat: boolean = false;
+  infoText: any = "";
 
   editarForm = new FormGroup({
     id: new FormControl(''),
@@ -32,13 +35,13 @@ export class EditarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let empleadoid = this.activerouter.snapshot.paramMap.get('id')
-    let token = this.getToken;
-    this.api.getSingleEmpleado(empleadoid).subscribe(data =>{
+    this.empleadoid = this.activerouter.snapshot.paramMap.get('id')
+    //let token = this.getToken;
+    this.api.getSingleEmpleado(this.empleadoid).subscribe(data =>{
       this.datosEmpleado = data;
       
       this.editarForm.setValue({
-        'id': empleadoid,
+        'id': this.empleadoid,
         'name': this.datosEmpleado.name,
         'lastName': this.datosEmpleado.lastName,
         'email': this.datosEmpleado.email,
@@ -50,29 +53,51 @@ export class EditarComponent implements OnInit {
 
       console.log(this.datosEmpleado);
     })
-    console.log(empleadoid)
+    console.log(this.empleadoid)
+  }
+
+  patchForm(form:any){
+    let idN = parseInt(form.id);
+    let ageN = parseInt(form.age);
+    let peticion = {ID:idN, Name:form.name, LastName:form.lastName, Email:form.email,
+      BirthDate:form.birthDate, Age:ageN, Position:form.position, StartingDate:form.startingDate}
+    
+    if (idN == this.empleadoid){
+
+    }
+      this.api.patchEmpleado(peticion, form.id).subscribe(data=>{
+        console.log(data);
+        let dataResponse:ResponseI = data;
+        if (dataResponse.status == "Ok"){
+          this.infoStat = true;
+          this.infoText = "Empleado editado con exito";
+        }else{
+          this.infoStat = true;
+          this.infoText = "No se pudo crear";
+        }
+
+    });
+  }
+
+  eliminar(form:any){
+    let idN = parseInt(form.id);
+    if (idN == this.empleadoid){
+      this.api.deleteEmpleado(idN).subscribe(data =>{
+        console.log(data);
+        let dataResponse:ResponseI = data;
+        if (dataResponse.status == "Ok"){
+          this.infoStat = true;
+          this.infoText = "Empleado eliminado con exito";
+        }else{
+          this.infoStat = true;
+          this.infoText = "No se pudo crear";
+        }
+      });
+    }
   }
 
   salir(){
     this.router.navigate(['mainmenu']);
-  }
-
-  postForm(form:any){
-    let idN  = form.id as number;
-    let ageN = form.age as number;
-    this.api.putEmpleado(form).subscribe(data =>{
-      console.log(data)
-    })
-    console.log(form);
-  }
-
-  eliminar(){
-    //this.api.deleteEmpleado(this.editarForm)
-    //let datos:EmpleadoI = this.editarForm.value;
-    //this.api.deleteEmpleado(datos).subscribe(data =>{
-     // console.log(data);
-    //})
-    //console.log("eliminar");
   }
 
 }

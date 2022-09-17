@@ -10,9 +10,13 @@ import { fromEvent } from 'rxjs';
   templateUrl: './nuevo2.component.html',
   styleUrls: ['./nuevo2.component.css']
 })
+
+// Componente para crear nuevos clientes
 export class NuevoComponent2 implements OnInit {
+
   infoStat: boolean = false;
   infoText: any = "";
+
   constructor(private activerouter:ActivatedRoute, private router:Router, private api:ApiService) { }
 
     nuevoForm = new FormGroup({
@@ -28,6 +32,8 @@ export class NuevoComponent2 implements OnInit {
 
   }
 
+  //Función: Agregar nuevos clientes a la base de datos
+  //Entrada: form
   postForm(form:any){
     let idN  = form.id as number;
     let phoneN = form.phoneNumber as number;
@@ -49,6 +55,7 @@ export class NuevoComponent2 implements OnInit {
     })
   }
 
+  //Función: Regresar a la ventana anterior
   salir(){
     this.router.navigate(['dashboard']);
   }

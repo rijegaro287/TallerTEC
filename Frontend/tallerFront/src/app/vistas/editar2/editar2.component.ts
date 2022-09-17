@@ -3,6 +3,7 @@ import {Router, ActivatedRoute} from '@angular/router';
 import { ClienteI } from '../../modelos/cliente.interface';
 import { ApiService } from 'src/app/servicios/api/api.service';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import { ResponseI } from 'src/app/modelos/response.interface';
 import { formatCurrency } from '@angular/common';
 
 @Component({
@@ -10,11 +11,16 @@ import { formatCurrency } from '@angular/common';
   templateUrl: './editar2.component.html',
   styleUrls: ['./editar2.component.css']
 })
+
+// Componente Editar utilizado para la edición de datos de clientes
 export class EditarComponent2 implements OnInit {
 
   constructor(private activerouter:ActivatedRoute, private router:Router, private api:ApiService) { }
 
   datosCliente:ClienteI | undefined;
+  clienteid:any;
+  infoStat: boolean = false;
+  infoText: any = "";
 
   editarForm2 = new FormGroup({
     id: new FormControl(''),
@@ -27,12 +33,12 @@ export class EditarComponent2 implements OnInit {
 
 
   ngOnInit(): void {
-    let clienteid = this.activerouter.snapshot.paramMap.get('id')
-    this.api.getSingleCliente(clienteid).subscribe(data =>{
+    this.clienteid = this.activerouter.snapshot.paramMap.get('id')
+    this.api.getSingleCliente(this.clienteid).subscribe(data =>{
       this.datosCliente = data;
       
       this.editarForm2.setValue({
-        'id': clienteid,
+        'id': this.clienteid,
         'name': this.datosCliente.name,
         'lastName': this.datosCliente.lastName,
         'email': this.datosCliente.email,
@@ -42,29 +48,56 @@ export class EditarComponent2 implements OnInit {
 
       console.log(this.datosCliente);
     })
-    console.log(clienteid)
+    console.log(this.clienteid)
   }
 
   salir(){
     this.router.navigate(['mainmenu']);
   }
 
-  postForm(form:any){
+  patchForm(form:any){
     let idN  = form.id as number;
-    let ageN = form.age as number;
-    this.api.putEmpleado(form).subscribe(data =>{
-      console.log(data)
-    })
-    console.log(form);
+    let phoneN = form.phoneNumber as number;
+
+    let peticion = {ID:idN, Name:form.name, LastName:form.lastName, Email:form.email,
+    PhoneNumber:phoneN, Address:form.address};
+    
+    if (idN == this.clienteid){
+
+    }
+      this.api.patchCliente(peticion, form.id).subscribe(data=>{
+        console.log(data);
+        let dataResponse:ResponseI = data;
+        if (dataResponse.status == "Ok"){
+          this.infoStat = true;
+          this.infoText = "Cliente editado con exito";
+        }else{
+          this.infoStat = true;
+          this.infoText = "No se pudo crear";
+        }
+
+    });
+
+
   }
 
-  eliminar(){
-    //this.api.deleteEmpleado(this.editarForm)
-    //let datos:EmpleadoI = this.editarForm.value;
-    //this.api.deleteEmpleado(datos).subscribe(data =>{
-     // console.log(data);
-    //})
-    //console.log("eliminar");
+  eliminar(form:any){
+    {
+      let idN = parseInt(form.id);
+      if (idN == this.clienteid){
+        this.api.deleteEmpleado(idN).subscribe(data =>{
+          console.log(data);
+          let dataResponse:ResponseI = data;
+          if (dataResponse.status == "Ok"){
+            this.infoStat = true;
+            this.infoText = "Empleado eliminado con exito";
+          }else{
+            this.infoStat = true;
+            this.infoText = "No se pudo crear";
+          }
+        });
+      }
+    }
   }
 
 }

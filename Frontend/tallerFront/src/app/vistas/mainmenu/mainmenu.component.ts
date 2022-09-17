@@ -13,15 +13,18 @@ export class MainmenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Función: Navega hacia el dashboard de empleados
   gestionEmpleado(){
     this.router.navigate(['dashboard']);
   }
 
+  //Función: Navega hacia el dashboard de clientes
   gestionCliente(){
     this.router.navigate(['dashboard2']);
   }
 
-  gestionCitas(){
+  //Función: Navega hacia el dashboard de citas
+    gestionCitas(){
     this.router.navigate(['dashboard3']);
   }
   

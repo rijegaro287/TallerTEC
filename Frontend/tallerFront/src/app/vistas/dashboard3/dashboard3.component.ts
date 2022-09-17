@@ -12,6 +12,7 @@ import { ListaEmpleadosI } from '../../modelos/listaempleados.interface'
 })
 
 
+// Componente Dashboard utilizado pra la generación de la tabla para la muestra de citas 
 export class DashboardComponent3 implements OnInit {
 
   citas: ListaCitasI[] = [];
@@ -19,6 +20,7 @@ export class DashboardComponent3 implements OnInit {
   constructor(private api:ApiService, private router:Router) { 
   }
 
+  //Funcion: Recibe información sobre citas 
   ngOnInit(): void {
     this.api.getAllCitas().subscribe(data =>{
       this.citas = data;
@@ -26,10 +28,13 @@ export class DashboardComponent3 implements OnInit {
     })
   }
 
+  //Funcion: Editar una cita segun su id
+  //Entrada: id 
   editarCita(id: any){
     this.router.navigate(['editar', id])
   }
 
+  //Funcion: Genera nueva cita 
   nuevoCita(){
     this.router.navigate(['nuevo3']);
 

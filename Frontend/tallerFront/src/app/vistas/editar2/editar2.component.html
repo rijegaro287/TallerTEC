@@ -1,7 +1,7 @@
 <app-header></app-header>
     <div class="container">
             
-        <form [formGroup]="editarForm2" (ngSubmit)="postForm(editarForm2.value)">
+        <form [formGroup]="editarForm2" (ngSubmit)="patchForm(editarForm2.value)">
             <div class="form-group">
                 <label for="exampleFormControlInput1"> ID</label>
                 <input type="text" class="form-control" placeholder="Identificacion" formControlName="id">
@@ -27,11 +27,13 @@
                 <input type="text" class="form-control" placeholder="Direccion" formControlName="address">
             </div>
             <br><br>
-            <button type="submit" class="btn btn-primary"> Crear </button>
-            <button type="button" class="btn btn-dark" (click)="salir"> Salir </button>
+            <button class="col btn btn-lg btn-purple-moon btn-rounded">Guardar</button>
+            <button class="col btn btn-lg btn-ultra-voilet btn-rounded" (click)="eliminar(editarForm2.value)">Eliminar</button>
 
         </form>
-
+        <div class="alert alert-primary" *ngIf="infoStat">
+            <p>{{ infoText }}</p>
+          </div>
     </div>
 
 <app-footer></app-footer>

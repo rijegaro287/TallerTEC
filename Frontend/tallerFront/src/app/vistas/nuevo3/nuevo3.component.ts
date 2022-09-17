@@ -10,6 +10,8 @@ import { fromEvent } from 'rxjs';
   templateUrl: './nuevo3.component.html',
   styleUrls: ['./nuevo3.component.css']
 })
+
+// Componente para crear nuevas citas 
 export class NuevoComponent3 implements OnInit {
 
   constructor(private activerouter:ActivatedRoute, private router:Router, private api:ApiService) { }
@@ -33,6 +35,8 @@ export class NuevoComponent3 implements OnInit {
 
   }
 
+  //Funcion: Agrega nueva cita a la base de datos
+  //Entrada: form 
   postForm(form:any){
 
     let idN  = parseInt(form.id);
@@ -63,6 +67,7 @@ export class NuevoComponent3 implements OnInit {
     })
   }
 
+  //Funcion: Regresar a la ventana anterior 
   salir(){
     this.router.navigate(['dashboard']);
   }
