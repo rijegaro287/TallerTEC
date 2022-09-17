@@ -29,9 +29,9 @@ public class Product
     }
 
     ///<summary>
-    ///Returns a product
+    /// Devuelve un producto de la base de datos utilizando su id
     ///</summary>
-    ///<param name="ID">The ID of the product to be selected.</param>
+    ///<param name="ID">El id del producto seleccionado</param>
     public static Product SelectProduct(int ID)
     {
         Product[] allProducts = JSONFiles.ReadJSONFile<Product[]>(table_path);

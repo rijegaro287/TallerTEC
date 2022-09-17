@@ -1,6 +1,6 @@
 ###
 
-GET https://localhost:3456/report/sales_per_branch
+GET https://localhost:7279/report/sales_per_branch
 content-type: application/json
 
 {
@@ -12,7 +12,7 @@ GET https://localhost:7279/report/get_top_clients
 
 ###
 
-GET https://localhost:3456/report/get_top_vehicles
+GET https://localhost:7279/report/get_top_vehicles
 
 ###
 GET https://localhost:7279/appointment/generate_bill/1

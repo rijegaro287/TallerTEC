@@ -2,9 +2,6 @@ using Backend.Helpers;
 
 namespace Backend.Models;
 
-///<summary>
-/// Represents a client.
-///</summary>
 public class Client : Person
 {
     private static string table_path = "DB/Client.json";
@@ -27,9 +24,9 @@ public class Client : Person
         this.Address = Address;
     }
     ///<summary>
-    /// Returns a client
+    /// Devuelve un cliente de la base de datos utilizando su id
     ///</summary>
-    ///<param name="clientID">The ID of the client to be selected.</param>
+    ///<param name="clientID">El id del cliente seleccionado</param>
     public static Client SelectClient(int id)
     {
         Client[] allClients = JSONFiles.ReadJSONFile<Client[]>(table_path);
@@ -38,9 +35,9 @@ public class Client : Person
     }
 
     ///<summary>
-    /// Selects a client by email.
+    /// Devuelve un cliente de la base de datos utilizando su email
     ///</summary>
-    ///<parma name="email">The email of the client to be selected.</param>
+    ///<param name="email">El email del cliente seleccionado</param>
     public static Client SelectClient(string email)
     {
         Client[] allClients = JSONFiles.ReadJSONFile<Client[]>(table_path);
@@ -49,7 +46,7 @@ public class Client : Person
     }
 
     ///<summary>
-    /// Selects all clients.
+    /// Devuelve todos los clientes de la base de datos
     ///</summary>
     public static Client[] SelectAllClients()
     {
@@ -58,15 +55,16 @@ public class Client : Person
     }
 
     ///<summary>
-    /// Inserts a client.
+    /// Agrega un cliente a la base de datos y genera un password aleatorio para el mismo.
     ///</summary>
+    ///<param name="newClient">La información del nuevo cliente</param>
     public static async Task InsertClientAsync(Client newClient)
     {
         string randomPassword = GenerateRandomPassword();
         string hashedPassword = BCrypt.Net.BCrypt.HashPassword(randomPassword);
 
         ClientPassword employeePassword = new ClientPassword(newClient.ID,
-                                                             hashedPassword);
+                                                            hashedPassword);
 
         // await EmailSender.SendEmailAsync(newClient.Name,
         //                                  newClient.Email,
@@ -78,10 +76,10 @@ public class Client : Person
     }
 
     ///<summary>
-    /// Updates a client.
+    /// Actualiza un cliente de la base de datos
     ///</summary>
-    ///<param name="ID">The ID of the client to be updated.</param>
-    ///<param name="newClient">The new client.</param>
+    ///<param name="ID">El id del cliente que se editará</param>
+    ///<param name="newClient">La nueva información del cliente</param>
     public static bool UpdateClient(int ID, Client newClient)
     {
         bool wasUpdated = false;
@@ -97,11 +95,11 @@ public class Client : Person
     }
 
     ///<summary>
-    /// Deletes a client.
+    /// Elimina un cliente de la base de datos
     ///</summary>
-    ///<param name="ID">The ID of the client to be deleted.</param>
+    ///<param name="ID">El id del cliente que se eliminará</param>
     public static void DeleteClient(int ID)
-    {   
+    {
         //Delete appointments with the client
         Appointment[] allAppointments = Appointment.SelectAllAppointments();
         Appointment[] appointmentsWithClient = allAppointments.Where(appointment => appointment.AttendedClientID == ID).ToArray();
@@ -121,7 +119,7 @@ public class Client : Person
     }
 
     ///<summary>
-    /// Generates a random password.
+    /// Genera una contraseña aleatoria 
     ///</summary>
     private static string GenerateRandomPassword()
     {

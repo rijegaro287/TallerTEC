@@ -3,15 +3,15 @@ using System.Text.Json;
 namespace Backend.Helpers;
 
 /// <summary>
-/// This class contains methods to read and write JSON files.
+/// Contiene métodos para leer y escribir en archivos JSON.
 /// </summary>
 public class JSONFiles
 {
     /// <summary>
-    /// Writes an object to a JSON file.
+    /// Agrega un objeto a una lista de objetos en un archivo JSON.
     /// </summary>
-    /// <param name="path">The path of the JSON file.</param>
-    /// <param name="newObject">The object to write.</param>
+    /// <param name="path">El directorio del archivo JSON</param>
+    /// <param name="newObject">El objeto que se guardará</param>
     public static void WriteJSONFile<Type>(Type newObject, string path)
     {
         Type[] allObjects = ReadJSONFile<Type[]>(path);
@@ -28,7 +28,7 @@ public class JSONFiles
     /// </summary>
     /// <param name="path">The path of the JSON file.</param>
     /// <param name="allObject">The object written in the file.</param>
-    public static void WriteOverJSONFile<Type>(Type[] allObjects , string path)
+    public static void WriteOverJSONFile<Type>(Type[] allObjects, string path)
     {
         string jsonString = JsonSerializer.Serialize<Type[]>(allObjects);
 
@@ -37,9 +37,9 @@ public class JSONFiles
 
 
     /// <summary>
-    /// Reads a JSON file.
+    /// Lee el contenido de un archivo JSON con un array
     /// </summary>
-    /// <param name="path">The path of the JSON file.</param>
+    /// <param name="path">el directorio del archivo JSON</param>
     public static Type ReadJSONFile<Type>(string path)
     {
         string jsonString = File.ReadAllText(path);

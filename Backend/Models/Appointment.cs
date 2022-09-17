@@ -1,8 +1,7 @@
 using Backend.Helpers;
 
 namespace Backend.Models;
-///
-/// This class represents an appointment in the system.
+
 public class Appointment
 {
     private static string table_path = "DB/Appointment.json";
@@ -43,9 +42,9 @@ public class Appointment
     }
 
     /// <summary>
-    /// This method selects an appointment from the database.
+    /// Devuelve una cita de la base de datos
     /// </summary>
-    /// <param name="ID">The ID of the appointment to be selected.</param>
+    /// <param name="ID">El id de la cita que se enviará</param>
     public static Appointment SelectAppointment(int ID)
     {
         Appointment[] allAppointments = JSONFiles.ReadJSONFile<Appointment[]>(table_path);
@@ -54,7 +53,7 @@ public class Appointment
     }
 
     /// <summary>
-    /// This method selects all appointments from the database.
+    /// Devuelve todas las citas de la base de datos
     /// </summary>
     public static Appointment[] SelectAllAppointments()
     {
@@ -63,7 +62,7 @@ public class Appointment
     }
 
     /// <summary>
-    /// This method inserts an appointment into the database.
+    /// Agregar una cita a la base de datos
     /// </summary>
     public static void InsertAppointment(Appointment newAppointment)
     {
@@ -71,10 +70,10 @@ public class Appointment
     }
 
     /// <summary>
-    /// This method updates an appointment in the database.
+    /// Actualiza una cita de la base de datos
     /// </summary>
-    /// <param name="ID">The ID of the appointment to be updated.</param>
-    /// <param name="newAppointment">The appointment with new data.</param>
+    /// <param name="ID">El id de la cita que se actualizará</param>
+    /// <param name="newAppointment">La nueva información de la cita</param>
     public static bool UpdateAppointment(int ID, Appointment newAppointment)
     {
         bool wasUpdated = false;
@@ -90,9 +89,9 @@ public class Appointment
     }
 
     /// <summary>
-    /// This method deletes an appointment from the database.
+    /// Elimina un cita de la base de datos
     /// </summary>
-    /// <param name="ID">The ID of the appointment to be deleted.</param>
+    /// <param name="ID">El id de la cita que se eliminará</param>
     public static void DeleteAppointment(int ID)
     {
         Appointment[] allAppointments = JSONFiles.ReadJSONFile<Appointment[]>(table_path);
@@ -102,9 +101,9 @@ public class Appointment
     }
 
     /// <summary>
-    /// This method generates a Bill for an appointment.
+    /// Genera la factura de una cita
     /// </summary>
-    /// <param name="ID">The ID of the appointment to be billed.</param>
+    /// <param name="ID">El id de la cita que se generará</param>
     public static void GenerateBill(int ID)
     {
         Appointment appointment = SelectAppointment(ID);
