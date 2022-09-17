@@ -1,4 +1,3 @@
-
 [
     {
         "ID": 1,
@@ -7,9 +6,9 @@
         "AttendedClientID": 1,
         "LicensePlate": "ABC123",
         "BranchID": 1,
-        "RequiredService": 1,
-        "MechanicID": 20,
-        "AssistantID": 1,
+        "RequiredService": 4,
+        "MechanicID": 1,
+        "AssistantID": 3,
         "NecessaryParts": [
             1,
             2,
@@ -17,4 +16,3 @@
         ]
     }
 ]
-
