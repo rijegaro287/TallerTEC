@@ -1,5 +1,4 @@
 using Backend.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,11 +10,10 @@ namespace Backend.Controllers;
 public class ClientController : ControllerBase
 {
     /// <summary>
-    /// Sends all clients to the frontend.
+    /// Envía un array con todos los clientes registrados en la base de datos.
     /// </summary>
     [HttpGet]
     [Route("get_all")]
-    // [Authorize(Policy = "Employee")]
     public void getAllClients()
     {
         Client[]? clients = Client.SelectAllClients();
@@ -23,12 +21,11 @@ public class ClientController : ControllerBase
     }
 
     /// <summary>
-    /// Sends an clients to the frontend.
+    /// Envía un cliente con el id especificado.
     /// </summary>
-    /// <param name="id">The id of the client to send.</param>
+    /// <param name="id">El id del cliente que se solicita</param>
     [HttpGet]
     [Route("get/{id}")]
-    // [Authorize(Policy = "Employee")]
     public void getClient(int id)
     {
         Client client = Client.SelectClient(id);
@@ -36,12 +33,11 @@ public class ClientController : ControllerBase
     }
 
     /// <summary>
-    /// Creates an client.
+    /// Crea un nuevo cliente en la base de datos.
     /// </summary>
-    /// <param name="newClient">The client to create.</param>
+    /// <param name="newClient">La información del cliente que se creará</param>
     [HttpPost]
     [Route("add")]
-    //[Authorize(Policy = "Employee")]
     public async Task AddClient([FromBody] Client newClient)
     {
         try
@@ -56,13 +52,12 @@ public class ClientController : ControllerBase
     }
 
     /// <summary>
-    /// Updates a client
+    /// Actualiza un cliente en la base de datos.
     /// </summary>
-    /// <param name="id">The id of the appointment to send.</param>
-    /// <param name="newClient">The client to update.</param>
+    /// <param name="id">El id del cliente que se editará</param>
+    /// <param name="newClient">La nueva infomación del cliente</param>
     [HttpPatch]
     [Route("update/{id}")]
-    //[Authorize(Policy = "Employee")]
     public void UpdateClient(int id, [FromBody] Client newClient)
     {
         if (Client.UpdateClient(id, newClient))
@@ -76,30 +71,14 @@ public class ClientController : ControllerBase
     }
 
     /// <summary>
-    /// Deletes a client.
+    /// Elimina un cliente de la base de datos.
     /// </summary>
-    /// <param name="id">The id of the client to delete.</param>
+    /// <param name="id">El id del cliente que se eliminará</param>
     [HttpDelete]
     [Route("delete/{id}")]
-    //[Authorize(Policy = "Employee")]
     public void DeleteClient(int id)
     {
         Client.DeleteClient(id);
         Response.WriteAsJsonAsync(new { message = "Ok" });
-    }
-}
-
-public class Passwords
-{
-    public string oldPassword { get; set; }
-    public string newPassword { get; set; }
-    public string confirmPassword { get; set; }
-
-    public Passwords(string oldPassword, string newPassword, string confirmPassword)
-    {
-        this.oldPassword = oldPassword;
-        this.newPassword = newPassword;
-        this.confirmPassword = confirmPassword;
-
     }
 }

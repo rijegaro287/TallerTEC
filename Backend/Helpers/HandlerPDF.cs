@@ -6,16 +6,14 @@ namespace Backend.Models;
 /// </summary>
 public class HandlerPDF
 {
-    // private string topClient = ""
     private static string footer = "<center><i>{page} of {total-pages}<i></center>";
     private static string header = "<center><i>TALLER TEC. {date} at {time}<i></center>";
-    // private string beforeBody = 
 
     /// <summary>
-    /// Creates a PDF file.
+    /// Crea un archivo PDF
     /// </summary>
-    /// <param name="text">The text to write in the PDF file.</param>
-    /// <param name="filename">The name of the PDF file.</param>
+    /// <param name="text">El cuerpo del PDF que se generará</param>
+    /// <param name="filename">El nombre del PDF que se generará</param>
     private static void GeneratePDF(string text, string filename)
     {
         //PDF render
@@ -141,6 +139,9 @@ public class HandlerPDF
         GeneratePDF(text, filename);
     }
 
+    /// <summary>
+    /// Genera el PDF de la factura y agrega la factura a la base de datos.
+    /// </summary>
     public static void buildBillPDF(Appointment appointment)
     {
         Client attendedClient = Client.SelectClient(appointment.AttendedClientID);

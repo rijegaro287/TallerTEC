@@ -1,13 +1,12 @@
-
 [
     {
-        "Email": "employee1@estudiantec.cr",
-        "BirthDate": "01/01/2000",
-        "Age": 14,
-        "Position": "Developer",
+        "Email": "bremen@gmail.com",
+        "BirthDate": "01/01/1980",
+        "Age": 19,
+        "Position": "Bottom",
         "StartingDate": "01/01/2020",
         "ID": 1,
-        "Name": "Pepito",
+        "Name": "Maria",
         "LastName": "Varela"
     },
     {
@@ -49,7 +48,6 @@
         "ID": 20,
         "Name": "Sasha",
         "LastName": "Varela"
-
     },
     {
         "Email": "antoca@15",
@@ -60,7 +58,5 @@
         "ID": 78,
         "Name": "",
         "LastName": "Achoy"
-
     }
 ]
-

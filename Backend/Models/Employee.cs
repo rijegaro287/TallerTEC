@@ -2,9 +2,6 @@ using Backend.Helpers;
 
 namespace Backend.Models;
 
-///<summary>
-/// Represetns an employee.
-///</summary>
 public class Employee : Person
 {
     private static string table_path = "DB/Employee.json";
@@ -36,7 +33,7 @@ public class Employee : Person
     }
 
     ///<summary>
-    ///Returns all employees
+    ///Devuelve todos los empleados de la base de datos
     ///</summary>
     public static Employee[] SelectAllEmployees()
     {
@@ -45,9 +42,9 @@ public class Employee : Person
     }
 
     ///<summary>
-    ///Returns an employee
+    ///Devuelve un empleado de la base de datos utilizando su id
     ///</summary>
-    ///<param name="ID">The ID of the employee to be selected.</param>
+    ///<param name="ID">El id del empleado que se solicita</param>
     public static Employee SelectEmployee(int ID)
     {
         Employee[] allEmployees = JSONFiles.ReadJSONFile<Employee[]>(table_path);
@@ -56,7 +53,7 @@ public class Employee : Person
     }
 
     ///<summary>
-    ///Returns an employee
+    ///Devuelve un empleado de la base de datos utilizando su email
     ///</summary>
     ///<param name="email">The email of the employee to be selected.</param>
     public static Employee SelectEmployee(string email)
@@ -67,10 +64,10 @@ public class Employee : Person
     }
 
     ///<summary>
-    ///Inserts an employee in the database.
+    ///Agrega un empleado a la base de datos
     ///</summary>
-    ///<param name="newEmployee">The employee to be inserted.</param>
-    ///<param name="password">The password of the employee to be inserted.</param>
+    ///<param name="newEmployee">La información del empleado que se creará</param>
+    ///<param name="password">La contraseña del empleado que se creará</param>
     public static void InsertEmployee(Employee newEmployee, string password)
     {
         string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
@@ -82,10 +79,10 @@ public class Employee : Person
     }
 
     ///<summary>
-    ///Updates an employee in the database.
+    ///Actualiza la información de un empleado en la base de datos
     ///</summary>
-    ///<param name="ID">The ID of the employee to be updated.</param>
-    ///<param name=newEmployee>The employee to be updated.</param>
+    ///<param name="ID">El id del empleado que se editará</param>
+    ///<param name="newEmployee">La nueva información que tendrá el empleado</param>
     public static bool UpdateEmployee(int ID, Employee newEmployee)
     {
         bool wasUpdated = false;
@@ -101,9 +98,9 @@ public class Employee : Person
     }
 
     ///<summary>
-    ///Deletes an employee from the database.
+    ///Elimina un empleado de la base de datos
     ///</summary>
-    ///<param name="ID">The ID of the employee to be deleted.</param>
+    ///<param name="ID">El id del empleado que se eliminará</param>
     public static void DeleteEmployee(int ID)
     {
         //Delete appointments with the employee as mechanic

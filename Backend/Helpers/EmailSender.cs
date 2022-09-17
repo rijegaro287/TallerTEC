@@ -1,11 +1,16 @@
 using SendGrid;
 using SendGrid.Helpers.Mail;
-
-
 namespace Backend.Helpers;
 
 public class EmailSender
 {
+    /// <summary>
+    /// Envía un email a la dirección de correo electrónico ingresada.
+    /// </summary>
+    /// <param name="clientName">El nombre del cliente que recibirá el correo electrónico</param>
+    /// <param name="clientEmail">La dirección de correo electrónico a la que se enviará el email</param>
+    /// <param name="subject">El asunto del email</param>
+    /// <param name="body">El cuerpo del email</param>
     public static async Task SendEmailAsync(string clientName,
                                             string clientEmail,
                                             string emailSubject,

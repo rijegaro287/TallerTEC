@@ -12,9 +12,9 @@ public class ReportController : ControllerBase
 {
 
     /// <summary>
-    /// Sends a PDF of the total sales per branch between two dates.
+    /// Envía un PDF con todas las ventas realizadas en un rango de fechas.
     /// </summary>
-    /// <param name="body">The dates to use.</param>
+    /// <param name="body">El rango de fechas a utilizar</param>
     [HttpGet]
     [Route("sales_per_branch")]
     public async Task SalesPerBranch([FromBody] DatesInfo dates)
@@ -30,7 +30,6 @@ public class ReportController : ControllerBase
 
     [HttpGet]
     [Route("sales_per_branch2")]
-
     public async Task SalesPerBranch2()
     {
         string filePath = "Reports/SalesPerBranch.pdf";
@@ -38,11 +37,10 @@ public class ReportController : ControllerBase
     }
 
     /// <summary>
-    /// Sends a PDF of the top 10 most frequent clients.
+    /// Envía un PDF con los 10 clientes que más compras han realizado
     /// </summary>
     [HttpGet]
     [Route("get_top_clients")]
-
     public async Task geTopClients()
     {
         Report.TopFrequentClients();
@@ -54,7 +52,7 @@ public class ReportController : ControllerBase
     }
 
     /// <summary>
-    /// Sends a PDF of the top 10 most frequent vehicles.
+    /// Envía un PDF con los 10 vehículos que se han registrado más
     /// </summary>
     [HttpGet]
     [Route("get_top_vehicles")]
@@ -68,6 +66,9 @@ public class ReportController : ControllerBase
     }
 }
 
+/// <summary>
+/// Contiene el rango de fechas para obtener un reporte
+/// </summary>
 public struct DatesInfo
 {
     public string FromDate { get; set; }

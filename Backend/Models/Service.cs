@@ -2,9 +2,6 @@ using Backend.Helpers;
 
 namespace Backend.Models;
 
-/// <summary>
-/// This class represents a service that can be performed in a branch.
-/// </summary>
 public class Service
 {
     private static string table_path = "DB/Service.json";
@@ -26,9 +23,9 @@ public class Service
     }
 
     /// <summary>
-    ///Returns a Service
+    /// Devuelve un servicio de la base de datos utilizando su id
     /// </summary>
-    /// <param name="ID">The ID of the service.</param>
+    /// <param name="ID">El id del servicio que se solicita</param>
     public static Service SelectService(int serviceID)
     {
         Service[] allServicees = JSONFiles.ReadJSONFile<Service[]>(table_path);
