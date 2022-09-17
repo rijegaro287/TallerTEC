@@ -23,18 +23,18 @@ public class ReportController : ControllerBase
         string toDate = dates.ToDate;
         Report.SalesPerBranch(fromDate, toDate);
 
-        // string filePath = "Reports/SalesPerBranch.pdf";
-        // Response.Headers.Add("Content-Disposition", "attachment; filename=SalesPerBranch.pdf");
-        // await Response.SendFileAsync(filePath);
-    }
-
-    [HttpGet]
-    [Route("sales_per_branch2")]
-    public async Task SalesPerBranch2()
-    {
         string filePath = "Reports/SalesPerBranch.pdf";
+        Response.Headers.Add("Content-Disposition", "attachment; filename=SalesPerBranch.pdf");
         await Response.SendFileAsync(filePath);
     }
+
+    // [HttpGet]
+    // [Route("sales_per_branch2")]
+    // public async Task SalesPerBranch2()
+    // {
+    //     string filePath = "Reports/SalesPerBranch.pdf";
+    //     await Response.SendFileAsync(filePath);
+    // }
 
     /// <summary>
     /// Envía un PDF con los 10 clientes que más compras han realizado
