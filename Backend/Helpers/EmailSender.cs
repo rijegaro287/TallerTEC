@@ -21,7 +21,7 @@ public class EmailSender
 
         var client = new SendGridClient(apiKey);
 
-        var fromEmail = new EmailAddress("gatgens27@gmail.com", "TallerTEC");
+        var fromEmail = new EmailAddress("antoca29@gmail.com", "TallerTEC");
         var toEmail = new EmailAddress(clientEmail, clientName);
 
         var plainTextContent = emailBody;
