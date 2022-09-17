@@ -25,6 +25,7 @@ public class ReportController : ControllerBase
 
         string filePath = "Reports/SalesPerBranch.pdf";
         Response.Headers.Add("Content-Disposition", "attachment; filename=SalesPerBranch.pdf");
+        Response.Headers.Add("Content-Type", "application/pdf");
         await Response.SendFileAsync(filePath);
     }
 
@@ -48,6 +49,7 @@ public class ReportController : ControllerBase
 
         string filePath = "Reports/TopClients.pdf";
         Response.Headers.Add("Content-Disposition", "attachment; filename=TopClients.pdf");
+        Response.Headers.Add("Content-Type", "application/pdf");
         await Response.SendFileAsync(filePath);
     }
 
@@ -62,6 +64,7 @@ public class ReportController : ControllerBase
 
         string filePath = "Reports/TopVehicles.pdf";
         Response.Headers.Add("Content-Disposition", "attachment; filename=TopVehicles.pdf");
+        Response.Headers.Add("Content-Type", "application/pdf");
         await Response.SendFileAsync(filePath);
     }
 }
