@@ -4,53 +4,44 @@
         
         <form [formGroup]="editarForm3" (ngSubmit)="postForm(editarForm3.value)">
             <div class="form-group">
-                <label for="exampleFormControlInput1"> Date</label>
-                <input type="text" class="form-control" placeholder="Date" formControlName="name">
+                <label for="exampleFormControlInput1"> ID</label>
+                <input type="text" class="form-control" placeholder="Identificacion" formControlName="id">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlInput1"> Time</label>
-                <input type="text" class="form-control" placeholder="Time" formControlName="lastName">
+                <label for="exampleFormControlInput1"> Fecha</label>
+                <input type="text" class="form-control" placeholder="Fecha" formControlName="date">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlInput1"> Attended Client ID</label>
-                <input type="text" class="form-control" placeholder="Client ID" formControlName="AttendedClientID">
-            </div>
-            <div class="form-group row">
-                <div class="col">
-                    <label for="exampleFormControlInput1"> License Plate </label>
-                    <input type="text" class="form-control" placeholder="License Plate" formControlName="birthDate">
-                </div>
-                
-            </div>
-            <div class="form-group row">
-                <div class="col">
-                    <label for="exampleFormControlInput1"> Branch ID </label>
-                    <input type="text" class="form-control" placeholder="Branch ID" formControlName="BranchID">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col">
-                    <label for="exampleFormControlInput1"> Required Service </label>
-                    <input type="text" class="form-control" placeholder="Required Service" formControlName="RequiredService">
-                </div>
+                <label for="exampleFormControlInput1"> Hora</label>
+                <input type="text" class="form-control" placeholder="Hora" formControlName="time">
             </div>
             <div class="form-group">
-                <div class="col">
-                    <label for="exampleFormControlInput1"> Mechanic ID </label>
-                    <input type="text" class="form-control" placeholder="Mechanic ID" formControlName="MechanicID">
-                </div>
+                <label for="exampleFormControlInput1"> Cliente</label>
+                <input type="text" class="form-control" placeholder="ID cliente" formControlName="attendedClient">
             </div>
-            <div class="form-group row">
-                <div class="col">
-                    <label for="exampleFormControlInput1"> Assistant ID </label>
-                    <input type="text" class="form-control" placeholder="Assistant ID" formControlName="AssistantID">
-                </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1"> Numero de placa </label>
+                <input type="text" class="form-control" placeholder="Placa" formControlName="licensePlate">
             </div>
-            <div class="form-group row">
-                <div class="col">
-                    <label for="exampleFormControlInput1"> Necessary Parts </label>
-                    <input type="text" class="form-control" placeholder="Necessary Parts" formControlName="NecessaryParts">
-                </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1"> Branch ID </label>
+                <input type="text" class="form-control" placeholder="Branch ID" formControlName="branchID">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1"> Servicio requerido </label>
+                <input type="text" class="form-control" placeholder="Numero de servicio" formControlName="requiredService">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1"> Mecanico encargado </label>
+                <input type="text" class="form-control" placeholder="ID mecanico" formControlName="mechanicId">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1"> Asistente encargado </label>
+                <input type="text" class="form-control" placeholder="ID asistente" formControlName="assistantId">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1"> Partes necesarias </label>
+                <input type="text" class="form-control" placeholder="Partes a pedir" formControlName="necessaryParts">
             </div>
             <br>
             <button class="col btn btn-lg btn-purple-moon btn-rounded">Guardar</button>

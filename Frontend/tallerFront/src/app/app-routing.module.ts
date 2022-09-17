@@ -23,7 +23,7 @@ const routes: Routes = [
   {path:'nuevo3', component:NuevoComponent3},
   {path:'editar/:id', component:EditarComponent},
   {path:'editar2/:id', component:EditarComponent2},
-  {path:'editar3/:id', component:EditarComponent2},
+  {path:'editar3/:id', component:EditarComponent3},
   {path:'mainmenu', component:MainmenuComponent}
 
 ];

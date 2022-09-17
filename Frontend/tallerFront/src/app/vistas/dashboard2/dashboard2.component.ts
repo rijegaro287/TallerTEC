@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/servicios/api/api.service';
   styleUrls: ['./dashboard2.component.css']
 })
 
-
+// Componente Dashboard utilizado pra la generación de la tabla para la muestra de clientes
 export class DashboardComponent2 implements OnInit {
 
   clientes: ListaClientesI[] = [];
@@ -18,6 +18,7 @@ export class DashboardComponent2 implements OnInit {
   constructor(private api:ApiService, private router:Router) { 
   }
 
+  //Funcion: Recibe información sobre citas   
   ngOnInit(): void {
     this.api.getAllClientes().subscribe(data =>{
       this.clientes = data;
@@ -25,10 +26,13 @@ export class DashboardComponent2 implements OnInit {
     })
   }
 
+  //Funcion: Editar cliente segun su id
+  //Entrada: id
   editarCliente(id: any){
     this.router.navigate(['editar2', id])
   }
 
+  //Funcion: Genera nuevo cliente
   nuevoCliente(){
     this.router.navigate(['nuevo2']);
 
