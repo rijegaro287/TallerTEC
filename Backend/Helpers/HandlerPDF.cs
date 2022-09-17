@@ -122,24 +122,89 @@ public class HandlerPDF
     public static void bulidTopClientsPDF(string title, Dictionary<int, int> topClients)
     {
         string filename = "TopClients.pdf";
-        //title
-        title = makeTitle(title);
-        //body
-        string body = buildTopClientsBody(topClients);
-        string text = title + body;
-        GeneratePDF(text, filename);
+
+        Dictionary<Client,int> clients = new Dictionary<Client, int>();
+        for(int i = 0; i < topClients.Count; i++)
+        {
+            clients.Add(Client.SelectClient(topClients.Keys.ElementAt(i)), topClients.Values.ElementAt(i));
+        }
+
+        var billHTML = @"
+            <html>
+                <head>
+                    <style>
+                        table, th, td {
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                        }
+                        th, td {
+                            padding: 5px;
+                            text-align: left;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1><center>Factura #" + title + @"</center></h1>
+                    <p>Fecha: " + "{date}" + @"</p>
+                    <p>Cientes frecuentes: </p>
+                    <ul>
+                        " + string.Join("\n", clients.Select(part =>
+                            "<li>" +
+                                "<div>" +
+                                    "<p>Nombre: " + part.Key.Name + " " + part.Key.LastName + @"</p>" +
+                                    "<p>Cédula: " + part.Key.ID + @"</p>" +
+                                    "<p>Número de citas: " + part.Value + @"</p>" +
+                                "</div>" +
+                            "</li>"
+                        )) + @"
+                    </ul>
+        ";
+        GeneratePDF(billHTML, filename);
     }
 
     public static void buildSalesPerBranchPDF(string title, string fromDate, string toDate, Dictionary<int, int> salesPerBranch)
-    {
+    {   
         string filename = "SalesPerBranch.pdf";
-        //title
-        title = makeTitle(title);
-        //body
-        string body = buildSalesPerBranchBody(fromDate, toDate, salesPerBranch);
-        string text = title + body;
-        GeneratePDF(text, filename);
+
+        Dictionary<Branch,int> branches = new Dictionary<Branch, int>();
+        for (int i = 0; i < salesPerBranch.Count; i++){
+            branches.Add(Branch.SelectBranch(salesPerBranch.Keys.ElementAt(i)), salesPerBranch.Values.ElementAt(i));
+        }
+
+        var billHTML = @"
+            <html>
+                <head>
+                    <style>
+                        table, th, td {
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                        }
+                        th, td {
+                            padding: 5px;
+                            text-align: left;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1><center>Factura #" + title + @"</center></h1>
+                    <p>Fecha: " + "{date}" + @"</p>
+                    <p>Fecha Inicial: " + fromDate + @"</p>
+                    <p>Fecha Final: " + toDate + @"</p>
+                    <p>Ventas por Branch: </p>
+                    <ul>
+                        " + string.Join("\n", branches.Select(part =>
+                            "<li>" +
+                                "<div>" +
+                                    "<p>Sucursal: " + part.Key.Name + "-" + part.Key.Location + @"</p>" +
+                                    "<p>Ventas:" + part.Value + @"</p>" +
+                                "</div>" +
+                            "</li>"
+                        )) + @"
+                    </ul>
+        ";
+        GeneratePDF(billHTML, filename);
     }
+    
 
     public static void buildBillPDF(Appointment appointment)
     {

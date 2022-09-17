@@ -66,7 +66,7 @@ public class Client : Person
         string hashedPassword = BCrypt.Net.BCrypt.HashPassword(randomPassword);
 
         ClientPassword employeePassword = new ClientPassword(newClient.ID,
-                                                             hashedPassword);
+                                                            hashedPassword);
 
         // await EmailSender.SendEmailAsync(newClient.Name,
         //                                  newClient.Email,

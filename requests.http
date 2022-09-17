@@ -1,4 +1,4 @@
-
+# ----Employee-----
 POST https://localhost:7279/login
 content-type: application/json
 
@@ -90,7 +90,7 @@ content-type: application/json
 }
 
 ###
-DELETE https://localhost:7279/client/delete/83
+DELETE https://localhost:7279/client/delete/2
 ###
 
 PATCH  https://localhost:7279/client/change_password/ybrenesr@gmail.com

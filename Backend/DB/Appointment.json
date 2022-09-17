@@ -1,1 +1,18 @@
-[{"ID":12,"Date":"12","Time":"1","AttendedClientID":1,"LicensePlate":"eee321","BranchID":3,"RequiredService":4,"MechanicID":1,"AssistantID":1,"NecessaryParts":[90,89,76]}]
+[
+    {
+        "ID": 1,
+        "Date": "01/01/2020",
+        "Time": "01:00",
+        "AttendedClientID": 1,
+        "LicensePlate": "ABC123",
+        "BranchID": 1,
+        "RequiredService": 1,
+        "MechanicID": 20,
+        "AssistantID": 1,
+        "NecessaryParts": [
+            1,
+            2,
+            6
+        ]
+    }
+]

@@ -23,9 +23,9 @@ public class ReportController : ControllerBase
         string toDate = dates.ToDate;
         Report.SalesPerBranch(fromDate, toDate);
 
-        string filePath = "Reports/SalesPerBranch.pdf";
-        Response.Headers.Add("Content-Disposition", "attachment; filename=SalesPerBranch.pdf");
-        await Response.SendFileAsync(filePath);
+        // string filePath = "Reports/SalesPerBranch.pdf";
+        // Response.Headers.Add("Content-Disposition", "attachment; filename=SalesPerBranch.pdf");
+        // await Response.SendFileAsync(filePath);
     }
 
     [HttpGet]
