@@ -12,6 +12,10 @@ namespace Backend.Controllers;
 [EnableCors("AllowAllOrigins")]
 public class LoginController : ControllerBase
 {
+    /// <summary>
+    /// Verifica las credenciales ingresadas y envía un cookie de sesión si son correctas.
+    /// </summary>
+    /// <param name="loginInfo">El email y la contraseña ingresados</param>
     [HttpPost]
     [Route("login")]
     public async void login([FromBody] LoginInfo loginInfo)
@@ -32,6 +36,9 @@ public class LoginController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Cierra la sesión actual y elimina el cookie de sesión.
+    /// </summary>
     [HttpGet]
     [Route("logout")]
     public async void logout()
@@ -46,6 +53,9 @@ public class LoginController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Genera y envía un cookie de sesión si las credenciales son válidas.
+    /// </summary>
     private async Task GenerateCookieAsync(bool isValidPassword)
     {
         if (isValidPassword)
@@ -64,6 +74,9 @@ public class LoginController : ControllerBase
     }
 }
 
+/// <summary>
+/// Contiene el email y la contraseña ingresados por el usuario
+/// </summary>
 public struct LoginInfo
 {
     public string email { get; set; }

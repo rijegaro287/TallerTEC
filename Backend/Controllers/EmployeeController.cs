@@ -7,15 +7,13 @@ namespace Backend.Controllers;
 
 [ApiController]
 [Route("employee")]
-//[Authorize]
 public class EmployeeController : ControllerBase
 {
     /// <summary>
-    /// Sends all employees to the frontend.
+    /// Envía un array con todos los empleados registrados en la base de datos.
     /// </summary>
     [HttpGet]
     [Route("get_all")]
-    //[Authorize(Policy = "Employee")]
     public async void GetAllEmployees()
     {
         Employee[] employees = Employee.SelectAllEmployees();
@@ -23,12 +21,11 @@ public class EmployeeController : ControllerBase
     }
 
     /// <summary>
-    /// Sends an employee to the frontend.
+    /// Envía un empleado con el id especificado.
     /// </summary>
-    /// <param name="id">The id of the employee to send.</param>
+    /// <param name="id">El id del empleado que se solicita</param>
     [HttpGet]
     [Route("get/{id}")]
-    //[Authorize(Policy = "Employee")]
     public async void GetEmployee(int id)
     {
         Employee employee = Employee.SelectEmployee(id);
@@ -36,25 +33,11 @@ public class EmployeeController : ControllerBase
     }
 
     /// <summary>
-    /// Sends an employee to the frontend.
+    /// Crea un nuevo empleado en la base de datos.
     /// </summary>
-    /// <param email="email">The email of the employee to send.</param>
-    [HttpGet]
-    [Route("get_by_email/{email}")]
-    //[Authorize(Policy = "Employee")]
-    public async void GetEmployeeByEmail(string email)
-    {
-        Employee employee = Employee.SelectEmployee(email);
-        await Response.WriteAsJsonAsync(employee);
-    }
-
-    /// <summary>
-    /// Creates an employee.
-    /// </summary>
-    /// <param name="newEmployee">The employee to create.</param>
+    /// <param name="newEmployee">La información del empleado que se creará</param>
     [HttpPost]
     [Route("add")]
-    //[Authorize(Policy = "Employee")]
     public async void AddEmployee([FromBody] NewEmployeeInfo body)
     {
         Console.WriteLine(body.newEmployee);
@@ -66,13 +49,12 @@ public class EmployeeController : ControllerBase
     }
 
     /// <summary>
-    /// Updates an employee
+    /// Actualiza un empleado en la base de datos.
     /// </summary>
-    /// <param name="newEmployee">The employee to update.</param>
-    /// <param name="id">The id of the employee to update.</param>
+    /// <param name="newEmployee">La nueva información del empleado</param>
+    /// <param name="id">El id del empleado que se editará</param>
     [HttpPatch]
     [Route("update/{id}")]
-    //[Authorize(Policy = "Employee")]
     public void UpdateEmployee(int id, [FromBody] Employee newEmployee)
     {
         if (Employee.UpdateEmployee(id, newEmployee))
@@ -86,12 +68,11 @@ public class EmployeeController : ControllerBase
     }
 
     /// <summary>
-    /// Deletes an employee.
+    /// Elimina un empleado de la base de datos.
     /// </summary>
-    /// <param name="id">The id of the employee to delete.</param>
+    /// <param name="id">El id del empleado que se eliminará</param>
     [HttpDelete]
     [Route("delete/{id}")]
-    //[Authorize(Policy = "Employee")]
     public void DeleteEmployee(int id)
     {
         Employee.DeleteEmployee(id);
@@ -99,6 +80,9 @@ public class EmployeeController : ControllerBase
     }
 }
 
+/// <summary>
+/// Contiene la información necesaria para crear un nuevo empleado.
+/// </summary>
 public struct NewEmployeeInfo
 {
     public Employee newEmployee { get; set; }

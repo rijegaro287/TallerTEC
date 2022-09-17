@@ -16,11 +16,11 @@ GET https://localhost:7279/employee/get_all
 
 ###
 
-PATCH  https://localhost:7279/employee/update/4
+PATCH  https://localhost:3456/employee/update/1
 content-type: application/json
 
 {
-    "ID": 200,
+    "ID": 1,
     "Name": "Maria",
     "LastName": "Varela",
     "BirthDate": "01/01/1980",

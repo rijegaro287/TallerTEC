@@ -10,7 +10,7 @@ namespace Backend.Controllers;
 public class AppointmentController : ControllerBase
 {
     /// <summary>
-    /// Sends all appointments to the frontend.
+    /// Envía un array con todas las citas registradas en la base de datos.
     /// </summary>
     [HttpGet]
     [Route("get_all")]
@@ -20,9 +20,9 @@ public class AppointmentController : ControllerBase
         Response.WriteAsJsonAsync(appointments);
     }
     /// <summary>
-    /// Sends an appointment to the frontend.
+    /// Envía una cita con el id especificado.
     /// </summary>
-    /// <param name="id">The id of the appointment to send.</param>
+    /// <param name="id">El id de la cita que se solicita</param>
     [HttpGet]
     [Route("get/{id}")]
     public void GetAppointment(int id)
@@ -32,9 +32,9 @@ public class AppointmentController : ControllerBase
     }
 
     /// <summary>
-    /// Creates an appointment.
+    /// Crea una nueva cita en la base de datos.
     /// </summary>
-    /// <param name="appointment">The appointment to create.</param>
+    /// <param name="appointment">Los datos de la cita que se creará</param>
     [HttpPost]
     [Route("add")]
     public void AddAppointment([FromBody] Appointment newAppointment)
@@ -44,10 +44,10 @@ public class AppointmentController : ControllerBase
     }
 
     /// <summary>
-    /// Updates an appointment.
+    /// Actualiza una cita en la base de datos.
     /// </summary>
-    /// <param name="newAppointment">The appointment to update.</param>
-    /// <param name="id">The id of the appointment to update.</param>
+    /// <param name="newAppointment">La nueva información que tendrá la cita.</param>
+    /// <param name="id">El id de la cita que se editará</param>
     [HttpPatch]
     [Route("update/{id}")]
     public void UpdateAppointment(int id, [FromBody] Appointment newAppointment)
@@ -63,9 +63,9 @@ public class AppointmentController : ControllerBase
     }
 
     /// <summary>
-    /// Deletes an appointment.
+    /// Elimina una cita de la base de datos.
     /// </summary>
-    /// <param name="id">The id of the appointment to delete.</param>
+    /// <param name="id">El id de la cita a eliminar</param>
     [HttpDelete]
     [Route("delete/{id}")]
     public void DeleteAppointment(int id)
@@ -75,9 +75,9 @@ public class AppointmentController : ControllerBase
     }
 
     /// <summary>
-    /// Generates and sends a bill for an appointment. 
+    /// Genera la factura de una cita en PDF y la envía al cliente.
     /// </summary>
-    /// <param name="id">The id of the appointment to generate a bill for.</param>
+    /// <param name="id">El id de la cita que se generará</param>
     [HttpGet]
     [Route("generate_bill/{id}")]
     public async Task SendBill(int id)

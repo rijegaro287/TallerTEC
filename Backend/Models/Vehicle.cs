@@ -2,10 +2,7 @@ using Backend.Helpers;
 
 namespace Backend.Models;
 
-///<summary>
-///This class represents a vehicle that has use a service.
-///</summary>
-public class Vehicle 
+public class Vehicle
 {
     private static string table_path = "DB/Vehicle.json";
     public string LicensePlate { get; set; }
@@ -20,7 +17,7 @@ public class Vehicle
     }
 
     ///<summary>
-    ///Returns a Vehicle
+    ///Devuelve un vehiculo
     ///</summary>
     ///<param name="LicensePlate">The LicensePlate of the vehicle.</param>
     public static Vehicle SelectClient(string LicensePlate)

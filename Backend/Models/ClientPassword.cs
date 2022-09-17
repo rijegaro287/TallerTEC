@@ -2,9 +2,6 @@ using Backend.Helpers;
 
 namespace Backend.Models;
 
-///<summary>
-/// Clients' passwords.
-///</summary>
 public class ClientPassword
 {
     private static string table_path = "DB/ClientPassword.json";
@@ -18,8 +15,9 @@ public class ClientPassword
     }
 
     ///<summary>
-    /// Returns a client's password.
+    /// Devuelve la contraseña de un cliente
     ///</summary>
+    ///<param name="ClientID">El id del cliente</param>
     private static string SelectPassword(int ClientID)
     {
         ClientPassword[] allPasswords = JSONFiles.ReadJSONFile<ClientPassword[]>(table_path);
@@ -29,10 +27,10 @@ public class ClientPassword
     }
 
     ///<summary>
-    /// Verifies if a password is correct.
+    /// Verifica si la contraseña ingresada es correcta
     ///</summary>
-    ///<param name="email">The email of the client.</param>
-    ///<param name="passwordInput">The password input by the user.</param>
+    ///<param name="email">El email del cliente </param>
+    ///<param name="passwordInput">La contraseña ingresada por el usuario</param>
     public static bool ValidatePassword(string email, string passwordInput)
     {
         Client client = Client.SelectClient(email);

@@ -1,9 +1,6 @@
 using Backend.Helpers;
 namespace Backend.Models;
 
-///<summary>
-/// Represents a bill in the system. Every bill comes from an appointment.
-///</summary>
 public class Bill
 {
     private static string table_path = "DB/Bill.json";
@@ -24,9 +21,9 @@ public class Bill
     }
 
     /// <summary>
-    /// This method selects a bill from the database.
+    /// Devuelve una factura de la base de datos
     /// </summary>
-    /// <param name="appointmentID">The ID of the appointment to be selected.</param>
+    /// <param name="appointmentID">El id de la cita generada</param>
     public static Bill selectBill(int appointmentID)
     {
         Bill[] allBills = JSONFiles.ReadJSONFile<Bill[]>(table_path);
@@ -35,7 +32,7 @@ public class Bill
     }
 
     /// <summary>
-    /// This method selects all bills from the database.
+    /// Devuelve todas las facturas de la base de datos
     /// </summary>
     public static Bill[] selectAllBills()
     {
@@ -44,9 +41,9 @@ public class Bill
     }
 
     /// <summary>
-    /// This method inserts a bill into the database.
+    /// Agrega una factura a la base de datos
     /// </summary>
-    /// <param name="bill">The bill to be inserted.</param>
+    /// <param name="bill">La información de la factura que se creará</param>
     public static void InsertBill(Bill newBill)
     {
         JSONFiles.WriteJSONFile<Bill>(newBill, table_path);
