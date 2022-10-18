@@ -45,7 +45,6 @@ public class Report
         return mostFrequentVehicles;
 
     }
-    // TODO agregar los nombres de los clientes
     ///<summary>
     ///Returns a dictionary(ClientID,numOfAppoinments) with the top 10 most frequent clients
     ///</summary>

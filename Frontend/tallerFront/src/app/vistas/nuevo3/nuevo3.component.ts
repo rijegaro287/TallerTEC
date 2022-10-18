@@ -59,7 +59,7 @@ export class NuevoComponent3 implements OnInit {
       console.log(dataResponse.status);
       if (dataResponse.status == "Ok"){
         this.infoStat = true;
-        this.infoText = "Cliente creado";
+        this.infoText = "Cita creada";
       }else{
         this.infoStat = true;
         this.infoText = "No se pudo crear";

@@ -1,4 +1,31 @@
 # ----Employee-----
+###
+GET https://localhost:7279/employee/get/1
+###
+
+GET https://localhost:7279/employee/get_all
+
+###
+
+POST https://localhost:7279/employee/add
+content-type: application/json
+
+{
+    "newEmployee": {
+        "ID": 90,
+        "Name": "Sasha",
+        "LastName": "Varela",
+        "Email": "shashia@gmail.com",
+        "BirthDate": "01/01/1980",
+        "Age": 19,
+        "Position": "Bottom",
+        "StartingDate": "01/01/2020"
+        },
+    "password": "123456"
+}
+
+
+###
 POST https://localhost:7279/login
 content-type: application/json
 
@@ -7,12 +34,7 @@ content-type: application/json
   "password": "123456"
 }
 
-###
-GET https://localhost:7279/employee/get/69
 
-###
-
-GET https://localhost:7279/employee/get_all
 
 ###
 
@@ -28,24 +50,6 @@ content-type: application/json
     "Age": 19,
     "Position": "Bottom",
     "StartingDate": "01/01/2020"
-}
-###
-
-POST https://localhost:7279/employee/add
-content-type: application/json
-
-{
-    "newEmployee": {
-        "ID": 20,
-        "Name": "Sasha",
-        "LastName": "Varela",
-        "Email": "shashia@gmail.com",
-        "BirthDate": "01/01/1980",
-        "Age": 19,
-        "Position": "Bottom",
-        "StartingDate": "01/01/2020"
-        },
-    "password": "123456"
 }
 
 

@@ -46,7 +46,7 @@ export class NuevoComponent implements OnInit {
       console.log(dataResponse.status);
       if (dataResponse.status == "Ok"){
         this.infoStat = true;
-        this.infoText = "Cliente creado";
+        this.infoText = "Empleado creado";
       }else{
         this.infoStat = true;
         this.infoText = "No se pudo crear";

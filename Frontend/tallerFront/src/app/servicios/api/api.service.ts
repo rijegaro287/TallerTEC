@@ -16,7 +16,7 @@ import { CitaI } from 'src/app/modelos/citas.interface';
 })
 export class ApiService {
 
-  url: string = "https://localhost:3456/";
+  url: string = "https://localhost:7279/";
 
   constructor(private http: HttpClient) { }
 

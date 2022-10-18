@@ -1,1 +1,60 @@
-[{"ID":1,"Date":"01/01/2020","Time":"01:00","AttendedClientID":1,"LicensePlate":"ABC124","BranchID":1,"RequiredService":4,"MechanicID":1,"AssistantID":3,"NecessaryParts":[1,2,6]}]
+[
+    {
+        "ID": 1,
+        "Date": "01/01/2020",
+        "Time": "01:00",
+        "AttendedClientID": 1,
+        "LicensePlate": "ABC124",
+        "BranchID": 1,
+        "RequiredService": 4,
+        "MechanicID": 1,
+        "AssistantID": 3,
+        "NecessaryParts": [
+            1,
+            2,
+            6
+        ]
+    },
+    {
+        "ID": 2,
+        "Date": "13/04/2022",
+        "Time": "01:00",
+        "AttendedClientID": 4,
+        "LicensePlate": "ABC124",
+        "BranchID": 1,
+        "RequiredService": 1,
+        "MechanicID": 3,
+        "AssistantID": 4,
+        "NecessaryParts": [
+            2
+        ]
+    },
+    {
+        "ID": 3,
+        "Date": "13/04/2022",
+        "Time": "01:00",
+        "AttendedClientID": 90,
+        "LicensePlate": "ADC567",
+        "BranchID": 1,
+        "RequiredService": 1,
+        "MechanicID": 4,
+        "AssistantID": 3,
+        "NecessaryParts": [
+            2
+        ]
+    },
+    {
+        "ID": 4,
+        "Date": "13/04/2022",
+        "Time": "01:00",
+        "AttendedClientID": 2,
+        "LicensePlate": "AGH094",
+        "BranchID": 1,
+        "RequiredService": 1,
+        "MechanicID": 1,
+        "AssistantID": 3,
+        "NecessaryParts": [
+            2
+        ]
+    }
+]
